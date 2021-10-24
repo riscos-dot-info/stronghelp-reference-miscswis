@@ -1,0 +1,5 @@
+Stream_Reset (&81948)
+#Parent Stream_
+No parameters
+
+Throws away all stacked calls to <Stream_Enable> and releases the WrchV. This should be used incase of emmergency. (ie when a client application has crashed and not called <Stream_Disable>. You will notice this by error boxes with no text in them appearing along with the desktop rendering sprites only)

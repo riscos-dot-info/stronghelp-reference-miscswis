@@ -1,0 +1,19 @@
+OLE
+#Parent !Root
+#Prefix OLE_
+#Table Columns2
+Version
+LinkFile
+DeLinkFile
+FileStatus
+Invalidate
+SimulateSession
+#EndTable
+
+Messages :
+#Wrap off
+#Indent 2
+<80E1E OLE_FileChanged=>wimp:Msg_80E1E>
+<80E21 OLE_OpenSession=>wimp:msg_80E21>
+<80E22 OLE_OpenSessionAck=>wimp:msg_80E22>
+<80E23 OLE_CloseSession=>wimp:msg_80E23>

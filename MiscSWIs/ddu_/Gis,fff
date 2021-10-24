@@ -1,0 +1,14 @@
+ddu_GIS (&506E8)
+{f25}Þ{f}	R0 =	Window handle
+		R1 =	Icon handle
+{f25}Ü{f}	R0 =	1	If icon is selected,
+		 	0	otherwise
+		R1 !	Icon block
+Not re-entrant.
+#line
+Get an icon's state.
+#line
+*Basic example*
+#fCode;indent 4;wrap off
+SYS "ddu_GIS",Window,Icon TO State
+#wrap;indent;f

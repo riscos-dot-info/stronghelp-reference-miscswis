@@ -1,0 +1,24 @@
+MDWOpt_InitArgs (&9FFC0)
+#parent MDWOpt_
+{f25}Þ{f}	R0 =	0, or pointer to state block
+	R1 =	program name (argv[0]), if R2b5 clear
+	R2 =	<flags=>.flags>
+{f25}Ü{f}	If input R0 = 0:
+	 	R0 =	size of the state block
+	Else:
+	 	State block is filled in
+#line
+Initialise the state block ready for <MDWOpt_ReadArgs>.
+
+If input R0 = 0, then find and return the amount of space required for the state block; it is up to the calling program to claim a block of this size and set it to all 0s (optionally setting block{f25}®{f}err non-zero), then call MDWOpt_InitArgs again, with R0 pointing to the block.
+
+If input R0 {f25}¹{f} 0, then the state block is filled in according to the input R1 and R2. If R2b4 is set and R2b5 is clear, then the environment variable PROGRAM$Options (failing that, PROGRAM) is read; PROGRAM is the leafname part of the string pointed to by R1. Note that this call does not fill the block with 0s for you.
+#
+#subpage flags
+MDWOpt_InitArgs R2 flags
+/bits/	/meaning/
+0..3	ignored
+4	set if to read environment variable (needs program name)
+5	set if no program name is supplied
+6	ignored
+7..31	reserved; set to 0

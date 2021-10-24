@@ -1,0 +1,20 @@
+AppEngine Module
+#Prefix AppEngine_
+#Sprite 0,0 !appengine
+#Indent 5
+{*}AppEngine Module{*}
+0.10 (03 Aug 1998)
+#Line
+#Table Columns 2
+<ResourceOp>
+<StringOp>
+WindowOp
+IconOp
+DateOp
+<SocketOp>
+<CodecOp>
+URLOp
+MemoryOp
+<Heap>
+#EndTable
+#Indent

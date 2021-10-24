@@ -1,0 +1,9 @@
+Bits per Sample
+#Wrap Off
+Value	Meaning
+#Line
+0	read current no.of bits
+4	4 bits; only for ADPCM
+8	8 bits (1 byte)
+12	12 bits (stereo only - 3 bytes)
+16	16 bits (2 bytes)

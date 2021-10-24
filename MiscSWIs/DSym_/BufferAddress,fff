@@ -1,0 +1,5 @@
+DSym_BufferAddress  (&45895)
+#Parent Dsym_
+<=	current system hardware buffer address (with output data interleaved)
+
+This call gives the address where you would have to put sound data to, when the sound buffer fill request is broadcasted.

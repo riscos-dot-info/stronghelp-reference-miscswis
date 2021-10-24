@@ -1,0 +1,8 @@
+Audio_Loop (&452C7)
+#Parent Audio_
+#Prefix Audio_
+#Wrap Off
+=>	R0 = Boolean <flag> for loop, or -1 to read.
+<=	R0 = Current Value.
+
+Loop playback.

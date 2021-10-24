@@ -1,0 +1,7 @@
+ArcFS_CreateArchive  (&437C6)
+#Parent ArcFS_
+<=	R0 =	pathname for new archive
+
+This SWI creates (but does not open) a new archive.
+
+Note: Read/Write version only.

@@ -1,0 +1,23 @@
+Tracker_WriteSampleTable  (&43213)
+#Parent Tracker_
+=>	R0 =	Sample number (1-36)
+	R1 =	New sample volume (0-255/0-64) or -1 to leave unchanged.
+	R2 =	Repeat offset (bytes) or -1 to leave unchanged.
+	R3 =	Repeat length (bytes) or -1 to leave unchanged.
+
+You should use this SWI if you wish to alter the sample data without needing to know the relevant module format. Sample length is not alterable, because the occasions when this is necessary (eg. loading new sample in) need direct manipulation of the module in memory anyway, and problems occur when the sample length is set above the actual length.
+
+Versions between 3.00 and 4.05 copied the sample information into a more convenient format when the module was initialised, and so altering the data directly would have had no effect (causing problems for editors which needed to do this..).
+
+Should you wish to alter any other aspect of the module directly which might affect the playroutine (ie. number of voices), you should call <Tracker_UpdateData>.
+
+An error is generated if:
+#Indent 2
+#Tab
+è	No module is loaded
+è	The sample number to change exceeds the max. of the format (ie. 15/31/36)
+è	The relevant information is out of range (ie. vol > [64 or 255])
+è	A combination of repeat offset and repeat length would cause the player to loop outside the sample limit.
+#Indent
+
+This SWI is part of the locking system.

@@ -1,0 +1,17 @@
+QTM_PlayRawSample  (&47E57)
+#Parent QTM_
+=>	R0 = channel number (1-8)
+	R1 = sample address (logarithmic sample data), or 0 to silence channel
+	R2 = sample length (in bytes)
+	R3 = repeat offset (bytes from start of sample)
+	R4 = repeat length (in bytes)
+	R5 = note number (1-36 for standard note, 113-856 for amiga pitch)
+	R6 = linear volume (0-64)
+
+<=	R0-R6 preserved
+
+This SWI allows you to play a sample stored in any area of memory. The sample should be in 8-bit logarithmic format.
+
+This SWI will also start up the QTM sound system if it is called while the song is stopped or paused, though it will not switch the system off after the sample finishes, use <QTM_SoundControl> to do this.
+
+V flags set if the contents of the registers contain dangerous values!

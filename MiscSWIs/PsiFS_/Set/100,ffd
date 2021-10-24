@@ -1,0 +1,6 @@
+PsiFS_Set &100 (&520C2)
+{f25}Þ{f}	R0 =	&100
+		R1 !	ctrl-termed serial block driver name string
+{f25}Ü{f}	Registers preserved
+#line
+This call sets the name of the configured serial block driver.

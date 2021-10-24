@@ -1,0 +1,5 @@
+PsiFS_Get &102 (&520C3)
+{f25}Þ{f}	R0 =	&102
+{f25}Ü{f}	R1 =	baud rate
+#line
+This call reads the configured serial block driver baud rate. The actual baud rate used may be different if either the requested baud rate is not available or automatic baud rate identification is active.

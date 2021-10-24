@@ -1,0 +1,7 @@
+Using Dynamite from interrupt routines
+#fh2:About the Dynamite heap
+#fh3:Using Dynamite from interrupt routines
+#line
+Most Dynamite routines are not re-entrant, so you should request a callback before using them.  You must also take into account that the foreground application may have pointers to Dynamite blocks temporarily in registers or on the stack etc., which you should ensure remain valid.  To assist you in this, Dynamite will normally only move blocks which you explicitly resize.  However, if enough memory is not available, Dynamite will attempt to compact the heap.  You must therefore disable this using the SWI <Dynamite_Lock>.
+
+As long as the foreground task is guaranteed to not have access to blocks used by your callback routine, or it has been written to cope with this, then you will not have any problems.

@@ -1,0 +1,30 @@
+Event numbers
+Number	Event
+#Line
+1	Application save file
+3	Application load file
+5	Filer double-click file
+9	Palette change
+10	Desktop save
+-4	System beep
+-7	Fatal wimp error
+-8	Wimp error
+-9	Keypress: Space
+-10	Keypress: Return
+-11	Keypress: Other
+&400C1	Mode change
+&400C2	Task starting
+&400C3	Task quitting
+&400CA	Iconise window
+&FF000001	Media not present
+&FF000002	Media not known
+&FF000004	Media search end
+&FFFF0006	Delete file
+&FFFF0008	Create directory
+&FFFF0101	Create a file
+&FFFF0103	Close a file
+&FFFF0105	Rename file
+&FFFFFF02	Window moving
+&FFFFFF03	Window closing
+&FFFFFF07	Drag finished
+&FFFFFF09	Menu selection

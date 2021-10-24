@@ -1,0 +1,37 @@
+Stream
+#Parent !Root
+#Prefix Stream_
+#Table Columns 2
+<Enable>
+<Disable>
+<Kill>
+<UnKill>
+<Intercept>
+<NoIntercept>
+<ShowCodes>
+<NoCodes>
+<Reset>
+<FlushText>
+<WriteC=>Stream_direct>
+<WriteS=>Stream_direct>
+<Write0=>Stream_direct>
+<WriteN=>Stream_direct>
+<NewLine=>Stream_direct>
+<WriteT32=>Stream_direct>
+<WriteT24=>Stream_direct>
+<WriteT16=>Stream_direct>
+<WriteT8=>Stream_direct>
+<WriteH32=>Stream_direct>
+<WriteH24=>Stream_direct>
+<WriteH16=>Stream_direct>
+<WriteH8=>Stream_direct>
+<WriteD32=>Stream_direct>
+<WriteD24=>Stream_direct>
+<WriteD16=>Stream_direct>
+<WriteD8=>Stream_direct>
+<WriteB32=>Stream_direct>
+<WriteB24=>Stream_direct>
+<WriteB16=>Stream_direct>
+<WriteB8=>Stream_direct>
+WriteRegs
+#EndTable

@@ -1,0 +1,13 @@
+Speak_Misc  (&4AD82)
+#Parent Speak_
+=>	R0 =	reason code
+	 	  0	<Return version=>Speak_Misc0>
+	 	  1	<Register=>Speak_Misc1>
+	 	  2	<Deregister=>Speak_Misc2>
+	 	  3	<Convert to phonemes=>Speak_Misc3>
+	 	  4	<Reload word dictionary=>Speak_Misc4>
+	 	  5	<Read voice names=>Speak_Misc5>
+	 	  6	<Set default voice=>Speak_Misc6>
+<=	dependant on reason code
+
+This SWI is called to perform miscellaneous operations on the Speak module.

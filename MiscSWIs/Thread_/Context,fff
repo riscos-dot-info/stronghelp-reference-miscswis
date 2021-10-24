@@ -1,0 +1,8 @@
+Thread_Context (0x4DA4C)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	R0	=	Thread handle (or NUL)
+{f25}Ü{f}	R0	!	Context (or boolean)
+#line
+*Notes*:	Gets a pointer to a thread's context, given a thread handle. The form of the context is document, in C-style syntax, in ThreadLib.h.Thread. The main use of this call is to examine a thread's register set, and allow reading and writing of it's private word (a user-supplied value unique to each thread).
+ 	If, however, R0 is NUL on entry, R0 will contain, on exit, a boolean dictating whether or not the task is currently single-threaded (note, in this case, single threaded means all threads are disabled not that there is only one thread running).

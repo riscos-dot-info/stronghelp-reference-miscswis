@@ -1,0 +1,6 @@
+LZW
+#Parent !Root
+#Prefix LZW_
+<Compress>
+<Decompress>
+<CompressOn>

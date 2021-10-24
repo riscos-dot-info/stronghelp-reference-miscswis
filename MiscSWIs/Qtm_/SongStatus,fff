@@ -1,0 +1,15 @@
+QTM_SongStatus  (&47E55)
+#Parent QTM_
+<=	R0 = <song status flags=>.flags>
+
+This SWI allows you to read the current status of the QTM song controller.
+
+No error is generated if there is no song loaded.
+#Subpage flags
+QTM Song status flags
+Bit	meaning if set
+#Line
+0	song loaded
+1	song loaded in RMA
+2	song currentl playing
+3-31	reserved

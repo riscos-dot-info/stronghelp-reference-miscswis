@@ -1,0 +1,10 @@
+Virtualise
+#parent !Root
+#prefix Virtualise_
+<Configure>	0x4B6C0
+<Start>		0x4B6C1
+<End>		0x4B6C2
+<Lock>		0x4B6C3
+<Unlock>	0x4B6C4
+<MiscOp>	0x4B6C5
+<UserConfigure>	0x4B6C6

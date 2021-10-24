@@ -1,0 +1,9 @@
+ReadMail
+#Parent !Root
+#Prefix ReadMail_
+#Table Columns 1
+<FileInfo>
+<Message>
+<NewMessages>
+<IsNew>
+#EndTable

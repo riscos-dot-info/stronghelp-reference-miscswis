@@ -1,0 +1,9 @@
+Speak_Say  (&4AD83)
+#Parent Speak_
+=>	R0 =	pointer to zero terminated string
+	R1 =	number of chracters to say, or 0 for all
+	R2 =	bits 0-7 :	voice to use, or 0 for default
+	 	others		reserved
+	R3 =	reserved (must be 0)
+
+This SWI is called to speak a line of text. If an number of characters is given then it will be taken into account and if only a single word has been given then each individual letter spoken, otherwise the whole line will be spoken. Double \{\{ braces \}\} may be used to enclose phonemes.

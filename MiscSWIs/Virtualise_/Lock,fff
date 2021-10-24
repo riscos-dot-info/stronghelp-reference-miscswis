@@ -1,0 +1,15 @@
+Virtualise_Lock (&4B6C3)
+#parent Virtualise_
+{f25}Þ{f}	R0 =	Start of range of addresses to lock.
+		R1 =	End of range of addresses to lock.
+{f25}Ü{f}	All registers preserved.
+#line;tab
+*Purpose*:	Lock pages of a dynamic area for which virtual memory has been enabled.
+*Interrupts*:	Interrupt status is undefined.
+		Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:		SWI is not re-entrant.
+*Use*:	This SWI allows an area of virtual memory to be locked in physical memory. This enables the use of that area for interrupt routines, and other cases which could otherwise lead to reentrancy of either the virtual memory manager or the file system.
+	All pages that are included in the range R0 to (R1-1) are locked. This range must lie fully within the current size of a dynamic area for which virtual memory has been enabled. A count of how many times a page has been locked is maintained, and a page will only be unlocked when the count reaches zero.
+	Care should be taken when using this SWI to ensure that the minimum possible number of pages are locked at any time, otherwise there may not be sufficient physical memory available to provide the rest of the virtual memory. It is advised that pages are locked for the shortest possible period.
+	It is possible to use this call to improve performance of the virtual memory system by forcing particular pages to remain in memory. However, this approach should only be used in rare circumstances where the performance increase would be substantial. If possible, locking pages in this manner should be a user configurable option.

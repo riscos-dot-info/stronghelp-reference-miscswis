@@ -1,0 +1,10 @@
+AppEngine_StringOp 6  (&4D941)
+#Parent AppEngine_StringOp
+=>	R0 =	6
+	R1 =	pointer to address to read string from
+
+<=	R0 preserved
+	R1 =	pointer to character after the input's terminator
+	R2 =	TRUE (-1) or FALSE (0) for valid or invalid respectively
+
+This call reads a string from memory, if it finds that the string contains non-numeric characters then it will return FALSE.  If it finds that the string contains only numeric characters, then it will return TRUE.

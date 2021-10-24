@@ -1,0 +1,8 @@
+Dsym_Voices  (&4588F)
+#Parent DSym_
+=>	R0 =	-1 to read hardware voices number
+	 	other, to set voices
+
+<=	R0 =	previous hardware voices number (1,2,4 or 8)
+
+This call changes the number of hardware channels. 

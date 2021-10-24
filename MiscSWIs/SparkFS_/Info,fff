@@ -1,0 +1,26 @@
+SparkFS_Info (&445C2)
+#Parent SparkFS_
+=>	R0 =	reason code number
+	 	  0	<Archive info=>.code0>
+	 	  1	<Module info=>.code1>
+
+This call is used to extract information from SparkFS.
+#subpage code0
+SparkFS_Info 0
+=>	R0 =	0 (Archive info)
+	R1 =	pointer to archive pathname
+<=	R1 =	pointer to archive structure
+
+This call is used to read information about an archive.
+#subpage code1
+SparkFS_Info 1
+=>	R0 =	1 (Module info)
+	R1 =	module number
+<=	R0 =	0 no module, -1 no more modules
+	R1 =	pointer to archive info
+	R2 =	pointer to compression info
+	R3 =	pointer to code info
+	R4 =	pointer convert info
+	R5 =	pointer module base
+
+This call is used to extract information about modules registered with SparkFS.

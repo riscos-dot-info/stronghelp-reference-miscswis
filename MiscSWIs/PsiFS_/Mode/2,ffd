@@ -1,0 +1,8 @@
+PsiFS_Mode 2 (&520C3)
+{f25}Þ{f}	R0 =	2
+		R1 =	ctrl-termed device name (0 for default)
+{f25}Ü{f}	Registers preserved
+#line
+This call activates the configured block driver and starts copying any characters received over the serial link to the device specified by R1. Any valid file or output device may be specified. The default is to use printer#parallel: which allows an EPOC device to print to a parallel printer without needing a special cable. It is equivalent to using {fCode}*PsiFSEnable{f} with the -print switch.
+
+If the block driver is already enabled then either no action is taken or an error is generated depending on whether the printer mirror is the current mode.

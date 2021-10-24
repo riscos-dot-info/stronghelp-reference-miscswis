@@ -1,0 +1,11 @@
+ddu_ReadOSVar (&506C1)
+{f25}Þ{f}	R0 !	variable name
+{f25}Ü{f}	R0 !	contents, CR term.
+Not re-entrant.
+#line
+Gives the contents of an OSVariable
+#line
+*Basic example*
+#wrap off;indent 4;fCode
+SYS "ddu_ReadOSVar","Sys$Time" TO Var$
+#f;indent;wrap

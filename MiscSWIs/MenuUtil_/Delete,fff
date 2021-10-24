@@ -1,0 +1,23 @@
+MenuUtil_Delete (&45BC3)
+#Parent MenuUtil_
+Removes menu or menu item
+
+{f25}Þ{f}	R0 =	handle of the menu or of the menu item or 0 for current menu
+	R1 —	If {f25}¹{f} 0 then recursively delete all submenus 
+{f25}Ü{f}	R0,R1 preserved
+#line
+*Use*:	This call allows you to delete the whole menu or the particular menu item. If you will delete menu item then remained items of this menu which are positioned bellow it will be automatically shifted in memory to fill the hole. Despite the fact that memory location and position in menu of some items may be changed the handles of the items will remain valid.
+	If you want to delete not only the item but also the whole menu subtree connected with it then you must set R1 {f25}¹{f} 0 on entry. If R0 contains the handle of menu then this menu will be deleted alone or together with all submenus depending on R1. 
+	Use recursive deletion with caution as you may accidentally delete submenus which are connected with other menu items.
+	This call is supposed to be used when menus with variable number of items are needed. It may be for example menu with the list of currently opened documents or archives.
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_Delete)
+Delete item with handle tmpItem%:
+
+#FCode:  SYS "MenuUtil_Delete",tmpItem%
+
+Recursively delete all menus linked with mainMenu%:
+ 
+#FCode:  SYS "MenuUtil_Delete",mainMenu%,TRUE

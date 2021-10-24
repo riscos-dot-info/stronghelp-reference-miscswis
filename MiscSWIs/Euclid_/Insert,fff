@@ -1,0 +1,8 @@
+Euclid_Insert (&8064A)
+#parent Euclid_
+=>	R0 =	Entry number to insert after (0 = before first)
+	R1 !	Picture structure or zero.
+	R2 !	Object to insert entry into.
+<=	R0 !	New entry.
+#line
+See attached <note=>Euclid_notea>

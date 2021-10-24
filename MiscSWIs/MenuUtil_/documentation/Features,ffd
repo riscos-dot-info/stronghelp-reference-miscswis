@@ -1,0 +1,2 @@
+Other Features
+Many applications use standard menu allowing user to select a colour from standard desktop colours. MenuUtils provides a special SWI "<MenuUtil_ColourMenu>" which creates such colour setting menu.

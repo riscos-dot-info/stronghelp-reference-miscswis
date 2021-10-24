@@ -1,0 +1,14 @@
+Users
+#Parent !Root
+#Prefix Users_
+#Table Columns 3
+<Validate>
+<WhoIs>
+<Encrypt>
+<SetUID>
+<ReadUID>
+<ReadPID>
+#EndTable
+
+This module is currently under development.
+It provides various calls to allow a multi-user system on top of RiscOS.

@@ -1,0 +1,8 @@
+MakeGIF
+#Parent !Root
+#Prefix MakeGIF_
+#Table Columns 2
+SetVariable
+ReadVariable
+Compress
+#EndTable

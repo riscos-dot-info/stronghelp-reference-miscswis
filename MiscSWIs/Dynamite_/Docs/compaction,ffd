@@ -1,0 +1,7 @@
+Compaction of the Dynamite heap
+#fh2:About the Dynamite heap
+#fh3:Compaction of the Dynamite heap
+#line
+The Dynamite module has a WIMP task which will partially tidy the heap while the processor is idle.  This means that the process of removing free space from the heap is distributed over a period of time, and will probably not be noticeable in average use.
+
+If you are writing a program which will not multitask, you should perform this tidying yourself from time to time, using the appropriate Dynamite SWIs.

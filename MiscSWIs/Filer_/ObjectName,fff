@@ -1,0 +1,8 @@
+Filer_ObjectName
+#Parent Filer_
+=>	R0 =	pointer to buffer for name (256 bytes)
+	R2 =	pointer to Viewer description, or 0 if not visible
+	R3 =	pointer to Object description, or 0 if not visible
+<=	all preserved
+
+This will generate a full pathname for the file defined by R2 and R3.

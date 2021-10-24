@@ -1,0 +1,3 @@
+DSym_RestartSong  (&45881)
+#Parent DSym_
+This call resets all parameters, sets the tune position to 0 and starts the song again.

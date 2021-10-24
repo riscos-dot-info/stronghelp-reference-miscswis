@@ -1,0 +1,11 @@
+THSound_GetPollWord (&4b784)
+#parent THSound_
+{f25}Þ{f}	R0 =	Sample's handle
+{f25}Ü{f}	R0	Preserved
+	R1 !	poll word
+#line
+{*}New in version 1.20{*}
+
+This is more useful than <THSound_ChannelInUse> for multitasking programs. Before playing a sample you can set the pollword to 0, and it will be altered when the sample finishes playing or is interrupted by being detached from its channel. Therefore you can use PollWordNonZero Wimp events to receive notification.
+
+If the sample finishes playing without being interrupted, -1 or &FFFFFFFF will be written to the pollword, otherwise another non-zero value will be written.

@@ -1,0 +1,34 @@
+Gemini TMviewblock
+#Parent Gemini_
+TMviewblock (256 bytes)
+#Line
+This contains all the relevant parameters to drive the shading process. Some locations are updated and some others are filled with info about the current screen modes and so on. For a full list, ask me. The values inside [] are the default values which are set when you call <Gemini_Initialise>.
+
+All of the values are integers, so to keep some precision, your numbers are multiplied by some factor. To obtain their original value, just take the value stored inside the corresponding location and divide it by the multiplier factor (e.g. if you have 0.5 and a multiplier factor of 2^16, you should store the number 2^16 * 0.5 = 2^15 = 32768. When you need to know its value, read it and divide it by 2^16, so 2^15 / 2^16 = 0.5).
+
+Offset	Meaning	Default
+#Line
++0	Z angle of view * 16 (so 0 <= z angle <= 360 * 16). For rotation around Z	[0 * 16]
++4	Y angle of view * 16 (so 0 <= y angle <= 360 * 16). For rotation around Y	[90 * 16]
++8	0 (for the X angle, but currently unused)	[0 * 16]
++12	X position of the observer (* 2^17) To pan around	[0 * 2^17]
++16	Y position of the observer (* 2^17)	[0 * 2^17]
++20	Z position of the observer (* 2^17)	[0 * 2^17]
++24	Current OS version (unused)
++28	Zoom factor * 2^10 ( 1 * 2^10 = 100%)   Note: (0 <= zoom <= 64 * 2^10)	[5 * 2^10]
++44	Distance observer-plane of projection (* 2^17). Used to alter the perspective deformation (perspective mode only)	[10 * 2^17]
++100	Linear fog intensity   (*2^14), to alter the density of the bank of fog. (0 <= intensity <= 4 * 2^14)	[1 * 2^14]
++104	Z coordinates at which the fog starts (* 2^17). Used to decrease the fog with the altitude.	[0 * 2^17]
++108	Z intensity of the fog (*2^14), to alter the Z height of the fog. (0 <= height <= 4 * 2^14)	[1 * 2^14]
++112	Sunlight X direction (the X component of the normal giving the direction of the sun light)	[0 * 2^15]
++116	Sunlight Y direction	[0 * 2^15]
++120	Sunlight Z direction	[1 * 2^15]
++124	Sunlight intensity (0..1 * 2^16)	[1 * 2^16]
++128	Sunlight colour (&BBGGRR00)	[&FFFFFF00]
++132	Ambient light intensity (0..1 * 2^16)	[0 * 2^16]
++136	Ambient light colour (&BBGGRR00) 	[&FFFFFF00]
++140	'Illumination has changed' flag 	[255]
++144	Gemini version set in Gemini_Initialise
++156	'Colours have changed' flag	[255]
++172	Bezier curve precision (1 = high .. 6 = low)	[3]
++176	Bezier surface precision (1 = high .. 6 = low)	[5]

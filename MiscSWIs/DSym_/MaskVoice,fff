@@ -1,0 +1,9 @@
+DSym_MaskVoice  (&4588B)
+#Parent DSym_
+=>	R0 =	voice number (0-7)
+	R1 =	-1 to read voice state
+	 	other, to set voice status
+
+<=	R0 =	previous voice status (0= off, \<>0=on)
+
+This call makes a channel quiet on the speaker, ie it is still playing but not heard on the voice.

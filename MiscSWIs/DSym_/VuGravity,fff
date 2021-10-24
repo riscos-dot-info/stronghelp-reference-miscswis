@@ -1,0 +1,8 @@
+DSym_VuGravity  (&45896)
+#Parent DSym_
+=>	R0 =	-1 to read VuGravity
+	 	other, to set (lower byte)
+
+<=	R0 =	previous gravity of VuBar (0-255)
+
+This call sets, how long it takes until the VuBar slides down from 64 to 0, where 255 means highest speed, and 0 means longest time to slide down.

@@ -1,0 +1,5 @@
+QTM_Pause  (&47E43)
+#Parent QTM_
+This has the same effect as <QTM_Stop>, although it doesn't reset the internal variables, so when the song is re-started, it will continue from the same position.
+
+V flag set if no song is loaded

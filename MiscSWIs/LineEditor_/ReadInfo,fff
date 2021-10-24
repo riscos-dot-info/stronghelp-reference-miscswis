@@ -1,0 +1,9 @@
+LineEditor_ReadInfo
+#Parent LineEditor_
+=>	R0 =	taskhandle of taskwindow to find info for
+<=	R0 =	length of line currently being edited in that taskwindow,
+	 	or -2 if that is not a known task,
+	 	or -1 if that is a known task but no edit is in progress
+	R1 =	cursor position
+
+This SWI is used to read information about the LineEditor edits in progress.

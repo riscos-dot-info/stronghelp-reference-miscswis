@@ -1,0 +1,8 @@
+MIDI_TxCommand  (&404CA)
+#Parent MIDI_
+=>	R0 =	<MIDI word=>MIDI_word>
+	R1 =	<fastclock time=>MIDI_fastclock>, or 0 for immediate
+<=	R0 =	space left in buffer, or \< 0 if error
+		-1 for buffer full, -2 for 'out of sequence'
+
+This SWI is used to schedule a command for the MIDI system. If used, the times given must be in ascending order.

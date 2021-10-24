@@ -1,0 +1,19 @@
+Direct stream drivers
+#Parent Stream_
+VduStream 1.09 onwards provides direct stream access so that applications can send text to the stream when the operating system <OS:OS_WriteC> is being intercepted by someone else earlier in the chain. eg during printing.
+
+The following direct swis are provided:
+#Indent 1
+Stream_WriteC	: Write R0 charater to the stream
+Stream_Write0	: Write null terminated string. R0=ptr
+Stream_WriteS	: Write in line string.
+Stream_WriteN	: Write counted string. R0=ptr, R1=number
+Stream_NewLine	: Write newline
+
+Stream_WriteTxx	: Write r0 as characters. "." replaces non-alphanumeric
+Stream_WriteHxx	: Write hex conversion of R0
+Stream_WriteDxx	: Write decimal conversion of R0
+Stream_WriteBxx	: Write binary conversion of R0
+
+#Indent
+Where xx is 32, 24, 16, or 8 depending on the number of bits to display.

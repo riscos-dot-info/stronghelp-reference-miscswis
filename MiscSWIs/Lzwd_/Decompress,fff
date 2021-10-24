@@ -1,0 +1,11 @@
+LZWD_Decompress  (&CD100)
+#Parent LZWD_
+=>	R0 =	pointer to source filename
+	R1 =	destination address
+	R2 =	length of destination buffer
+
+<=	R0 corrupted or error block pointer
+	R2 =	length of bytes used in destination buffer
+	all other registers preserved
+
+This call is not provided in the main module but in the small, extra for demos or so written mini module LZWD. It is 25% faster than <LZW_Decompress>.

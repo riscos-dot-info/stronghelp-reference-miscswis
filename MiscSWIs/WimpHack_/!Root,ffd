@@ -1,0 +1,6 @@
+WimpHack
+#Parent !Root
+#Prefix WimpHack_
+#Table Columns 2
+<ResizeIcon>
+#EndTable

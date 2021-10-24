@@ -1,0 +1,6 @@
+THSound_RemoveSample (&4b781)
+#parent THSound_
+{f25}Þ{f}	R0 =	Sample's handle
+{f25}Ü{f}	R0	Preserved
+#line
+Use this to kill a THSound sample, do not use <Sound_RemoveVoice=>OS:Sound_RemoveVoice>. The sample's data is not freed, just its workspace (handle) allocated when it was installed.

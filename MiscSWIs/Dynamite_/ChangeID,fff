@@ -1,0 +1,14 @@
+Dynamite_ChangeID (SWI &4A3C4)
+#parent Dynamite_
+{*}Dynamite_ChangeID{*}	Changes the ID of a given block, or all blocks with a given ID
+On entry	R0 =	address of anchor for block, or 0 for all blocks
+	R1 =	new ID
+	R2 =	old ID (if R0 = 0)
+On exit	˜
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+	Re-entrancy
+	SWI is not re-entrant
+Use	This SWI will change the ID of the block whose anchor is passed in R0, or the ID of all the blocks which have the ID passed in R2, if R0 = 0.
+Related SWIs	/None/

@@ -1,0 +1,81 @@
+Euclid
+#Parent !Root
+#Prefix Euclid_
+<General notes=>.gennotes>
+{*}Whole structure operations{*}	<Initialise>
+ 					<Draw>
+ 					<Load>
+ 					<Save>
+ 					<Append>
+{*}Structure scanning{*}		<Find>
+ 					<List>
+{*}<Structure value changes=>.svcnote>{*}		<Set>
+ 					<Show>
+ 					<Translate>
+ 					<Zoom>
+ 					<Rotate>
+{*}<Data structure manipulation=>.damnote>{*}	<Create>
+ 					<Destroy>
+ 					<Insert>
+ 					<Delete>
+{*}Miscellaneous{*}			<CloseDown>
+ 					<MiscOp>
+ 					<Compress>
+ 					<Expand>
+{*}Other{*}				BoundingSphere
+#
+#subpage damnote
+Data structure manipulation
+#wrap on
+The following SWIs allow you to make changes to the data structure without
+having to peek and poke the structure directly. Under normal circumstances
+you will not need to use these at all, since the file is likely to be
+created using the Euclid Editor, and will be loaded lock-stock-and-barrel
+using <Euclid_Load>.
+
+In all cases if the structure shifts because a chunk of the structure has
+been removed, or a new section has been introduced, then all pointers in the
+structure are relocated. If you hold pointers yourself, you must either
+discard them after Destroy, Insert or Delete, or adjust them yourself.
+
+Any new areas created are always blanked. Since zero pointers are always
+interpreted by <Euclid_Draw> to mean 'do nothing' a created object can be
+partially filled if you wish.
+
+ 	è	<Create=>Euclid_Create>
+ 	è	<Destroy=>Euclid_Destroy>
+ 	è	<Insert=>Euclid_Insert>
+ 	è	<Delete=>Euclid_Delete>
+#
+#subpage svcnote
+Data structure value changes
+#Prefix Euclid_
+The following SWIs allow changes to the structure which do not move the structure about. It is often possible to avoid use of these SWIs completely by direct peeks/pokes to the structure. They are provided largely for use in BBC BASIC where calculation of the relevant offsets can be tedious.
+
+	è	<Set>
+ 	è	<Show>
+ 	è	<Translate>
+ 	è	<Zoom>
+ 	è	<Rotate>
+#
+#subpage gennotes
+Euclid SWIs
+#wrap on
+The Euclid SWIs mostly take a pointer in R1 which points to a data structure
+(detailed in another document) which actually defines the 3D scene. This
+pointer can be set to zero if it is preceded by another call which also
+requires it, since the module remembers the last pointer used between calls.
+This is a useful feature when programming from BASIC, but is less so from
+machine code. Under RISC OS the multitasking implies that a call using the
+pointer value explicitly must be made after a <Wimp_Poll=>Wimp:Wimp_Poll> call since other
+tasks will be using different pointer values. A special version of
+<Euclid_Initialise> is provided for this purpose - it simply sets the module's
+'last block used' value, and performs no other function on the data
+structure.
+
+The SWIs fall into two main catagories. Those which are used to construct
+the data structure, and those which operate on it, or search for information
+in it. It is not necessary to know the exact form of the data structure for
+some of the calls. As a consequence, details of the data structure can be
+read after the description of the SWIs, although for some of the SWIs
+knowledge of the data structure is useful.

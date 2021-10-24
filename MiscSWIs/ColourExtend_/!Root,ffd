@@ -1,0 +1,6 @@
+ColourExtend
+#Parent !Root
+#Prefix ColourExtend_
+Info
+Control
+InvalidateCache

@@ -1,0 +1,24 @@
+ARMEdit_TalkTX (&4BC43)
+#parent ARMEdit_
+{f25}Þ{f}	R0 =	Client handle for this task.
+	R1 =	Either the ID or client handle for the recipient (if R2 not 0).
+	R2 !	Block containing the message to send, or 0 to check if the buffer already contains a message.
+{f25}Ü{f}	R2 !	Message buffer, or 0 if no message is waiting to be delivered.
+#line;tab
+*Purpose*:	Send a message to another client task.
+*Interrupts*:	Interrupt status is undefined.
+		Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:	SWI is not re-entrant.
+#wrap on
+*Use*:	Send a message to another task. The destination task can be specified
+using either it's ID or client handle. If the ID is specified then it
+will be offered to each matching task that polls it until it is
+acknowledged. A particular message is only offered to each task once.
+When sending messages to PC software (ID = 0) the handle should
+always be specified.
+	Note that the message buffer for each task can only contain a single
+message to send; if there is already a message waiting to be
+delivered then it is overwritten. When multiple clients are used,
+this SWI should first be called with R2 = 0 to check if a message
+is still waiting. Broadcast messages are never cleared automatically.

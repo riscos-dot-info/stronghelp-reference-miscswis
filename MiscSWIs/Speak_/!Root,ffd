@@ -1,0 +1,16 @@
+Speak
+#Parent !Root
+#Prefix Speak_
+#Table Columns 2
+<Ready>
+<Misc>
+<Say>
+<SayW>
+<Stop>
+<Pitch>
+<Speed>
+<WordGap>
+<PitchRange>
+#EndTable
+#Line
+<Info on module=>Speak_!Info>

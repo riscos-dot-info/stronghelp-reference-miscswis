@@ -1,0 +1,8 @@
+Menu Creation
+To start new menu you must call <MenuUtil_New>. Then you may add to it any number of menu items. To add new item you must call <MenuUtil_Add>. Menu always is ready to be displayed on screen and you have no need to specially inform the module when you have added the last item to the menu.
+
+By default all new items are added to the end of menu. If you want to insert new item in the middle of menu then you must specify the handle of the item before which you want to insert the new item.
+                                
+All menu flags in added items are cleared. Colours and dimensions are in standard RISC OS style. Width of menu is adjusted automatically.
+
+In order to construct multi-level menu tree you have to connect some menu items with submenus or with dialog boxes. MenuUtils provides special SWI to link menu item with submenu. This SWI also allows you to link menus created by MenuUtils with other menus.

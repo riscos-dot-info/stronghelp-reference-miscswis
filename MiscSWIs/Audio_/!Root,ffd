@@ -1,0 +1,17 @@
+SamplePlayer
+#Parent !Root
+#Prefix Audio_
+#Table Columns 2
+<Set>
+<Play>
+<Stop>
+<Pause>
+<Volume>
+<Mute>
+<Loop>
+<SamplePointer>
+<LoadFile>
+<MaxMem>
+<PlayFile>
+<Poll>
+#EndTable

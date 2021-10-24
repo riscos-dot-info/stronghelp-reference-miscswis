@@ -1,0 +1,8 @@
+THHeap_Claim (&4C682)
+#Parent THHeap_
+{f25}Þ{f}	R0 =	Heap reference
+	R1 =	Required size
+{f25}Ü{f}	R0-R1	Corrupted
+	R2 !	New block
+#line
+Claims a block in a heap.

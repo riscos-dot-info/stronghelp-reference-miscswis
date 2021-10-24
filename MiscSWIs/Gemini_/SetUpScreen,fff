@@ -1,0 +1,22 @@
+Gemini_SetUpScreen (&4D503)
+#parent Gemini_
+=>	R0 =	pointer to <TMmemoryblock=>Gemini_memoryblock>
+	R1 =	pointer to <TMviewblock=>Gemini_viewblock>
+	R2 =	pointer to <TMcolourblock=>Gemini_colourblock>
+	R3 =	X min workarea (OS units, inclusive)
+	R4 =	Y min workarea (OS units, inclusive)
+	R5 =	X max workarea (OS units, inclusive)
+	R6 =	Y max workarea (OS units, inclusive)
+	R7 =	zero (for a complete setup, which recalculates also the colour tables for the current palette)
+	 	non-zero (window/workarea resize only, much faster)
+
+<=	Updates the <TMviewblock=>Gemini_viewblock> (<Note=>.note>):
+	+72	X min workarea (OS units)
+	+76	Y min workarea (OS units)
+	+80	X max workarea (OS units)
+	+84	Y max workarea (OS units)
+
+This sets up Gemini so that it is ready to output the image on-screen using <Gemini_Render>. You must call this routine every time you want to change the image size, the desktop palette or because of a screen mode change.
+#Subpage note
+Gemini_SetUpScreen note
+These output coordinates may or may not be equal to those you pass as input. Coordinates are translated into memory addresses for plotting purposes, which *must* be byte aligned. In practice, only the X coordinates may be affected from this readjustment phase. In particular, when in a 4bpp mode, X workarea coordinates must be multiple of 2 pixels. From 8bpp modes upwards (and so also 16bpp and 32bpp) there aren't restrictions.

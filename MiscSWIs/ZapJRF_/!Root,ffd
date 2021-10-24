@@ -1,0 +1,7 @@
+ZapJRF
+#Parent !Root
+#Prefix ZapJRF_
+#Table Columns 2
+RegisterScriptDirectives
+DeRegisterScriptDirectives
+#EndTable

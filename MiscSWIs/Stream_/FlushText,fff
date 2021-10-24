@@ -1,0 +1,5 @@
+Stream_FlushText (&81949)
+#Parent Stream_
+No parameters
+
+Throws away the current text in the application space and RMA.

@@ -1,0 +1,8 @@
+DSym_SampleRate  (&45897)
+#Parent DSym_
+=>	R0 =	-1 to read sample rate
+	 	other, to set
+
+<=	R0 =	previous sample rate (0-99)
+
+This call sets the sample output density. The lower the number is, the less time the DSym module needs to calculate, but the worse the quality is.

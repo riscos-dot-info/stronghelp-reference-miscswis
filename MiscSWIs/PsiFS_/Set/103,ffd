@@ -1,0 +1,6 @@
+PsiFS_Set &103 (&520C2)
+{f25}Þ{f}	R0 =	&103
+		R1 !	ctrl-termed serial block driver options string
+{f25}Ü{f}	Registers preserved
+#line
+This call sets the optional parameter string of the configured serial block driver.

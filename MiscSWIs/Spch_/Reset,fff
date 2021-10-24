@@ -1,0 +1,3 @@
+Spch_Reset  (&42B8C)
+#Parent Spch_
+This SWI will reset the Speech system.

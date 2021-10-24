@@ -1,0 +1,11 @@
+Dynamite_Unlock (SWI &4A3CC)
+#parent Dynamite_
+{*}Dynamite_Unlock{*}	Unlocks the Dynamite heap
+On entry	˜
+On exit		˜
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	This call will cancel the effects of a previous <Dynamite_Lock>.
+Related SWIs	* <Dynamite_Lock>

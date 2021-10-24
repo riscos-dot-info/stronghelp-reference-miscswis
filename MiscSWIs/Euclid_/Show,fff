@@ -1,0 +1,40 @@
+Euclid_Show (&80649)
+#parent Euclid_
+=>	R0 =	Entry number (0 = header).
+	R2 !	Object to get information from.
+<=	R3-R7 =	Values read from header or variable section.
+#line
+This is in effect the reverse of <Euclid_Set>, and would often be required first if relative changes are to be made. Again special treatment is taken over objects with names when fetching from the header. R3 is simply set to point to the name.
+#line
+<Examples=>.examples>
+#
+#subpage examples
+Euclid_Show Examples
+#fCode;wrap off;indent 3
+SYS"Euclid_Show",0,,Group TO ,,,NAME$,BX%,BY%,BZ%,BR%
+SYS"Euclid_Show",6,,Plane TO ,,,X%,Y%,Z%
+#indent;wrap;f
+
+and combined with <Euclid_Set>:
+
+#fCode;wrap off;indent 3
+SYS"Euclid_Show",3,,Vane TO ,,,C1,C2,X%,Y%,Z%:X%+=10
+SYS"Euclid_Set",3,,Vane,C1,C2,X%,Y%,Z%
+#indent;wrap;f
+
+would just add 10 to the 3rd corner of the Vane.
+
+ (In ARM this is neater, i.e.
+#fCode;wrap off;indent 6
+swi "Euclid_Show"
+add r5,r5,#10
+swi "Euclid_Set"
+#indent;wrap;f
+
+ but could obviously be done directly anyway as:
+#fCode;wrap off;indent 6
+ldr r5,[r2,#36+8*(3-1)]
+add r5,r5,#10
+str r5,[r2,#36+8*(3-1)]
+#indent;wrap;f
+)

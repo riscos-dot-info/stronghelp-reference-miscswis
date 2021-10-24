@@ -1,0 +1,32 @@
+Euclid_Translate,Rotate,Zoom (&8064C-E)
+#parent Euclid_
+{*}Euclid_Translate{*}	(&8064C)
+{*}Euclid_Rotate{*}	(&8064D)
+{*}Euclid_Zoom{*}	(&8064E)
+#tab
+=>	R0 =	Setting flag:
+	 	0	Set and Show
+	 	1	Show only
+	 	2	Set only 
+	R1 !	If R2 = 0, pointer to picture structure or zero.
+	R2 !	Transformation (0=>Observer transformation).
+	{/}(and if R0 != 1){/}
+	R3 =	X value (Fix6 for Rotate, Fix16 for Zoom).
+	R4 =	Y value (Fix6 for Rotate, not used for Zoom, but set to zero).
+	R5 =	Z value (Fix6 for Rotate, not used for Zoom, but set to zero).
+<=	{/}(if R0\<2 on entry){/}
+	R3 =	revious X value.
+	R4 =	revious Y value.
+	R5 =	revious Z value.
+#line
+<Examples=>.examples>
+#
+#subpage examples
+Euclid_Translate,Rotate,Zoom Examples
+#fCode;indent 3;wrap off
+SYS"Euclid_Rotate",,BLOCK%,,315<<6,30<<6,0  :REM Standard Isometric view
+SYS"Euclid_Translate",,,Craft,X%,Y%,Z%      :REM Position 'Craft'
+SYS"Euclid_Rotate",1 TO ,,,Pitch,Roll,Yaw   :REM How are we angled?
+SYS"Euclid_Zoom",,,Thing,1<<16              :REM Set scale of Thing back to 1
+SYS"Euclid_Translate",,,Object,NewX,NewY,NewZ TO ,,,OldX,OldY,OldZ
+#wrap;indent;f

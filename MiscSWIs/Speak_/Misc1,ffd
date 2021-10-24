@@ -1,0 +1,6 @@
+Speak_Misc 1
+#Parent Speak_Misc
+=>	R0 =	1 (register)
+<=	R0 =	number of registered clients
+
+This SWI is used to register with the Speak module. All applications should use this to when they start to use the system and call <degregister=>Speak_Misc2> when they finish.

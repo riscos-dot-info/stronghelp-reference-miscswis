@@ -1,0 +1,5 @@
+LineEditor_DeleteBuffer
+#Parent LineEditor_
+<=	R0 =	buffer handle
+
+Deletes a private history buffer.

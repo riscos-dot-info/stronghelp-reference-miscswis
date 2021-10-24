@@ -1,0 +1,14 @@
+Commands
+#parent !Root
+*RegisterModule \<module name> registers the given module for use by the caller. If this is the first registration for the module, a new entry for it is created in the database and its use count is set to 1. If the module is already registered, its use count is incremented.
+
+*UnregisterModule \<module name> unregisters the given module for use by the caller. Its use count in the database is decremented. If the use count becomes 0, the module is deleted using SWI OS_Module 4. If the deletion fails, the module's entry in the database remains, with a use count of 0.
+
+RegisteredModules will list all the registered modules and their use counts.
+
+{*}The SWIs{*}
+ 	{f24}g{f}	"<ZeriRegister_RegisterModule>"
+ 	{f24}g{f}	"<ZeriRegister_UnregisterModule>"
+These SWIs are used with r0 pointing to the module name and are fully equivalent to their corresponding *-command.
+
+Module names may be terminated by a CTRL-character or a space, and any matches against the database are case insensitive. The exact name given during the first registration is the one stored in the database, and therefore the one listed by *RegisteredModules.

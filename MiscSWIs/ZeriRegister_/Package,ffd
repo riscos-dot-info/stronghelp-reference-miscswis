@@ -1,0 +1,7 @@
+The package
+#parent !Root
+There are two files in the ZeriRegister package :
+
+{/}'ZRegister'{/}	Is the ZeriRegister module.
+
+{/}'Guide'{/}		Is what you're reading now, the 'user guide'.

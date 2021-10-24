@@ -1,0 +1,5 @@
+Snapper_Snapshot  (&52380)
+# contributed by alex macfarlane smith
+{f25}Þ{f}	R0 = filename to save as
+
+Takes a picture of a MODE 7 screen and saves it to the filename in R0.

@@ -1,0 +1,8 @@
+Tracker_UpdateData  (&43215)
+#Parent Tracker_
+This is really an editor SWI which you should call whenever you alter one of the following, so that the module can update its data:-
+#Indent 2
+è	Number of voices (and therefore pattern length)
+è	Sample length/load new sample
+è	Music length
+è	Stereo settings (Tracker)

@@ -1,0 +1,7 @@
+PsiFS_Mode 1 (&520C3)
+{f25}Þ{f}	R0 =	1
+{f25}Ü{f}	Registers preserved
+#line
+This call activates the configured block driver and attempts to initiate a connection to a remote EPOC device using Psion Link Protocol. It is equivalent to using {fCode}*PsiFSEnable{f} with the -link switch.
+
+If the block driver is already enabled then either no action is taken or an error is generated depending on whether the remote link is the current mode.

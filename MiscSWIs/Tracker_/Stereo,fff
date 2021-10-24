@@ -1,0 +1,13 @@
+Tracker_Stereo  (&43206)
+#Parent Tracker_
+=>	R0 = Stereo setting (0-4) or -1 to read current setting
+
+\<=	If R0>=0 on entry:
+	  R0 preserved
+	If R0=-1 on entry:
+	  R0 = current PlayStereo setting
+	  R1 = pointer to 8-byte stereo position table
+
+This performs the same actions as *PlayStereo, with R0 passed as a parameter. If R0 is set to 4 on entry, then the stereo settings will be unaltered whenever a module is loaded or killed, and disables any stereo commands in tracker modules. This is to allow interfacing programs to provide their own stereo options, or to allow adjustment to the stereo positions while tracker tunes are playing (which have default stereo settings stored as part of the tune).
+
+Alternatively, if R0=-1 on entry, R0 will be the last parameter passed to this SWI or the *PlayStereo command, and R1 points to an 8-byte table (one byte per channel) which is updated every time either a tune starts; this SWI or *PlayStereo is called with a parameter of 0-3; or if a stereo command is executed in a Tracker tune. The byte will be in the range of 1-7 (where 1 is full left, 7 is full right, and 4 is centre). Some Tracker tunes may contain stereo settings out of range.

@@ -1,0 +1,12 @@
+Director
+#Parent !Root
+#Prefix Director_
+#Table Columns 2
+<Menu>
+<EndMenu>
+<Option>
+<Dash>
+<Command>
+<Enumerate>
+<Memory>
+#EndTable

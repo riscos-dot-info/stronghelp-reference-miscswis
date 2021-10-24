@@ -1,0 +1,2 @@
+Introduction
+This module is mainly intended for people who write RISC OS applications in BBC BASIC. It can save programmer from the need to write his own procedures in BASIC for handling menus. MenuUtils module can perform all the work needed to create, edit, display and decode menus. The module is very simple in use and is ideal for creating simple menus. On the other hand module's advanced features allows easily create and manipulate even very complex multi-level dynamic menus.

@@ -1,0 +1,3 @@
+Tracker_Play  (&43203)
+#Parent Tracker_
+This call will restart a tune after it has been paused or loaded with the <Tracker_Load> or <Tracker_MemoryLoad> SWI.

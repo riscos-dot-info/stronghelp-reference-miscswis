@@ -1,0 +1,8 @@
+QTM_Volume  (&47E48)
+#Parent QTM_
+=>	R0 =	new overall volume (0-64) or -1 to read current volume
+<=	R0 =	previous volume (0-64)
+
+This SWI allows you set the overall output volume from the QTM sound handlers. The volume is in a linear form (0-64), as used for volumes in ProTracker songs. Gradual fades can be generated using this SWI.
+
+V flag set if volume is out of range

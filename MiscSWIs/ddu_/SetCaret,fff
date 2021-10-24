@@ -1,0 +1,17 @@
+ddu_SetCaret (&506E6)
+{f25}Þ{f}	R0 =	Window handle
+		R1 =	Icon handle
+		R2 =	Number of chars into the string to place the caret at.
+{f25}Ü{f}	R2 =	Number of chars into the string the caret was set at
+Not re-entrant.
+#line
+Set the caret to the given icon at a specified position into the displayed string.
+
+If R2 on entry is larger than the number of characters the icon contains at the moment the call is made, it will be adjusted to be to the right of the last character in the icon.
+
+You can use this feature to position the caret at the end of the icons contents by giving a non-sensible value in R2 on entry, like -1.
+#line
+*Basic example*
+#fCode;indent 4;wrap off
+SYS "ddu_SetCaret",Window,Icon,-1
+#wrap;indent;f

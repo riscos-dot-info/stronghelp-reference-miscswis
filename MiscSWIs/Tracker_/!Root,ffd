@@ -1,0 +1,33 @@
+Tracker
+#Parent !Root
+#Prefix Tracker_
+#Table Columns 2
+<Version>
+<Load>
+<MemoryLoad>
+<Play>
+<Stop>
+<Pause>
+<Stereo>
+<SetPos>
+<ReadPos>
+<PlayNote>
+<TuneInfo>
+<SoundInfo>
+<ReadSampleTable>
+<Lock>
+<Unlock>
+<MuteChannel>
+<RestoreChannel>
+<Speed>
+<Volume>
+<WriteSampleTable>
+<TranslateVolume>
+<UpdateData>
+#EndTable
+
+Other information :
+#Indent 3
+<Note translation table=>Tracker_NoteTable>
+<Tracker commands=>Tracker_Commands>
+<Errors>

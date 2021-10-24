@@ -1,0 +1,5 @@
+ArcFS_CloseArchive  (&437C3)
+#Parent ArcFS_
+<=	R0 =	pointer to reference name
+
+This SWI closes an archive, returning an error if no archive with that name was open.

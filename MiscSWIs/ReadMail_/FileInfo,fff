@@ -1,0 +1,6 @@
+ReadMail_FileInfo (&46800)
+#Parent ReadMail_
+\<=	R0 =	number of messages read, or -1 if file not seen
+	R1 =	number of new messages read
+
+This reads information about the ReadMail message base files which have been seen by the module. To notify the module that the List or New file has changed, use <ReadMail_NewMessages>.

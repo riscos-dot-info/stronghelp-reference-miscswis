@@ -1,0 +1,25 @@
+ZapRedraw
+#Parent !Root
+#Prefix ZapRedraw_
+#Table Columns 2
+RedrawArea
+GetPaletteEntry
+RedrawRaster
+ConvertBitmap
+PrepareDataLine
+AddCursor
+FindCharacter
+MoveBytes
+CachedCharSize
+ConvBitmapChar
+CreatePalette
+InsertChar
+ReadSystemChars
+ReverseBitmaps
+ReadVduVars
+GetRectangle
+AddVduBitmaps
+CacheFontChars
+SpriteSize
+RedrawWindow
+#EndTable

@@ -1,0 +1,8 @@
+Filer_CopySprite
+#Parent Filer_
+=>	R0 =	pointer to sprite name
+<=	all preserved
+
+This will take a copy of the sprite and put it in the Filer's sprite pool. You should call this after completing your background process of drawing the sprite. After calling this SWI you can dispose of the sprite and call <Filer_SetSprite>.
+
+*Note:* Not implemented yet :-(

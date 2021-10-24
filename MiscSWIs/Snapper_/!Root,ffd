@@ -1,0 +1,6 @@
+Snapper
+#Parent !Root
+#Prefix Snapper_
+# contributed by alex macfarlane smith
+<Convert>
+<Snapshot>

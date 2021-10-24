@@ -1,0 +1,19 @@
+ArcFS_Status  (&437C1)
+#Parent ArcFS_
+<=	R0 =	status in form &vvbbffee
+
+This SWI returns the current status of ArcFS.
+
+#Tab
+byte	meaning
+#Line
+vv	FF for read/write, 00 for read only
+bb	number of bits for crunch / compress (0 otherwise)
+ff	<compression format=>ArcFS_compresstypes>
+ee	<bits=>.bits>
+#subpage bits
+ArcFS_Status bits
+bit	meaning if set
+#Line
+0	files will be garbled
+1-7	reserved.

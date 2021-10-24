@@ -1,0 +1,35 @@
+Virtualise_UserConfigure (&4B6C6)
+#parent Virtualise_
+{f25}ﬁ{f}	R0 =	Set the fraction of the logical virtual memory size to claim as physical memory, or -1 to read the current value. This is a fixed point value, with (1 << 15) corresponding to 100%.
+	R1 =	Lower limit of memory to claim, below which all of the required memory is claimed, or -1 to read the current value.
+	R2 =	Upper limit of memory to claim, above which no more memory will be claimed, or -1 to read the current value.
+	R3 =	Amount of memory to keep even when another task is attempting to claim memory, or -1 to read the current value.
+	R4 =	Amount of disc space to leave free, or -1 to read the current value.
+{f25}‹{f}	R0 =	Fraction of required memory to claim.
+	R1 =	Minimum memory to claim, in bytes.
+	R2 =	Maximum memory to claim, in bytes.
+	R3 =	Memory to keep, in bytes.
+	R4 =	Disc space to leave free, in bytes.
+#line;tab
+*Purpose*:	Configure the memory and disc usage.
+*Interrupts*:	Interrupt status is undefined.
+	Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:	SWI is not re-entrant.
+*Use*:	This call provides extra control over how much real memory and disc space to claim. It is provided as a supplement to <Virtualise_Configure> to provide extra configuration options while ensuring backwards compatibility. Some of the values are adjusted by the user when the bar in the Task Manager is dragged. These values are only guidelines. More or less memory may be claimed depending upon other constraints.
+	Do not rely on any particular default values. They may be altered by another application, by the user dragging the bar in the Task Manager, or they could change in a future release of this module.
+	The amount of memory claimed is (approximately) chosen according to a <particular scheme=>.scheme>.
+	The amount of memory to keep is also used to decide whether to reduce the memory claimed when another task attempts to allocate memory.
+	The disc space to leave free value allows disc space to be reserved for other purposes, and to avoid problems with FileCore that can result in corruption of the disc.
+	Be careful using this call. Inappropriate use could make virtual memory use very inefficient.
+#
+#subpage scheme
+Memory claiming scheme - Virtualise
+è	The amount of physical memory that could usefully be used to cache virtual memory is calculated.
+è	This value is scaled by the specified fraction to obtain the initial allocation.
+è	If the value is above the specified upper limit, then the upper limit is used instead.
+è	If the value is below the specified lower limit, then the lower limit is used instead.
+è	If the value is below the minimum amount to claim, then the required minimum amount to claim is used instead.
+è	If the value does not leave the specified amount of memory free, then the claimed amount is reduced as required.
+è	If the value is below the minimum memory to keep, then the amount is increased to the minimum to keep.
+è	Other constraints, such as the number of locked pages and the maximum memory that can be used, are then enforced.

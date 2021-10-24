@@ -1,0 +1,7 @@
+Introduction
+#parent !Root
+ZeriRegister is a module that enables clean and automatic disposal of modules that are no longer in use by the system, so they do not needlessly clog up the RMA. It not only enables new applications to exit cleanly, but can also be used to tidy up existing applications that leave their modules behind after quitting. This may usually be achieved by simply editing the 'naughty' application's !Run file.
+
+To do its work, ZeriRegister maintains a small database of modules and their use counts. It allows modules to be 'registered' or 'unregistered' for use by a caller, using either a *-command or an SWI. After the last user of a given module unregisters, the module is automatically killed.
+
+This module has an Acorn registered SWI chunk number.

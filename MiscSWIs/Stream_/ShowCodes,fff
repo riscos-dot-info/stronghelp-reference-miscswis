@@ -1,0 +1,5 @@
+Stream_ShowCodes (&81946)
+#Parent Stream_
+No parameters
+
+Show control codes as [##] values when intercepted.

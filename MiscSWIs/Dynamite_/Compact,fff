@@ -1,0 +1,12 @@
+Dynamite_Compact (SWI &4A3CA)
+#parent Dynamite_
+{*}Dynamite_Compact{*}	Fully compacts the Dynamite heap
+On entry	˜
+On exit		C set if no action performed, clear otherwise
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	This routine will fully compact Dynamite's heap, returning any free space to the operating system.  It may fail (returning C set) either if the heap is already compact, or if the heap is locked.
+	{*}This SWI may cause blocks to move within the Dynamite heap.{*}
+Related SWIs	* <Dynamite_Reduce>

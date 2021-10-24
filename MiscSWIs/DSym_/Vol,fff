@@ -1,0 +1,6 @@
+DSym_Vol  (&45882)
+#Parent Dsym_
+=>	R0 =	new overall volume, or -1 to read
+<=	R0 =	previous overall volume
+
+This call sets and/or reads the overall volume. The default is 64 which means, that the songs amplitude is not decreased. A volume of 0 means a quiet song.

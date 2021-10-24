@@ -1,0 +1,9 @@
+PsiFS_Set &102 (&520C2)
+{f25}Þ{f}	R0 =	&102
+		R1 =	baud rate
+{f25}Ü{f}	Registers preserved
+#line;wrap on
+This call sets the configured serial block 
+driver baud rate. If the requested baud rate 
+is not available then a valid alternative is 
+selected.

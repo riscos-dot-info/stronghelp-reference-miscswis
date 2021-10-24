@@ -1,0 +1,7 @@
+Euclid_Delete (&8064B)
+=>	R0 =	Entry number to delete.
+	R1 !	Picture structure or zero.
+	R2 !	Object to insert entry into.
+<=	-
+#line
+See attached <note=>Euclid_notea>

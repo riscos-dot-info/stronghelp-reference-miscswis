@@ -1,0 +1,29 @@
+Tidying up
+#parent !Root
+To 'tidy' an application (e.g. an existing one which leaves its modules lingering behind), simply 'bracket' the ...!RunImage command line in its !Run file (assuming it is an Obey file) by a *RegisterModule and *UnregisterModule command. E.g. if an existing !Run file would look like :
+
+#fCode
+...
+RMEnsure Blah 1.23 RMLoad \<Blah$Dir>.Blah
+...
+Run \<App$Dir>.!RunImage
+...
+#f
+
+it would become :
+
+#fCode
+...
+RMEnsure Blah 1.23 RMLoad \<Blah$Dir>.Blah
+...
+RegisterModule Blah
+Run \<App$Dir>.!RunImage
+UnregisterModule Blah
+...
+#f
+
+Simply add these lines for every module that is used by the application.
+
+Note that for the above to work properly, the applications you run must be 'well-behaved' in the desktop, i.e. specifically they must never use *Close or CLOSE#0, or anything like that, because such a command will also close any open !Run files, so the *Unregister commands of any running applications will never be executed. There shouldn't be any of these 'misbehaving' applications around, but be aware of this if module tidying doesn't seem to work.
+
+To 'tidy' a new application, you may do the same as described above, or issue the register and unregister commands inside the application code (using the equivalent SWI would possibly be more convenient in this case).

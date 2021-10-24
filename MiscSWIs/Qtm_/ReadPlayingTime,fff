@@ -1,0 +1,13 @@
+QTM_ReadPlayingTime  (&47E56)
+#Parent QTM_
+<=	R0 =	total playing time so far (seconds)
+	R1 =	time since last <QTM_Start> (seconds)
+	R2 =	total playing time of the whole song (seconds)
+
+This SWI allows you to read the two QTM song timers and the total time of the current song. The contents of R0 and R1 on exit are calculated from the internal 100Hz timer, but the contents of R2 rely on a special 100% accurate, song length calculation routine...
+
+The ** {*}QTM-Ultra-mega-time-worker-outer{*} ** is the first song time calculation routine on the Arc, and the only routine on any computer which can accurately work out times correctly with effects such as CIA tempos, pattern loops and pattern delays. The routine works by scanning through all the song's patterns, in the correct order, calculating the time of each event as it goes, and taking into account any speed, tempo, loop or delay settings that may be in use.
+
+When this SWI is called for the first time after loading a song, the total length will be worked out using the special routine. On later calls to this SWI (while the same song is loaded), the total length will not be re-calculated, but the original calculation will used, to save time.
+
+V flag set if no song is loaded

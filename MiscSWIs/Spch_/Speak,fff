@@ -1,0 +1,5 @@
+Spch_Speak  (&42B85)
+#Parent Spch_
+=>	R0 =	pointer to zero terminated string of phonemes
+
+This SWI will cause the speech system to say a set of phonemes in the background.

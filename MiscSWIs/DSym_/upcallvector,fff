@@ -1,0 +1,9 @@
+DSym_UpcallVector  (&4588A)
+#Parent DSym_
+=>	R0 =	-1 to read upcall address
+	 	-2 to set default
+	 	address to set
+
+<=	R0 =	previous upcall address
+
+This call reads and writes the upcall vector address, information at <OS:OS_Upcall>.

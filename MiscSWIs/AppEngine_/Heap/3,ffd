@@ -1,0 +1,9 @@
+AppEngine_Heap 3  (&4D949)
+#Parent AppEngine_Heap
+=>	R0 =	3
+	R1 =	pointer to heap
+	R2 =	pointer to anchor
+
+<=	R1 =	0 (i.e. anchor to return)
+
+This call is used to release a block of memory from the heap, and return the resultant free memory back to the free pool.

@@ -1,0 +1,8 @@
+LineEditor_GetLine
+#Parent LineEditor_
+=>	R0 =	buffer handle
+	R1 =	pointer to buffer
+	R2 =	buffer length
+<=	R2 =	actual length
+
+Reads the position in a private history buffer.

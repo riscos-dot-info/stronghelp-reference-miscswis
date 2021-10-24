@@ -1,0 +1,8 @@
+QTM_ReadSongLength  (&47E4E)
+#Parent QTM_
+<=	R0 =	number of sequences in current song (1-128)
+	R1 =	maximum pattern number in song (ie. number of patterns-1)
+
+This SWI allows you to read the number of sequences and maximum pattern number in the current song. The maximum pattern number is ALWAYS the number of patterns present-1, since counting starts at 0, not 1.
+
+V flag set if no song is loaded

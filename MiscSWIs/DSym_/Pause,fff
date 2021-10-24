@@ -1,0 +1,3 @@
+DSym_Pause  (&4588E)
+#Parent DSym_
+This call stops the current notes and cuts all channels.

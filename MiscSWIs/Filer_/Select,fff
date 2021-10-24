@@ -1,0 +1,51 @@
+Filer_Select
+#Parent Filer_
+=>	R0 =	<reason code=>.reasons>
+	others dependent on reason code
+
+This call can be used to read or control the selection. It is used by the variable Filer$Selected among other things. The 'current viewer' in this context means the one that has the input focus.
+#subpage reasons
+Filer_Select reasons
+Reason	Meaning
+#Line
+0	<Select file=>.0>
+1	<Add file to selection=>.1>
+16	<Read current viewer=>.16>
+17	<Read one selected file=>.17>
+18	<Read multiple selected files=>.18>
+#subpage 0
+Filer_Select 0
+=>	R0 =	0 (select file)
+	R1 =	pointer to filename
+<=	all preserved
+
+Selects a single file, clearing the selection in that viewer.
+#subpage 1
+Filer_Select 1
+=>	R0 =	1 (Add file)
+	R1 =	pointer to file to add
+<=	all preserved
+
+Adds a file to the selection in the viewer it is in.
+#subpage 16
+Filer_Select 16
+=>	R0 =	16 (Read current viewer)
+<=	R1 =	pointer to viewer name, or 0 if none
+
+Reads the viewer which has the current input focus.
+#subpage 17
+Filer_Select 17
+=>	R0 =	17 (Read one file)
+	R1 =	pointer to viewer name, or 0 for viewer with focus
+<=	R1 =	object name, or 0 if none selected
+
+Reads a single file from selection in a viewer.
+#subpage 18
+Filer_Select 18
+=>	R0 =	18 (Read multiple files)
+	R1 =	pointer to viewer name, or 0 for viewer with focus
+	R3 =	context, or 0 for first call
+<=	R1 =	pointer to object name, or 0 for first file
+	R3 =	new context, or 0 if finished
+
+Reads multiple files from the selection in a viewer.

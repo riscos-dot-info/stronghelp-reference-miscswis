@@ -1,0 +1,7 @@
+LZWB
+#Parent !Root
+#Prefix LZWB_
+Compress
+Decompress
+TaskStart
+TaskQuit

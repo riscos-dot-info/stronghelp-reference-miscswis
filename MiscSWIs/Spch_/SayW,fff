@@ -1,0 +1,5 @@
+Spch_SayW  (&42B84)
+#Parent Spch_
+=>	R0 =	pointer to zero terminated string to say
+
+This SWI will cause the speech system to say a string and wait for it to complete.

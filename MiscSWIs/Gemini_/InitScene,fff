@@ -1,0 +1,8 @@
+Gemini_InitScene (&4D501)
+#Parent Gemini_
+=>	R1 =	offset to add to the points [(current location at which points are loaded in memory)-(the old location from where they were saved, stored in the file)]
+	R2 =	offset to add to the primitives [idem]
+	R3 =	location at which points are loaded (<TMmemoryblock=>Gemini_memoryblock>+4, mostly)
+	R4 =	location at which primitives are loaded (<TMmemoryblock=>Gemini_memoryblock>+16, mostly)
+
+When you have loaded a file you have to adjust all its internal links (i.e. the ldm of the points used by the polygons); you should call this from inside the loader code (see later).

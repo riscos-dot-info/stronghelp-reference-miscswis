@@ -1,0 +1,6 @@
+*Dynamite_HeapDump
+#parent Dynamite_
+{*}*Dynamite_HeapDump{*}	Displays diagnostic information about the Dynamite heap
+Syntax	{fCode}*Dynamite_HeapDump{f}
+Parameters	˜
+Use	This command displays a dump of Dynamite's heap on the screen.  The dump contains information about the heap as a whole (its base address, its size, and the size of the dynamic area) followed by a description of every block in the heap.

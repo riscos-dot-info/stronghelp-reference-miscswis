@@ -1,0 +1,5 @@
+Using Dynamite from SWIs
+#fh2:About the Dynamite heap
+#fh3:Using Dynamite from SWIs
+#line
+You should take careful note of the points raised in the <previous section=>Docsirq> when writing SWI handlers which use Dynamite, since your SWI may well be called from a callback routine.

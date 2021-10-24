@@ -1,0 +1,11 @@
+QTM_Pos  (&47E46)
+#Parent QTM_
+=>	R0 =	new sequence position (0-127), -1 to read current position
+	R1 =	new event position (0-63), -1 to read
+
+<=	R0 =	previous sequence position (0-127)
+	R1 =	previous event position (0-63)
+
+This SWI can be used to read or alter the current sequence or event position in the current song.
+
+V flag set if no song is loaded or the position/event number is out of range

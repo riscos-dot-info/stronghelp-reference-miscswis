@@ -1,0 +1,10 @@
+MIDI_DriverInfo  (&404E8)
+#Parent MIDI_
+=>	R0 =	Driver number
+<=	R0 preserved
+	R1 =	flags?
+	R2 =	pointer to zero-terminated name string
+	R3 =	driver version * 100, or 0 if no driver present.
+	R4 =	pointer to control block
+
+This SWI is used to read information about a particular driver.

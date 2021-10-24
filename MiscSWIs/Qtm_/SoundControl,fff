@@ -1,0 +1,19 @@
+QTM_SoundControl  (&47E58)
+#Parent QTM_
+=>	R0 =	number of channels to use (4, 8 or 0 to shutdown) -1 to read
+	R1 =	transparent sound system flags 1-on, 0-off, -1 to read
+	R2 =	transparent sound system channel handler address or -1
+
+<=	R0 =	previous number of channels (0 if sound system was off)
+	R1 =	previous transparent sound system flags
+	R2 =	previous transparent sound system handler
+
+This SWI allows control over the QTM sound DMA handler.
+
+The QTM sound system switches on automatically when a song or a sample is played, but can also be switched on manually using this SWI, specifying 4 or 8 channels. Note: This sets the 'default' number of channels, so even after the sound system is next shut down, QTM will continue to use the number of channels specified whenever a song or sample causes the sound system to start up again.
+
+If 0 channels are specified, the QTM sound system is shut down. If a song was playing at that time, the music handlers and position counters will continue to move through the song, although no sound will be heard from QTM.
+
+Details of the Transparent Sound System can be found in the 'Technical' help file, but basically it allows joint control over the sound channels, by QTM and either the RiscOS sound handler (default) or any other RiscOS compatible sound channel handler. Switching the Transparent Sound System on (passing 1 in R1) will allow you to hear any RiscOS voice module sounds AS WELL as any QTM samples. For example, in its default state, the Transparent Sound System will allow you to hear the system 'beep', while a song or sample is being played through QTM.
+
+V flag set if illegal values are passed to QTM.

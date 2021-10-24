@@ -1,0 +1,30 @@
+MenuUtil_Submenu (&45BCE)
+#Parent MenuUtil_
+Links submenu to menu item
+
+{f25}Þ{f}	R0 =	handle of the menu item or 0 if current menu item
+	R1 =	handle of submenu or pointer to submenu or window handle
+	 	if R1 \< &8000 then R1 is window handle
+	 	if R1 > &8000 then R1 is pointer to menu 
+	 	if R1 \< 0 then R1 is menu handle
+{f25}Ü{f}	R0,R1	preserved
+#Line
+*Use*:	This call is used for constructing multilevel menus. R0 on entry contains the handle of menu item. This item is linked with submenu or dialog box depending on contents of R1. To connect submenu R1 may contain menu handle (as returned by "<MenuUtil_New>") or absolute pointer to the menu data structure. To connect dialog box R1 must contain window handle of dialog box (as returned by "<Wimp_CreateWindow=>Wimp:Wimp_CreateWindow>").
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_Submenu)
+Connect "About this program" window to the item "Info":
+
+#Fcode
+  SYS "Wimp_CreateWindow",,block% TO infoWindow%
+  SYS "MenuUtil_Submenu",infoItem%,infoWindow%
+#F
+
+Create "Display" item in filer menu:
+
+#FCode
+  SYS "MenuUtil_New",,"Filer"
+  SYS "MenuUtil_Add",,"Display"
+  SYS "MenuUtil_Submenu",,dispMenu%
+#F

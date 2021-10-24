@@ -1,0 +1,11 @@
+Thread_Initialise (0x4DA40)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	R0	!	Task name, (NUL-term)
+ 		R1	!	context switch code (NUL for none)
+{f25}Ü{f}	R0	=	Task handle
+ 		R1	=	Root thread handle
+#line
+*Notes*:	This SWI is called by a task early in its initialisation to register itself with /Thread/. From this stage onwards, the task is under Thread's control, albeit with only one running thread, and should behave accordingly (e.g. turning threads off across calls to SWI <Wimp_Poll=>Wimp:Wimp_Poll>).
+ 	The context switch function, if supplied in R1, will be called each time Thread performs a context switch. On entry to this special function, the processor will be in SVC mode, R1 will be the thread handle of the head being switch out, and R2 the thread handle of the thread being switched in. Together with SWI <Thread_Context>, this can be used to allow the user to add to a given thread's context (e.g. for saving the VDU state). The function must preserve all registers and the PCSR flags.
+ 	The root thread runs with a priority of 0, and can do anything that a normal thread can.

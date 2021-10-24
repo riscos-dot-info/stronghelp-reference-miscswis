@@ -1,0 +1,23 @@
+Decrunch_Get (&C0AC1)
+#Parent Decrunch_
+=>	R0 =	<flags=>.flags>
+	R1 =	pointer to filename, file handle, or source in memory as determined by flag bits 1 & 2
+
+\<=	if V set then
+	  R0 =	pointer to <error block=>OS:swi_errorblock>
+	  other registers preserved
+	else
+	  R0,R1 preserved
+	  R2 =	load address found in the source data
+	  R3 =	length of uncrunched data
+	File pointer unchanged (if using file handle)
+
+This SWI will get information about crunched data.
+#subpage flags
+Decrunch_Get flags
+Bit	Meaning if set
+#line
+0	Assume magic string not present
+1	Use a file handle instead of a filename pointer
+2	Decrunch data from memory
+3	Use hourglass

@@ -1,0 +1,37 @@
+DitherExtend
+#Parent !Root
+#Prefix DitherExtend_
+#Table Columns 2
+SelectTable
+SelectGCOLTable
+ReturnGCOL
+SetGCOL
+ReturnColourNumber
+ReturnGCOLForMode
+ReturnColourNumberForMode
+ReturnOppGCOL
+SetOppGCOL
+ReturnOppColourNumber
+ReturnOppGCOLForMode
+ReturnOppColourNumberForMode
+GCOLToColourNumber
+ColourNumberToGCOL
+Info
+Control
+ReturnColourPattern
+ReturnColourPatternTable
+InvalidatePalette
+Antialias
+ReadPalette
+ReturnColourPatternArray
+SetHalftone
+ReturnHalftone
+SetHalftoneOrigin
+ReturnHalftoneOrigin
+SelectHalftoneTable
+ReturnHalftoneIntensity
+ReturnHalftoneTable
+SetScreen
+CacheScreen
+SelectColourPatternTable
+#EndTable

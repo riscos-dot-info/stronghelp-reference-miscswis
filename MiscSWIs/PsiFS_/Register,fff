@@ -1,0 +1,36 @@
+PsiFS_Register (&520C0)
+{f25}Þ{f}	R0 !	ctrl-termed name of the client
+		R1 =	<mask=>.mask> specifying changes of interest
+{f25}Ü{f}	R0 !	the <pollword=>.pollword> for this client
+#line;tab
+Register a client to be informed of changes
+
+*Interrupts*:	Interrupt status is undefined
+		Fast interrupts are enabled
+{*}Processor mode{*}:	Processor is in SVC mode
+{*}Re-entrancy{*}:	SWI is not re-entrant
+*Use*:	This call registers a client to be informed of changes in the status of the PsiFS module or filing system.
+	The changes of interest are specified by setting bits in the <mask passed in R1=>.mask>
+	The recommended sequence of events is:
+		{f24}j{f}	Wait for the <pollword=>.pollword> to become non-zero, e.g. by calling <Wimp_Poll=>Wimp:Wimp_Poll>.
+		{f24}j{f}	Clear the pollword back to zero.
+		{f24}j{f}	Check for changes to any options of interest by calling <PsiFS_Get>.
+*Related SWIs*:	<PsiFS_Unregister>, <PsiFS_Get>, <Wimp_Poll=>Wimp:Wimp_Poll>
+*Related vectors*:	None
+#
+#subpage mask
+PsiFS_Register R1 mask
+/Bit/	/Changes reported when set/
+0	mode of operation
+1	serial block driver configuration
+2..7	must be 0
+8	remote link configuration
+9	remote link connection  status
+10	remote drive details
+11..15	must be 0
+16	printer mirror configuration
+17..31	must be 0
+#
+#subpage pollword
+PsiFS_Register Returned Pollword
+The returned pollword is suitable for passing to <Wimp_Poll=>Wimp:Wimp_Poll>. It should also be passed to <PsiFS_Unregister> to unregister the client. PsiFS will set the pollword to a non-zero value whenever there is any relevant change in status. It is the responsibility of the client task to clear the pollword back to zero and to discover what has changed.

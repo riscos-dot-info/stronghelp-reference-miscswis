@@ -1,0 +1,7 @@
+QTM_DMABuffer  (&47E4A)
+#Parent QTM_
+<=	R0 =	address of last used DMA sound buffer.
+
+By using this SWI, it would be possible to implement sound output oscilloscopes, or volume activated (real) VU bars. The data in the DMA buffer is stored as: [c1],[c2],[c3],[c0],[c1],[c2]...etc, 1 byte for each channel. The DMA buffer size used by QTM is 208*\<no. of channels> long.
+
+The address returned in R0 will only be accurate if the QTM sound system is currently active. To check whether this is the case, use <QTM_SoundControl>, to read the sound system state (number of channels).

@@ -1,0 +1,104 @@
+Misc SWIs manual
+#Align Centre
+{fh3}Miscellaneous SWIs manual{f}
+#Align Left
+#Line
+This manual is part of a collection comprising the main public domain programming reference. The other manuals in the series are :
+#Indent 2
+#Postfix :!Root
+<OS>		The base operating system stuff
+<Wimp>		The desktop part of the operating system
+<InetSWIs>	Internet based SWIs
+<InetSocket>	Internet socket calls
+<MiscSWIs>	Miscellaneous SWIs
+<VDU>		VDU commands
+<Toolbox>	Toolbox (by Neil Bingham)
+#Indent
+
+For comments, suggestions and submissions for these, please mail iain truskett <\<koschei@eh.org\>=>#URL mailto:koschei@eh.org> who is currently moderating the collection. The primary location for these manuals will be <http://freenet.barnet.ac.uk/manuals/=>#URL http://freenet.barnet.ac.uk/manuals/>.
+
+Click <here=>.hist105> for history information.
+#
+#Subpage hist100
+History for Misc v1.00
+#Align Right
+{/}10 Oct 1997{/}
+#Align Left
+è	Changed all the bits around so that the main window looks a little more like the other manuals
+è	Added some LineEditor documentation
+
+<Next=>.hist101>
+#Subpage hist101
+History for Misc v1.01
+#Align Right
+{/}15 Nov 1997{/}
+#Align Left
+è	Lots of changes from Dave Thomas; some AppEngine docs, CompressJPEG and SparkFS SWIs from his own manuals
+è	DDEUtils bug fixes
+
+#Tab
+<Previous=>.hist100>	<Next=>.hist102>
+#Subpage hist102
+History for Misc v1.02
+#Align Right
+{/}20 Dec 1997 - 15 Jan 1998{/}
+#Align Left
+è	Added some Speak SWIs
+è	DDEUtils moved to Wimp
+è	Added real Speak documentation from Johnathan Duddington.
+
+#Tab
+<Previous=>.hist101>	<Next=>.hist103>
+#Subpage hist103
+History for Misc v1.03
+#Align Right
+{/}22 Mar 1998{/}
+#Align Left
+è	Misc minor changes
+
+#Tab
+<Previous=>.hist102>	<Next=>.hist104>
+#Subpage hist104
+History for Misc v1.04
+#Align Right
+{/}02 May 1998-?{/}
+#Align Left
+è	Speech! documentation added (Thomas Olsson)
+è	SparkFS documentation updated (JÈrÙme Mathevet)
+è	Gemini documentation, TopModel documentation added (Dave Thomas)
+# Beta 1
+è	Fixed Speak 'ReadNames' reason code.
+è	Added 'notfound_{/}manual{/}' pages, for StrongHelp 2.60.
+è	Added MIDI documentation from Carl Hetherington.
+è	Added Decrunch SWIs (Jerome Mathevet)
+è	Added Audio SWIs (Chris Johns)
+
+#Tab
+<Previous=>.hist103>	<Next=>.hist105>
+#Subpage hist105
+History for Misc v1.05
+#postfix _
+#Align Right
+{/}29th April - 17th May, 1999{/}
+#Align Left;wrap off
+è	Moderator now iain truskett.
+è	<Euclid> documentation added (Thomas Olsson)
+è	<AppEngine> documentation updated (Dave Thomas)
+è	<Dynamite> documentation added (iain truskett)
+è	<MenuUtil> documentation added (iain truskett / Alex Petrov)
+è	<SparkFS_User=>SparkFS_User> 0 updated to include Cab (iain truskett)
+è	<Thread> documentation added (iain truskett)
+è	<zeriRegister> documentation added (iain truskett / John Kortink)
+è	<MDWOpt> documentation added (Darren Salt, Mark Wooding)
+è	<ARMEdit> documentation added (Alexander Thoukydides)
+è	<THHeap> documentation added (Will Everitt)
+è	<THSound> documentation added (Tony Houghton)
+è	<Virtualise> documentation added (Alexander Thoukydides)
+è	Error in !Configure file fixed. (Reuben Thomas)
+è	<Snapper> documentation added (Alex Macfarlane Smith)
+è	<PsiFS> documentation added (Alexander Thoukydides)
+è	<ddUtil=>ddu_> documentation added (Birger Harzenetter)
+è	Notfound pages revised.
+
+#Tab
+<Previous=>.hist104>

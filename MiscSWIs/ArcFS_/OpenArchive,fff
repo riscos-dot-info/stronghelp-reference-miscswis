@@ -1,0 +1,6 @@
+ArcFS_OpenArchive  (&437C2)
+#Parent ArcFS_
+<=	R0 =	pointer to filename
+	R1 =	pointer to reference name
+
+This SWI opens an archive.

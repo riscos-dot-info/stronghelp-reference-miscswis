@@ -1,0 +1,15 @@
+Dynamite_Save (SWI &4A3C7)
+#parent Dynamite_
+{*}Dynamite_Save{*}	Saves some registers on Dynamite's relocation stack
+On entry	R0 =	bit mask of registers to save
+	Other registers as described below
+On exit	˜
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	This SWI will save the registers specified in R0 on Dynamite's relocation stack.  R0 should contain a bit set for each register that you want saved ˜ i.e.  bit 1 set to save R1, etc.
+	You cannot usefully save R9-R15 or R0, so the corresponding bits of R0 should not be set on entry.
+	The stack is ascending, and follows the normal ARM rules for ascending stacks.  Hence if you save R1-R7 on the stack, the saved R7 will be the first register to be removed.
+	The upper two bytes of R0 are ignored by this SWI.  Therefore R0 on entry can actually contain an STM instruction specifying the required registers.
+Related SWIs	* <Dynamite_Load>

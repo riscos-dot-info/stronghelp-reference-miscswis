@@ -1,0 +1,11 @@
+LineEditor flags
+#Parent LineEditor_SetOptions
+Bit	Meaning if set
+#Line
+0	TaskWindows have local buffers
+1	Trailing dots will be appended to directory completions
+2	Default to overtype mode
+3	Keep duplicate lines in history
+4	Don't do ~ expansion
+5	Don't de !-type events (eg !!)
+6	Don't do ^two^three type replacements

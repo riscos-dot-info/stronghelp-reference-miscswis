@@ -1,0 +1,19 @@
+Spch
+#Parent !Root
+#Prefix Spch_
+#Table Columns 2
+<Ready?>
+<Oldchannel>
+<Error>
+<Say>
+<SayW>
+<Speak>
+<SpeakW>
+<Pitch>
+<Speed>
+<Mouth>
+<Tongue>
+<GetDictionary>
+<Reset>
+<Level>
+#EndTable

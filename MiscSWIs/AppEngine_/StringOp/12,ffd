@@ -1,0 +1,14 @@
+AppEngine_StringOp 12  (&4D941)
+#Parent AppEngine_StringOp
+=>	R0 =	12
+	R1 =	pointer to template string, containing '%0' up to '%3'.
+	R3 =	string to substitute for '%0' or 0 for no string
+	R4 =	string to substitute for '%1' or 0 for no string
+	R5 =	string to substitute for '%2' or 0 for no string
+	R6 =	string to substitute for '%3' or 0 for no string
+
+<=	R0, R3, R4, R5, R6 preserved
+	R1 =	pointer to character after the template string's terminator
+	R2 =	pointer to output string (up to 255 chars)
+
+This call takes an input template string and substitutes another string where an identifier %0‘..%3‘ appears.

@@ -1,0 +1,33 @@
+QTM
+#Parent !Root
+#Prefix QTM_
+#Table Columns 2
+<Load>
+<Start>
+<Stop>
+<Pause>
+<Clear>
+<Info>
+<Pos>
+<EffectControl>
+<Volume>
+<SetSampleSpeed>
+<DMABuffer>
+<RemoveChannel>
+<RestoreChannel>
+<Stereo>
+<ReadSongLength>
+<ReadSequenceTable>
+<VUBarControl>
+<ReadVULevels>
+<ReadSampleTable>
+<ReadSpeed>
+<PlaySample>
+<SongStatus>
+<ReadPlayingTime>
+<PlayRawSample>
+<SoundControl>
+<SWITableAddress>
+<RegisterSample>
+<SetSpeed>
+#EndTable

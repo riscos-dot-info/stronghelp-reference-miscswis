@@ -1,0 +1,18 @@
+Thread_On (0x4DA42)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	Task handle of new task, or NUL
+{f25}Ü{f}	All registers are preserved.
+#line
+*Notes*:	If a task handle is supplied in R0, this code will affect a task switch. It is normally called in this manner on return from SWI <Wimp_Poll=>Wimp:Wimp_Poll>. If, however R) is NUL, then this will re-enable multithreaded operation if it has been turn off by SWI <Thread_Off>.
+ 	Typical action for a task whilst doing a WIMP Poll would be:
+ 	
+#fCode;indent 4;wrap off
+thread_off();
+wimp_poll(blah, blah, blah);
+if (event_got == Redraw) handle_the_redraw_event();
+thread_on(my_task_handle);  /* Do a context switch back */
+thread_on(NULL); /* Turn threads back on */
+#wrap;indent;f
+ 	
+ 	The action of turning threads back on has been split into two parts because, on a multiprocessor system, the overheads in doing a task switch are great.

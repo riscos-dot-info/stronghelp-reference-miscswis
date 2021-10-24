@@ -1,0 +1,27 @@
+Gemini_Select (&4D508)
+#Parent Gemini_
+=>	R4 =	Reason code :
+	 	1	Select all/only visible objects (the ones inside working area)
+	 	2	<Select the specified group of objects=>.two>
+	 	3	Select all the points inside the specified rectangle
+	 	4	Select/find the point closest to the passed (X,Y) screen coordinates
+	 	5	<Select/find the primitive closest to the passed (X,Y) screen coordinates=>.five>
+	 	16	Deselect all/only visible objects
+	 	17	<Deselect the specified group of objects=>.two>
+	 	18	Deselect all the points inside the specified rectangle
+	Other registers dependant on reason code.
+
+This is a multi-purpose selection command.  Its behaviour depends upon the reason code passed in R4.
+#Subpage two
+Gemini_Select 2 (or 17)
+=>	R0 =	pointer to <TMmemoryblock=>Gemini_memoryblock>
+	R2 =	logical number of the group to select/deselect
+	R4 =	2 to select, 17 to deselect
+#Subpage five
+Gemini_Select 5
+=>	R0 =	pointer to <TMmemoryblock=>Gemini_memoryblock>
+	R1 =	pointer to <TMviewblock=>Gemini_viewblock>
+	R2 =	X (OS units relative to the whole screen, e.g. mouse X coordinate)
+	R3 =	Y (as above)
+	R4 =	5
+	R5 =	flag: if bit 0 is set, then Gemini will check only visible primitives

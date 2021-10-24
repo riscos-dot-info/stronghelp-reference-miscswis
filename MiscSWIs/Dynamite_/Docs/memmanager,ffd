@@ -1,0 +1,7 @@
+Dynamite's memory manager
+#fh2:About the Dynamite heap
+#fh3:Dynamite's memory manager
+#line
+Dynamite implements a shifting heap within its dynamic area.  As a result, programs making use of Dynamite must be able to deal with their blocks of memory being moved.  Since Dynamite may be used by multiple clients, each must be aware that its blocks may be shifted while it does not have control of the processor.  For each block you allocate, you must tell Dynamite the address of your pointer to the block.  This pointer is called the block's anchor pointer.  This is so that Dynamite can update your anchor when the block moves.  Note that you should not put anchors into application memory, since Dynamite may have to update them while your application is paged out. To make this easier, Dynamite allows you to allocate anchors from the RMA very easily.  You can then store the address of the anchor in your own memory.
+
+You should always address a Dynamite block through its anchor pointer, rather than taking copies of the block address.  If you don't do this, Dynamite will correctly update the block's anchor should the block move, leaving any other copies of the address unchanged.  Of course, you can assume that pointers remain valid while you have control, but e.g.  calling Wimp_Poll may cause them to be invalidated, since Dynamite uses idle events to compact the heap.

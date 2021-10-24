@@ -1,0 +1,16 @@
+Tracker_SoundInfo  (&4320B)
+#Parent Tracker_
+=>	R0 =	Pointer to word-aligned 256 byte block to hold <sound data=>Tracker_Soundblock>
+\<=	R0 preserved
+
+	If the tune is paused, the C flag will be set, otherwise the C flag will be cleared.
+
+If there is no tune loaded an error will be generated.
+
+This call is only provided for advanced uses of the trackermodule, and involves information of a highly technical nature. It is advised that you do not use this call if you can avoid it.
+
+The call will transfer the current contents of the sound voice info table to the location pointed to by R0. 256 bytes (64 words) will be transferred in total (8 words per sound channel), regardless of the number of voices actually active.
+
+When a note is played and then ends, word 6 of the appropriate channel is zeroed. The sound routines will only try and play the sample if this word is non-zero.
+
+When a tune is paused, the block is saved and overwritten with zeros. When the tune is restarted, the old contents are restored, so that the samples will continue to play from the same point.

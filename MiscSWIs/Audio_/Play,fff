@@ -1,0 +1,12 @@
+Audio_Play (&452C2)
+#Parent Audio_
+#Wrap Off
+=>	R0 =	rate (or 0 to read)
+	R1 =	from (or 0 to start from beginning)
+	R2 = 	to (or 0 to continue to end)
+	
+<=	R0 =	current sample rate
+
+This SWI plays the data currently in memory. The data must first
+of been loaded using <Audio_LoadFile>, or <Audio_SamplePointer>
+and the paramaters set using <Audio_Set>.

@@ -1,0 +1,6 @@
+FontDraw
+#Parent !Root
+#Prefix FontDraw_
+FindFont
+LoseFont
+Paint

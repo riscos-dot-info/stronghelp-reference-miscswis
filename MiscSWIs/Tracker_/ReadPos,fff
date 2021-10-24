@@ -1,0 +1,7 @@
+Tracker_ReadPos  (&43208)
+#Parent Tracker_
+=>	R0 =	Current position in sequence table (0-127 max)
+	R1 =	Current position in pattern (0-63 max)
+	R2 =	Maximum position in sequence table
+
+This performs the same actions as *PlayPos with no parameters, but also returns the current position in the current pattern (in case some applications need to synchronize events with the tune being played).

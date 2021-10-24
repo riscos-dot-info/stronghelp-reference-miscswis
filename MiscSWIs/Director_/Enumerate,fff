@@ -1,0 +1,13 @@
+Director_Enumerate  (&4A105)
+Enumerates lists held by director
+
+=>	R0 =	pointer to block or to start use :
+	 	  0 = stored menus
+	 	  1 = displayed menus
+	 	  2 = icons
+	 	  3 = filters
+
+<=	R0 = new pointer to block (0 for end)
+	R1 = pointer to name of block
+
+Dynamic menus to view these lists and act on them can be found on Director's main menu.

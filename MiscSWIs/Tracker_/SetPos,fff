@@ -1,0 +1,9 @@
+Tracker_SetPos  (&43207)
+#Parent Tracker_
+=>	R0 = New sequence position (0-127 max)
+	R1 = Event (0-63 max)
+\<=	R0 preserved
+
+This performs the same actions as *PlayPos, except that the event with the pattern can be specified (0-63 normally). If an event number higher than the number of events in the current pattern is specified, the pattern will begin at event 0.
+
+If there is no tune currently loaded, an error is generated.

@@ -1,0 +1,6 @@
+*Dynamite_Clear
+#parent Dynamite_
+{*}*Dynamite_Clear{*}	Clears the Dynamite heap and resets Dynamite
+Syntax	{fCode}*Dynamite_Clear{f}
+Parameters	˜
+Use	This command will free all the memory used by the Dynamite heap, and all the anchors allocated by <Dynamite_ClaimAnchor>.  This is useful during development of a program which uses Dynamite, which is not freeing memory correctly. Note that no confirmation is requested for this operation.  If applications or modules which are using Dynamite are running when you use this command, they will probably crash.

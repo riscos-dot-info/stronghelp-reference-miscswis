@@ -1,0 +1,7 @@
+Euclid_Save (&80643)
+#parent Euclid_
+=>	R1 !	Picture structure or zero.
+ 	R2 !	Filename.
+<=	-
+#line
+The used portion of the Euclid picture structure is saved in the file named. The file-type is set to <&DE1=>filetypes:DE1> ('Euclid').

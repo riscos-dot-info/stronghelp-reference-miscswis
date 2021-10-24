@@ -1,0 +1,12 @@
+Virtualise_Unlock (&4B6C4)
+#parent Virtualise_
+{f25}Þ{f}	R0 =	Start of range of addresses to unlock.
+		R1 =	End of range of addresses to unlock.
+{f25}Ü{f}	All registers preserved.
+#line;tab
+*Purpose*:	Unlock pages of a dynamic area for which virtual memory has been enabled.
+*Interrupts*:	Interrupt status is undefined.
+		Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:	SWI is not re-entrant.
+*Use*:	This SWI unlocks pages that were previously locked with <Virtualise_Lock>. Exactly the same values of R0 and R1 should be used when unlocking pages as were used when they were originally locked; unpredictable results might otherwise occur.

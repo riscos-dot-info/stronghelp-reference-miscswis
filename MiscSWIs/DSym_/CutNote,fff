@@ -1,0 +1,9 @@
+DSym_CutNote  (&45884)
+#Parent DSym_
+=>	R0 =	voice number (0-7)
+	R1 =	-1 to read state, or \<>-1 to stop note
+
+<=	R0 corrupted
+	R1 =	previous note state (0 stopped, >0 playing)
+
+This call either reads the state of a certain voice or stops the currently played sample on this channel.

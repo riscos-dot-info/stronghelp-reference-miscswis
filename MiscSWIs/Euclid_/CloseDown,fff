@@ -1,0 +1,8 @@
+Euclid_CloseDown (&80651)
+=>	-
+<=	-
+#line
+#wrap on
+This call invalidates the current picture block point retained by the Euclid
+module. It is recommended that you make this call before exiting an
+application - its use may become mandatory in later versions of Euclid.

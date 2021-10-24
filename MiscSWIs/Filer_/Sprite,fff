@@ -1,0 +1,10 @@
+Filer_Sprite
+#Parent Filer_
+=>	R0 =	desired sprite height (0=68 os units, 1=36 os units)
+	R1 =	pointer to object name
+	R2 =	task handle to reply to (0 for broadcast)
+<=	R0 =	pointer to optional sprite to use in meantime
+
+This call is the main interface to binding sprites to disc objects. Unlike earlier days where every application had its own view of these things, the filer provides this SWI to keep it in one place. The filer can be extended with programs like the Sprite Clients, and these extentions will also be considered when this SWI is called.
+
+After calling this SWI, a message will be sent when the sprite has been found. Finding the sprite may mean that apps are booted and many other things, so there is no maximum reply delay. Indeed, if the object doesn't exist, there will be no reply at all. This issue may be addressed in later versions.

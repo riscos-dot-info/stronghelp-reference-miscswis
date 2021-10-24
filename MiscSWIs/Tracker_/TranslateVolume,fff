@@ -1,0 +1,6 @@
+Tracker_TranslateVolume  (&43214)
+#Parent Tracker_
+=>	R0 =	Soundtracker volume to convert (0-64)
+<=	R0 =	Logarithmic volume (0-255), 255=max.
+
+This SWI will convert a soundtracker volume (as returned by <Tracker_ReadSampleTable> when a soundtracker tune is playing) into a Tracker format logarithmic volume (0-255).

@@ -1,0 +1,6 @@
+Speak_Ready  (&4AD80)
+#Parent Speak_
+<=	R0 =	0 if still speaking, -1 if idle
+	R1 =	index of word in character string of <Speak_Say> which is speaking
+
+This SWI is called to check whether speech is still being output or not.

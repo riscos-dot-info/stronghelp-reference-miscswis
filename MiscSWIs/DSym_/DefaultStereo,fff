@@ -1,0 +1,8 @@
+DSym_DefaultStereo  (&4589C)
+#Parent DSym_
+=>	R0 =	voice number (0-7)
+	R1 =	new default stereo position, or 0 to read
+
+<=	R1 =	previous default stereo position (1 to 7) for voice number R0
+
+This call sets the default stereo position for a voice.

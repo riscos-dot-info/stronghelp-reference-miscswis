@@ -1,0 +1,17 @@
+MenuUtil_ColourMenu (&45BCF)
+#Parent MenuUtil_
+Creates a wimp colour setting menu
+
+{f25}Ü{f}	R1 {f25}®{f}	menu title string
+	R2 {f25}®{f}	menu handler
+{f25}Ü{f}	R0 =	handle of the menu
+	R1 —	Preserved
+#Line
+*Use*:	This call creates standard WIMP colour setting menu. R1 on entry points to the title string for the menu. If R2 {f25}¹{f} 0 then it points to the handler common for all 16 items. (See also "<MenuUtil_Add>" for more info about item handlers). Despite the fact that the same handler is invoked with all items it is still possible to distinguish user selection. <MenuUtil_Decode> returns not only pointer to the handler but also the number (position) of selected item in the menu. Actually this number is equal to the colour number.
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_ColourMenu)
+Create colour setting menu:
+
+#FCode:  SYS "MenuUtil_ColourMenu",,"Colour" TO colourMenu%

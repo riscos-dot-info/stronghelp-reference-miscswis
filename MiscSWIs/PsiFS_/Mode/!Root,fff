@@ -1,0 +1,22 @@
+PsiFS_Mode (&520C3)
+#parent PsiFS_
+{f25}Þ{f}	R0 =	<reason code=>.code>
+		Other registers depend on reason code
+{f25}Ü{f}	Registers preserved
+#line;tab
+Set the mode of operation.
+
+*Interrupts*:	Interrupt status is undefined
+		Fast interrupts are enabled
+*Processor mode*:	Processor is in SVC mode
+{*}Re-entrancy{*}:	SWI is not re-entrant
+*Use*:		This call changes PsiFS's mode of operation, depending on the <reason code=>.code> in R0.
+*Related SWIs*:	<PsiFS_Set>, <PsiFS_Get>
+*Related vectors*:	None
+#
+#subpage code
+PsiFS_Mode reason codes
+/Value/	/Meaning/
+0	<Inactive=>PsiFS_Mode0>
+1	<Remote link mode=>PsiFS_Mode1>
+2	<Printer mirror mode=>PsiFS_Mode2>

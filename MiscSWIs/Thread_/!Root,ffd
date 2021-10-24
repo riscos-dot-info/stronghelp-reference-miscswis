@@ -1,0 +1,19 @@
+Thread
+#parent !Root
+#prefix Thread_
+#Table columns 2
+<Initialise>
+<CloseDown>
+<On>
+<Off>
+<Begin>
+<Semaphore>
+<Signal>
+<Wait>
+<Send>
+<Receive>
+<Purge>
+<Sleep>
+<Context>
+<Zap>
+#EndTable

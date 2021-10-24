@@ -1,0 +1,19 @@
+*Anchors*	<ChangeAnchor>
+	<ClaimAnchor>
+	<ReleaseAnchor>
+*Blocks*	<Alloc>
+	<BlockInfo>
+	<ChangeID>
+	<Free>
+	<FreeWithID>
+	<MidExtend>
+	<Resize>
+*Heap*	<Compact>
+	<Describe>
+	<IntegrityCheck>
+	<Lock>
+	<Reduce>
+	<Unlock>
+*Sundry*	<Load Registers=>Dynamite_Load>
+	<Save Registers=>Dynamite_Save>
+	<ReadSpriteSize>

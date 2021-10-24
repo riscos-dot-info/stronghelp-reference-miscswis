@@ -1,0 +1,20 @@
+Thread_Begin (0x4DA44)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	R0	!	Thread name, (NUL-term)
+ 		R1	=	Execution priority of new thread
+ 		R2	=	Argument for thread
+ 		R3	!	Address of code for thread
+ 		R4	!	Current APCS stack chunk (or NUL for none)
+{f25}Ü{f}	R0	=	Handle of newly created thread
+#line
+*Notes*:	This SWI starts a new thread of execution. The execution priority is in the range -20 to 20, the lower value being of the highest priority. The thread is entered as follows:
+ 	 	{f25}Þ{f}	R0	=	My thread handle
+ 	 	 	R1	=	Parent's thread handle
+ 	 	 	R2	=	Argument passed by parent
+ 	 	 	R10	!	Stack limit
+ 	 	 	R11	!	Frame pointer (NUL)
+ 	 	 	R14	=	Link value
+ 	 	 	R15	=	User mode with interrupts enabled
+ 	The values of all other registers, including the floating point ones, are undefined. The link value in fact holds the address of a function that calls SWI <Thread_Zap>, so the thread can terminate by issuing the normal MOVS pc, lr instruction.
+ 	If a pointer to the current APCS stack chunk is supplied, as is the case wih the ThreadLib C library, then Thread will copy over the SharedCLibrary's relocation reserved words in order to enable the SharedCLibrary to continue to function properly. See the note on using the SharedCLibrary later on.

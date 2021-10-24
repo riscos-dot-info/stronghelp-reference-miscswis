@@ -1,0 +1,8 @@
+Audio_Mute (&452C6)
+#Parent Audio_
+#Prefix Audio_
+#Wrap Off
+=>	R0 = Boolean <flag> for mute, or -1 to read.
+<=	R0 = Current Value.
+
+Mute sound.

@@ -1,0 +1,34 @@
+DSym
+#Parent !Root
+#Prefix DSym_
+#Table Columns 2
+<Load>
+<RestartSong>
+<Vol>
+<Stereo>
+<CutNote>
+<PlayInstrPacked>
+<PlayInstr>
+<ResetParams>
+<FlushOutput>
+<FreezeOutput>
+<UpCallVector>
+<MaskVoice>
+<SongPos>
+<TuneControl>
+<Pause>
+<Voices>
+<Wait>
+<IntState>
+<NoteInfo>
+<VuBar>
+<Loop>
+<BufferAddress>
+<VuGravity>
+<SampleRate>
+<Configure>
+<Params>
+<TuneInfo>
+<PlaySingle>
+<DefaultStereo>
+#EndTable

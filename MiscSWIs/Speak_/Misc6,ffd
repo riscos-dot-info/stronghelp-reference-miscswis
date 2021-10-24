@@ -1,0 +1,6 @@
+Speak_Misc 6
+#Parent Speak_Misc
+=>	R0 =	6 (set default voice)
+	R1 =	new voice number
+
+This SWI is used to set the default voice number.

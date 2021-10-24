@@ -1,0 +1,22 @@
+ddu_SIS (&506E0)
+{f25}Þ{f}	R0 =	Window handle
+		R1 =	Icon handle
+		R2 =	<Action=>.action>
+{f25}Ü{f}	All registers preserved
+Not re-entrant.
+#line
+Set an icon's state
+#line
+*Basic example*
+#fcode;indent 4;wrap off
+      SYS "ddu_SIS",Window,Icon,2
+#wrap;indent;f
+#
+#subpage action
+ddu_SIS actions
+\#	Action
+#line
+0	make icon shaded
+1	make icon normal
+2	make icon selected
+3	make icon selected and shaded

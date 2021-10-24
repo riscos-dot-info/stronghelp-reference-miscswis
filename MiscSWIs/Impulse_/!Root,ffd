@@ -1,0 +1,12 @@
+Impulse
+#Parent !Root
+#Prefix Impulse_
+#Table Columns 2
+Initialise
+Decode
+SendMessage
+TransmitData
+FetchData
+CloseDown
+DeferReply
+#EndTable

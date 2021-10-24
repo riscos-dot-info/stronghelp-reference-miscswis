@@ -1,0 +1,7 @@
+Users_WhoIs
+#Parent Users_
+=>	R0 =	uid number
+	R1 =	block to hold <user data=>users_userdata> (1024 bytes recommended)
+<=	block at R1 updated, or error if not known
+
+This SWI is used to read the password database in {/}Unix:etc.passwd{/} to convert a uid number to a block of data.

@@ -1,0 +1,6 @@
+DSym_Configure  (&45898)
+#Parent DSym_
+=>	R0 =	-1 to reinstall previous configuration
+	 	other, to configure the system with new voices number, sample rate and VuGravity.
+
+Note that this call is essential to the options declared with <DSym_Voices>, <DSym_VuGravity> and <DSym_SampleRate>.

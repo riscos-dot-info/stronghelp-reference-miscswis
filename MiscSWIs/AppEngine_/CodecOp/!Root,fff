@@ -1,0 +1,18 @@
+AppEngine_CodecOp  (&4D946)
+#Wrap off
+=>	R0 =	<reason code=>.reasons>
+	other registers are reason code dependent
+
+<=	R0 preserved
+	other registers are reason code dependent
+#Wrap
+
+This call provides operations to encode and decode data into various encoded formats.
+#Subpage reasons
+AppEngine_CodecOp reason codes
+#Wrap off
+R0	Action
+#Line
+0	<Encode data into a Base64 string=>AppEngine_CodecOp0>
+1	<Decode Base64 data into a string=>AppEngine_CodecOp1>
+#Wrap

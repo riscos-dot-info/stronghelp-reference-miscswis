@@ -1,0 +1,63 @@
+SparkFS_User (&445C5)
+#Parent SparkFS_
+=>	R0 =	reason code number
+	 	  0	<Identify archive=>.code0>
+	 	  1	<Read archive entries=>.code1>
+
+This call is used to perform miscellaneous user operations on archives.
+#subpage code0
+SparkFS_User 0
+=>	R0 =	0 (Identify archive)
+	R1 =	pointer to archive path
+<=	R0 =	<type=>.types>
+#subpage code1
+SparkFS_User 1
+=>	R0 =	1 (Read archive entries)
+	R1 =	pointer to archive path i.e. path to archive file on external FS
+	R2 =	pointer to <buffer=>.code1buffer> to write information to
+	R3 =	number of objects to write
+	R4 =	position in catalogue to start reading from
+	R5 =	size of buffer
+	R6 =	pointer to wild carded file name to match. Can be NULL to match all.
+	R7 =	pointer to path to directory inside archive
+
+<=	R4 =	position in catalogue to read from next
+	R3 =	number of entries written to buffer
+
+This is passed the path to an archive, and the path to a directory inside the archive. In addition a wildcarded filename can be used. 
+
+Operation is similar in concept to <OS_GBPB=>OS:OS_GBPB> 10.
+#subpage code1buffer
+Format of entries in SparkFS catalogue
+Offset	Purpose
+#Line
+0	<load address=>OS:fsys_loadexec>
+4	<exec address=>OS:fsys_loadexec>
+8	length		ie. real uncompressed size
+12	size		ie. compressed size
+16	header version	loosely related to the compression method
+20	attributes
+24	object type	1=file, 2=directory
+28	object name	0 terminated, padded with 0's to word boundary.
+#
+#subpage types
+SparkFS archive types
+Type	Name of archive
+#Line
+1	Spark files (SPARK1)
+2	Spark directories (SPARK2)
+3	PK arc (PKARC)
+4	Zip (ZIP)
+5	Zoo (ZOO)
+6	LZH (LZH)
+7	Tar (TAR)
+8	ArcFS (ARCFS)
+9	ARJ (ARJ)
+10	PackIt (PIT)
+11	StuffIt (SIT)
+12	StuffIt Deluxe (SITD)
+13	SITSX (StuffIt self extracting)
+14	Compactor (COMPAC)
+15	Compactor self extracting (COMPACSX)
+16	PackdDir (PACKD)
+17	CAB (Microsoft)

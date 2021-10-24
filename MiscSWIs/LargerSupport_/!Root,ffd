@@ -1,0 +1,20 @@
+LargerSupport
+#Parent !Root
+#Prefix LargerSupport_
+#Table Columns 2
+WriteShift
+ReadFastMove
+EnableFilter
+DisableFilter
+ReadWindowsOpened
+ReadPollWordAddress
+Reorganise
+FindLeft
+FindRight
+FindUp
+FindDown
+FindNone
+CopySprite
+ReadBackdropCommandTail
+ReadRegister
+#EndTable

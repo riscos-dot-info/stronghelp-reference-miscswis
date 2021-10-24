@@ -1,0 +1,19 @@
+ddu_SIC (&506E1)
+{f25}Þ{f}	R0 =	Window handle
+		R1 =	Icon handle
+		R2 =	Foreground colour
+		R3 =	<Background colour=>.bgcol>
+{f25}Ü{f}	All registers preserved
+Not re-entrant.
+#line
+Set an icon's colour
+#line
+*Basic example*:
+#fCode;indent 4;wrap off
+SYS "ddu_SIC",Window,Icon,7,11
+#wrap;indent;f
+#
+#subpage bgcol
+ddu_SIC Background colour
+If R3 =	0..15	the icon gets a filled background
+If R3 =	-1	the icon background gets transparent

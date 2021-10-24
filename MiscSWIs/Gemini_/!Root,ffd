@@ -1,0 +1,20 @@
+Gemini
+#Parent !Root
+#Prefix Gemini_
+#Table Columns 2
+<Initialise>
+<InitScene>
+<SetUpLights>
+<SetUpScreen>
+<SetUpSprite>
+<Render>
+<StartBuffering>
+<EndBuffering>
+<Select>
+<Transform>
+ReadVRML
+#EndTable
+#Line
+Used by TopModel and TopModel Viewer.
+#Line
+© 1996 <Sincronia Soluzioni Multimediali=>#url http://pages.inrete.it/sincronia>, Italy

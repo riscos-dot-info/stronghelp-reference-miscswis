@@ -1,0 +1,9 @@
+Thread_Wait (0x4DA47)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	R0	!	Semaphore
+ 		R1	=	pointer to flag (or NUL)
+#line
+*Notes*:	Performs a Wait (decrement) operation on the given semaphore, if possible. If the operation causes the semaphore to go negative, the action can be twofold:
+ 	 	1.	If the pointer in R1 is NUL, then the thread will be suspended until the sempahore is signalled upon.
+ 	 	2.	If the pointer in R1 is not NUL, the word at the address will be filled with a boolean value indicating whether or not the Wait failed.

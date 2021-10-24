@@ -1,0 +1,12 @@
+MDWOpt
+#parent !Root
+#prefix MDWOpt_
+<Description=>MDWOpt_parsing>
+<How programs parse option=>MDWOpt_howtoparse>
+#line
+*SWIs*
+<InitArgs>			0x9FFC0
+<ReadArgs>			0x9FFC1
+<ParseCommandString>		0x9FFC2
+<AddLongOption>			0x9FFC3
+<ReconstituteCommandString>	0x9FFC4

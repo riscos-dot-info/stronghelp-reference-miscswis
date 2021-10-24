@@ -1,0 +1,19 @@
+Standard ProTracker commands/effects
+#Table Columns 2
+00 Arpegio
+01 Pitch slide up
+02 Pitch slide down
+03 Tone portamento
+04 Vibrato
+05 Tone portamento + volume slide
+06 Vibrato + volume slide
+07 Tremelo
+08 \<not used>
+09 Set sample offset
+0A Volume slide
+0B Jump to sequence
+0C Set volume
+0D Pattern break
+0E Various, see table 2
+0F Set speed / tempo
+#EndTable

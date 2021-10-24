@@ -1,0 +1,19 @@
+LZW_Decompress  (&CD001)
+#Parent LZW_
+=>	R0 =	flags
+	 	bit 0 =	1 source in memory
+	 	 	0 source is a file
+	 	bit 1 =	1 destination in memory
+	 	 	0 destination is a file
+	R1 =	address in memory if bit 0= 1
+	 	pointer to source name if bit 0= 0
+	R2 =	destination address if bit 1= 1
+	 	pointer to destination name bit 1= 0
+	R3 =	if bit 0= 1 length of source in bytes
+	R4 =	if bit 1= 1 length of destination buffer
+
+<=	R0 is corrupted or contains error pointer
+	R5 =	if bit 1= 1 number of bytes used
+	all other register are preserved
+
+This call decompresses a file or a block of data in memory to a file or a block of data in memory packed using the LZW compressing algorithm. As buffer it uses the screen memory.

@@ -1,0 +1,12 @@
+Loading Dynamite
+#fh2:Using Dynamite
+#fh3:Loading Dynamite
+#line
+Dynamite should normally be loaded from an Obey file in the following way:
+
+#wrap off;fCode
+RMEnsure Dynamite 0.00 RMRun \<My$Dir\>.Dynamite
+RMEnsure Dynamite 1.11 Error 0 Dynamite module is too old
+#f;wrap on
+
+It is *important* to note that the Dynamite module must be RMRun, not just RMLoaded ˜ this will ensure that the Dynamite WIMP task is started correctly.

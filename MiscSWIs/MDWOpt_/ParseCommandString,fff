@@ -1,0 +1,15 @@
+MDWOpt_ParseCommandString (&9FFC2)
+#parent MDWOpt_
+{f25}Þ{f}	R0 =	command string
+	R1 =	argument buffer (2048 bytes)
+{f25}Ü{f}	R0 =	number of arguments
+	Argument buffer filled
+#line;tab
+This SWI parses a command string in a C-style fashion (ie. it uses {fCode}"foo\\"bar"{f} instead of {fCode}"foo""bar"{f}), chopping it up into a list of arguments.
+
+The buffer can contain up to 255 arguments. Its format is
+#indent 3
+	{fCode}char * [256]{f}		256 string pointers
+	{fCode}char   [1024]{f}		the string buffer
+#indent
+Strings are NUL-terminated; the first N pointers point into the string buffer, and the next pointer is 0. (N is the number of arguments.)

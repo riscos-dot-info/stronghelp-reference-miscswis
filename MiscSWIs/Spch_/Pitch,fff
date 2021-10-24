@@ -1,0 +1,5 @@
+Spch_Pitch  (&42B87)
+#Parent Spch_
+=>	R0 =	pitch to use
+
+This SWI will change the pitch of the spoken voice.

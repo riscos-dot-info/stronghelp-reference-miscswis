@@ -1,0 +1,21 @@
+PocketFS
+#Parent !Root
+#Prefix PocketFS_
+#Table Columns 2
+Ticker
+SerialOpen
+SerialClose
+SerialSetDTR
+SerialSetRTS
+SerialPrimeTX
+GetCacheMem
+FreeCacheMem
+CacheInit
+CacheFinal
+DescribeCache
+CacheBlock
+FindCacheEntry
+Status
+Dismount
+SoftDismount
+#EndTable

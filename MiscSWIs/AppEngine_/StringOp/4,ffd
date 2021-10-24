@@ -1,0 +1,10 @@
+AppEngine_StringOp 4  (&4D941)
+#Parent AppEngine_StringOp
+=>	R0 =	4
+	R1 =	pointer to address to read string from
+
+<=	R0 preserved
+	R1 =	pointer to character after the input's terminator
+	R2 =	pointer to output string (up to 255 chars)
+
+This call converts a string in memory into a CR-terminated string, using only lower-case characters, in the module's internal workspace.

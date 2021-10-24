@@ -1,0 +1,15 @@
+Dynamite_Resize (SWI &4A3C5)
+#parent Dynamite_
+{*}Dynamite_Resize{*}	Alters the size of a Dynamite block
+On entry	R0 =	address of block anchor
+	R1 =	new size of block, in bytes
+On exit	R0 preserved
+	R1 =	address of block, which may have moved
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	This SWI will change a block's size.  The exact behaviour of this routine depends on whether the new size is greater than or less than the old size.  If you are reducing the size of a block, bytes will be removed from the end.  Out-of-memory errors will not be returned.
+	If you are extending a block, bytes are added at the end.  An out-of-memory error may be returned if there is not enough memory to extend the block.
+	{*}This SWI may cause blocks to move within the Dynamite heap.{*}
+Related SWIs	* <Dynamite_MidExtend>

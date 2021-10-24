@@ -1,0 +1,9 @@
+QTM_SWITableAddress  (&47E59)
+#Parent QTM_
+<=	R0 = address of QTM's internal SWI jump table
+
+This SWI returns the address of QTM's SWI jump table, so that user programs can call directly any QTM SWI, without going through the RiscOS SWI handler.
+
+To call a QTM SWI via this address, the registers should be set up as required by the SWI, and the SWI number minus &47E40 should be placed in R11. The SWI can then be executed by branching to this SWI table address.
+
+Note: all QTM SWIs can be called this way, from any PSR mode, although if the QTM sound system is active, <QTM_RemoveChannel> should be called from a non-User mode, to allow disabling of interrupts.

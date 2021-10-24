@@ -1,0 +1,5 @@
+The Dynamite relocation stack
+#fh2:About the Dynamite heap
+#fh3:The Dynamite relocation stack
+#line
+To help you keep track of blocks when they move, you can save pointers on a special stack.  When you load the pointers back, they will have been relocated so that they still point at the same data object, even if it was within a Dynamite block which has been moved.

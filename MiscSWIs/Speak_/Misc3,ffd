@@ -1,0 +1,7 @@
+Speak_Misc 3
+#Parent Speak_Misc
+=>	R0 =	3 (convert to phonemes)
+	R1 =	pointer to zero terminated text string
+<=	R0 =	pointer to string
+
+This SWI is used to convert text into a list of phonemes. The returned buffer will be valid until the next call.

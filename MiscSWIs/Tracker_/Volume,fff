@@ -1,0 +1,8 @@
+Tracker_Volume  (&43212)
+#Parent Tracker_
+=>	R0 =	new overall volume (0-127) or -1 to read volume
+<=	R0 =	old volume
+
+This SWI will set the overall volume of any tunes playing by subtracting (254-volume*2) from the volume of any sample playing. This takes effect immediately, and also affects samples which are in mid-play.  Calling the SWI with R0=-1 will return the current volume in R0. You can use this SWI to provide smooth fade-outs and fade-ins, for example.
+
+This SWI is part of the locking system.

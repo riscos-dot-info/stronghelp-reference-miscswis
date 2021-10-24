@@ -1,0 +1,27 @@
+AppEngine_SocketOp  (&4D945)
+#Wrap off
+=>	R0 = <reason code=>.reasons>
+	other registers are reason code dependent
+
+<=	R0 preserved
+	other registers are reason code dependent
+#Wrap
+
+This call provides operations to control file descriptors, which are requried to use the <Socket_Select=>InetSocket:Socket_Select> SWI.
+
+A file descriptor is a block of 32 bytes (256 bits) which indicates which sockets should be checked for activity.
+
+Note: The Acorn C Socket library provides equivalents of this SWI in headerfile macros.
+#line;tab
+Related SWIs:	<Socket_Select=>InetSocket:Socket_Select> (SWI &41211, <PRM 5a-433=>PRM-5a:433>)
+#Subpage reasons
+AppEngine_SocketOp reason codes
+#Wrap off
+R0	Action
+#Line
+0	<clears a file descriptor=>AppEngine_SocketOp0>
+1	<copies one file descriptor to another=>AppEngine_SocketOp1>
+2	<sets a bit within a file descriptor=>AppEngine_SocketOp2>
+3	<clears a bit within a file descriptor=>AppEngine_SocketOp3>
+4	<tests whether a bit within a file descriptor is set=>AppEngine_SocketOp4>
+#Wrap

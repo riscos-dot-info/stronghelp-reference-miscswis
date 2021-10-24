@@ -1,0 +1,14 @@
+Virtualise_End (&4B6C2)
+#parent Virtualise_
+{f25}Þ{f}	R0 =	The number of the dynamic area to un-virtualise.
+{f25}Ü{f}	All registers preserved.
+#line;tab
+*Purpose*:	Disable virtual memory in a dynamic area.
+*Interrupts*:	Interrupts are enabled.
+		Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:	SWI is not re-entrant.
+*Use*:	Use this SWI to disable virtual memory for a dynamic area. If virtual memory is not active for the specified dynamic area then the call returns without error.
+	If any virtual memory is associated with the area then an attempt is made to convert it into physical memory. If it is not possible to claim sufficient memory then the SWI will return an error, and the virtual memory will remain active.
+	If the area contains pages locked using Virtualise_Lock then an error will be produced, and the area will remain with virtual memory active.
+	If the dynamic area is removed without virtual memory being first disabled then this SWI is implicitly called, but no check is made for locked pages. It is better to call this SWI explicitly to allow more elaborate checks to be performed.

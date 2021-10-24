@@ -1,0 +1,14 @@
+PsiFS_Get &1000
+(SWI &520C3)Get the status of the remote link
+
+On entry:R0 =&1000
+
+On exit:R1 =remote link status
+
+Use:
+This call reads the status of the remote link. The bits of the result have the following meaning:
+
+BitMeaning when set
+0remote link active
+4connected to an EPOC16 device
+5connected to an EPOC32 device

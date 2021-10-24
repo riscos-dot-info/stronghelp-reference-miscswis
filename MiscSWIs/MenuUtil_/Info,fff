@@ -1,0 +1,12 @@
+MenuUtil_Info (&45BC7)
+#Parent MenuUtil_
+This call returns various information about the whole menu or about the particular menu item.
+
+{f25}Þ{f}	R0 =	handle of the menu or of the menu item or zero for current item
+{f25}Ü{f}	R0 {f25}®{f}	block
+#Line
+*Block contents*:	Returned block contains the following information:
+	 	R0 + 0	pointer to menu data structure
+	 	R0 + 4	pointer to item data or zero
+
+*Use*:	Menus created with MenuUtils are not static and may be moved in memory, for example after adding new items. So you must use direct pointers to this menus with caution until you have completely finished the menu construction.

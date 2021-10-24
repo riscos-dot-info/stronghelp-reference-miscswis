@@ -1,0 +1,15 @@
+Hyphenator
+#Parent !Root
+#Prefix Hyphenator_
+#Table Columns 2
+ResetDictionary
+CreateDictionary
+CopyDictionary
+EnquireDictionary
+FindWord
+AddWord
+RemoveWord
+Hyphenate
+GetWords
+EnumWord
+#EndTable

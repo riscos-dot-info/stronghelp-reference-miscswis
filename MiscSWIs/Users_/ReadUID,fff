@@ -1,0 +1,6 @@
+Users_ReadUID
+#Parent Users_
+<=	R0 =	uid number
+	R1 =	current gid number
+
+This SWI is used to read the current process' uid and gid.

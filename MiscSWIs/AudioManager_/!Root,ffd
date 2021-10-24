@@ -1,0 +1,31 @@
+AudioManager
+#Parent !Root
+#Prefix AudioManager_
+#Table Columns 2
+Info
+Reset
+ListDrivers
+Defaults
+Driver
+SelectSampler
+SamplerStatus
+StartSampling
+StopSampling
+DeselectSampler
+PlaySample
+FillBuffer
+ReturnCursor
+KillSample
+AdjustPlay
+ConvertPitch
+Stereo
+AttachVoice
+SoundPacked
+Sound
+ReadCCB
+WriteCCB
+PlaySampleFromFile
+QueueEvent
+<AddEvent>
+RedirectVIDC
+#EndTable

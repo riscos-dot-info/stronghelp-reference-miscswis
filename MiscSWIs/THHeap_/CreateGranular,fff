@@ -1,0 +1,11 @@
+THHeap_CreateGranular (&4C687)
+#Parent THHeap_
+{f25}Þ{f}	R0 !	Name to give dynamic area
+	R1 =	Maximum size of area
+	R2 =	Granularity factor
+
+{f25}Ü{f}	R0 = 	Heap reference ('handle')
+#line
+This call performs a similar function to <THHeap_CreateLimited> but allows the user to specify the granularity factor to be used. If you pass a factor of n, all block allocations and extensions will be rounded to a size of 2^n. This is useful to reduce fragmentation and the overhead of calling <OS_Heap=>OS:OS_Heap> for every trivial extension. Any granularity value of less than 3 is increased to 3. For example, it might be considered useful to set the granularity to the page size.
+
+Restrict the dynamic area name to a length suitable for the Task Manager window. Use the returned handle in all subsequent calls using this heap.

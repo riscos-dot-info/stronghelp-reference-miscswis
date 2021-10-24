@@ -1,0 +1,7 @@
+AudioManager_AddEvent
+#Parent !Root
+=>	R0 = <event number=>AudioManager_events>
+	R1 = Audioworks file
+	R2 = 1 to cache in RMA
+
+This SWI adds a sample to a particular desktop event; this means that whenever the event occurs the sample will be played.

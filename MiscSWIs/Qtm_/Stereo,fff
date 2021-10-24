@@ -1,0 +1,28 @@
+QTM_Stereo  (&47E4D)
+#Parent QTM_
+=>	R0 =	<channel number=>.usrchannel> to alter
+	 	or 0 for <pre-programmed settings=>.prgchannel>
+
+<=	R0 is preserved
+	If R0 = 1-8 then R1 = previous stereo position
+	If R0 = 0 then R1 is corrupted
+
+This SWI allows the stereo positions for each channel to be altered independently, or all together. If R0=1-8 on entry, then R1 must be either a valid stereo position (-127 to 127) or -128 to read the previous position. If R0=0 on entry, then R1 must be in the range 0-4 to alter all the channels to one of these pre-programmed values.
+#Subpage usrchannel
+User channel stereo settings
+R0 =	1-8
+R1 =	-127 (left) to 127 (right)
+	or -128 to read current position
+#Subpage prgchannel
+R0 =	0
+R1 =	0	<default stereo positions=>.default>
+	1	Amiga (full) stereo positions
+	2	centred (no stereo)
+	3	full left
+	4	full right
+#Subpage default
+Default stereo settings
+Channels 1,5 Position: -79 (left)
+Channels 2,6 Position:  79 (right)
+Channels 3,7 Position:  47 (slightly right)
+Channels 4,8 Position: -47 (slightly left)

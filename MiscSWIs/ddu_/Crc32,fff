@@ -1,0 +1,4 @@
+ddu_CRC32 (&506C5)
+Calcuates 32-Bit CRCs compatible with the Z-Modem polynominal (ANSI X3.66; &EDB88320).
+
+See <ddu_CRC16> for documentation.

@@ -1,0 +1,12 @@
+ddu_SetTitle (&506E5)
+{f25}Þ{f}	R0 =	Window handle
+		R1 !	text
+{f25}Ü{f}	R0-R5	corrupted
+Not re-entrant.
+#line
+Set a window's title bar text
+#line
+*Basic example*
+#fCode;indent 4;wrap off
+SYS "ddu_SetTitle",Window,"New title"
+#wrap;indent;f

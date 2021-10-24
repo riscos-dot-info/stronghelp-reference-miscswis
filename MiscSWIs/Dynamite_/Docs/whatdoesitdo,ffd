@@ -1,0 +1,18 @@
+What does Dynamite do?
+#fh2:Overview
+#fh3:What does Dynamite do?
+#line
+One of the greatest problems facing module writers is that of allocating memory.  Although the Relocatable Module Area has been provided to allow modules to allocate workspace, its design causes it to fragment over a period of time.
+
+Programmers have been aware of this problem for a long time, and several have started to use the System Sprite Area as an alternative source of memory, since it does not suffer from fragmentation in the same way as the RMA.
+
+Acorn have finally addressed this difficulty and enabled modules running under RISC†OS 3.5 or later to create their own dynamic areas, which they can then manage themselves, for example, by implementing a shifting heap similar to that used by most applications. Unfortunately this solution is not available to programs required to run on machines earlier than the RISC†PC.
+
+Dynamite is a small module which provides a solution to the problem of memory allocation without causing fragmentation of the RMA, abusing the Sprite area, or being specific to any particular operating system versions.  This means that code which uses Dynamite should be able to run on any version of RISC†OS.
+
+Running under RISC†OS 3.5 or later, Dynamite creates its own dynamic area and implements within it a shifting heap which is compacted over a period of time by a WIMP task.
+
+Under earlier versions of RISC†OS, Dynamite shuffles the memory map to create its own êdynamic areaë, and implements within it a shifting heap as before.
+
+The interface to the Dynamite memory manager is identical, whether or not a real dynamic area is used.  Since blocks are always allocated within Dynamite's special area of memory, clients which require blocks of memory and can cope with them being moved around can now obtain them without fragmenting the RMA.
+

@@ -1,0 +1,10 @@
+THHeap
+#Parent THHeap:!Root
+#Background wimp 1
+{*}Introduction{*}
+
+THHeap is a pair of modules to provide memory management with a programmers' interface consistent across RISC OS 3.1 and later versions. THHeapA will work on all versions of RISC OS whereas THHeapR is only for use with RISC OS 3.5 or later.
+
+Memory management is implemented by OS_Heap with the THHeap module handling placement and overall size of the heap. THHeapA achieves this by passing calls on to OS_Module while THHeapR uses dynamic areas. Each SWI has a parameter for use by the dynamic area system: THHeapA ignores these, so if you are unable to test your programs with THHeapR take care that you are using these parameters correctly.
+
+THHeapA does not distinguish between different heaps you tell it about: all blocks are placed in the RMA, mixed with blocks used by other programs. Therefore always free each block you use individually unless your program is guaranteed only to use THHeapR. THHeapR can create as many different heaps as you like, within any limits imposed by free memory and number of areas the OS will permit. Removing a heap will implicitly free all the blocks in it, but do not rely on this in case you are using THHeapA.

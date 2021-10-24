@@ -1,0 +1,18 @@
+Diss
+#Parent !Root
+#Prefix Diss_
+#Table Columns 2
+Disassemble
+InitLabels
+MakeLabelLookup
+FindLabel
+FindNamedLabel
+AddLabel
+AddLabelNoSort
+RemoveLabel
+Assemble
+AddLibraryBlock
+MergeLabels
+RemoveInvalidLabels
+RemoveSameNamedLabels
+#EndTable

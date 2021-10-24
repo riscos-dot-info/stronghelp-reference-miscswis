@@ -1,0 +1,11 @@
+DSym_SongPos  (&4588C)
+#Parent DSym_
+=>	R0 =	-1 to read sequence pos
+		other, to set
+	R1 =	-1 to read pattern pos
+		other, to set
+
+<=	R0 =	previous sequence pos
+	R1 =	previous pattern pos (0-63)
+
+This call reads or sets the pattern position in song and the note position in pattern. If the pattern position is changed, the current note is reset to 0.

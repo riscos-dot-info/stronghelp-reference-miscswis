@@ -1,0 +1,7 @@
+THSound_GetVoiceSlot (&4b782)
+#parent THSound_
+{f25}Þ{f}	R0 =	Sample's handle
+{f25}Ü{f}	R0	Preserved
+	R1 =	Voice slot
+#line
+Finds the sample's voice slot in case you haven't stored the value returned by <THSound_InstallSample>.

@@ -1,0 +1,30 @@
+Spell
+#Parent !Root
+#Prefix Spell_
+#Table Columns 2
+Typo
+Anagram
+Fuzzy
+CheckWord
+AddWord
+GetWord
+GetNextWord
+EnumWord
+CreateUser
+LoadUser
+SaveUser
+UserToFile
+FileToUser
+GetDictionaryName
+RemoveDictionary
+DeleteWord
+ResetIgnore
+AddToIgnore
+BrowseWindow
+SpellOp
+FindWord
+ImpressionInfo
+ImpressionQuickCheck
+FileToFile
+SaveDictionaryWithPath
+#EndTable

@@ -1,0 +1,6 @@
+Menu Modification
+You can in any moment change menu title string as well as the text of menu items. You can also change foreground and background colours of menu items.
+                                              
+Menu item has a number of flags which control its appearance and behaviour. The flags are <tick=>MenuUtil_Tick>, <fade=>MenuUtil_Fade>, <dots=>MenuUtil_Dots>, <submenu=>MenuUtil_SubMenu>, <writable=>MenuUtil_Writable> and <message=>MenuUtil_Warning>. Special SWIs are provided to set or clear each menu flag. As a special case when you are making menu item writable you can also specify buffer size and optional <validation string=>Wimp:Wimp_validationstring>. 
+
+You can delete single menu item or the whole menu with <MenuUtil_Delete>. You can also recursively delete the whole menu subtree connected with the deleted item or with the deleted menu.

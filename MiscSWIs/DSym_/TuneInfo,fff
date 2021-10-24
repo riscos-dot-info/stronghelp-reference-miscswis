@@ -1,0 +1,6 @@
+DSym_TuneInfo  (&4589A)
+#Parent DSym_
+<=	R0 =	tune length
+	R1 =	number of patterns
+
+This call reads some general informations about the song.

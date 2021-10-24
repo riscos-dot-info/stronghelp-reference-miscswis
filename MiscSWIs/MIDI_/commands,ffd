@@ -1,0 +1,32 @@
+MIDI command words
+#Parent MIDI_word
+Command	Bytes	Meaning
+#Line
+CHANNEL MESSAGES
+&8x	2	Note Off (note 0-127, velocity 0-127)
+&9x	2	Note On (note 0-127, velocity 1-127 / Off 0)
+&Ax	2	Poly Pressure (note 0-127, pressure 0-127)
+&Bx	2	Controller (controller 1-127, value 0-127)
+&Cx	1	Prog Change (program 0-127)
+&Dx	1	Chan Pressure (pressure 0-127)
+&Ex	2	Pitch Bend (LSB 0-127, MSB 0-127)
+
+SYSTEM COMMON MESSAGES (never occur in a MIDI file)
+&F0	0	Start of SysEx (SOX)
+&F1	1	MIDI Time Code Quarter Frame (0ttt vvvv of Type, Value)
+&F2	2	Song Position pointer (LSB 0-127, MSB 0-127)
+&F3	1	Song Select (Song number 0-127)
+&F4	-	Undefined
+&F5	-	Undefined
+&F6	0	Tune Request
+&F7	0	End of SysEx (EOX)
+
+SYSTEM REAL TIME MESSAGES (never occur in a MIDI file)
+&F8	0	MIDI Timing clock
+&F9	-	Undefined
+&FA	0	Start
+&FB	0	Continue
+&FC	0	Stop
+&FD	-	Undefined
+&FE	0	Active Sensing
+&FF	?	Meta events

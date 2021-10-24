@@ -1,0 +1,6 @@
+Speak_Misc 2
+#Parent Speak_Misc
+=>	R0 =	2 (deregister)
+<=	R0 =	number of registered clients
+
+This SWI is used to deregister with the Speak module. If nobody else is using it, the module will be killed.

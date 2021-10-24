@@ -1,0 +1,12 @@
+Block IDs
+#fh2:About the Dynamite heap
+#fh3:Block IDs
+#line
+When you allocate a block using <Dynamite_Alloc>, you can specify a block ID to associate with it.  This can be any 32-bit value you like, although it should be something unlikely to conflict with other client's IDs, e.g.:
+
+	è	A moduleës base address
+	è	An application's task handle or start time
+
+If you want your program to have multiple IDs, you could divide the ID value into a êmagicë field (say 24 bits of module base address) and an index number.
+
+Later, you can free all blocks with a particular ID.  This is useful when you want to free all the blocks associated with a particular object when that object is destroyed.  For example, during development of a module, you could free all its Dynamite blocks in the finalisation code.

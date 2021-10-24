@@ -1,0 +1,13 @@
+Creator
+#Parent !Root
+#Prefix Creator_
+#Table Columns 2
+SetVariable
+ReadVariable
+GIFCompress
+TIFFCompress
+AIMConvert
+PBMConvert
+TaskStart
+TaskQuit
+#EndTable

@@ -1,0 +1,46 @@
+Euclid_Create (&80646)
+#parent Euclid_
+=>	R0 =	Size of object to create (number of children).
+ 	R1 !	Picture structure or zero.
+ 	R2 =	Identifier of object to create.
+<=	R0 !	Newly created object.
+#line;wrap on
+A new object of the with the identifier in R2 is created at the end of the
+available area (if enough remains). The header of the picture structure is
+updated to reflect the amount of memory used. Note that this function will
+not invalidate any pointers which you may already be holding, since the
+structure is not moved.
+#line;wrap
+<Examples=>.examples>
+#
+#subpage examples
+Euclid_Create Examples
+#fCode;indent 3;wrap off
+   SYS"<Euclid_Create>",4,,&20 TO Plane%:REM create a four-sided plane
+   SYS"Euclid_Create",6,,&30 TO Solid%:REM create a six-planed solid
+   SYS"Euclid_Create",5,,&31 TO Mesh% :REM create a mesh with 5 slices
+   SYS"Euclid_Create",10,&40 TO Group%:REM create a group of 10 objects
+   SYS"Euclid_Create",,&50 TO Trans%  :REM create a transformation
+#wrap;indent;f
+
+Combined with the above Set commands we can arrange to create a collection of five cubes as follows:
+
+#fCode;indent 3;wrap off
+   SYS"Euclid_Create",6,&40 TO Group%
+   SYS"Euclid_Create",6,&30 TO Cube%
+   FOR Side%=1 TO 6
+    READ Colour%   :REM DATA goes colour,x1,y1,z1,x2,...,y6,z6,colour,...
+    SYS"Euclid_Create",4,,&20 TO Plane%
+    FOR Point%=1 TO 4
+     READ X%,Y%,Z%   :REM or if you are very clever you can calculate it!
+     SYS"<Euclid_Set>",Point%,,Plane%,X%,Y%,Z%
+    NEXT Point%
+    SYS"Euclid_Set",Side%,,Cube%,Colour%,Plane%
+   NEXT Side% :REN so now we have a single cube to use
+   FOR Child%=1 TO 5
+    SYS"Euclid_Create",,&50 TO Transform%
+    SYS"Euclid_Set",Child%,,Group%,Transform%,Cube%
+   NEXT Child%
+#wrap;indent;f
+
+Note that the order in which things are created means that you don't have to remember lists of pointers. You can always get them back by using <Euclid_Show> anyway.

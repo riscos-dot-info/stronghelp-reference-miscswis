@@ -1,0 +1,9 @@
+PsiFS_Get &12xx (&520C3)
+{f25}Þ{f}	R0 =	&1200 + drive
+		R1 !	buffer to contain null terminated drive name
+		R2 =	size of buffer
+{f25}Ü{f}	R2 =	number of spare bytes in the buffer including the null terminator
+#line
+This call reads the name of a single remote drive.
+
+The drive number is the ASCII code of the drive letter in upper case, i.e. 65 (&41) to 90 (&5A) for drives A to Z.

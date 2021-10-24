@@ -1,0 +1,15 @@
+DSym_Load (&45880)
+#Parent DSym_
+=>	R0 =	-1 to free RMA buffers
+	 	0 to load from memory
+	 	>0 pointer to filename
+	R1 =	source start address (if R0 = 0)
+	R2 =	0 to load to RMA
+	 	>0 destination address
+	R3 =	size of destination buffer (if R2 >0)
+	R4 =	0 claim buffer in RMA
+	 	>0 start address of buffer (32k space)
+
+<=	R0 =	length of track in memory
+
+This loads a DSym-Song either from memory or from a file to a buffer either claimed in RMA or a given destination buffer, the buffer in R4 is only needed, if the DSym-Song contains some packed data. If you save a Playermodule with song from DigitalSymphony, this SWI is disabled in the module.

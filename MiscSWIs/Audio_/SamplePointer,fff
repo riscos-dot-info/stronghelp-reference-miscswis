@@ -1,0 +1,10 @@
+Audio_SamplePointer (&452C8)
+#Prefix Audio_
+#Parent Audio_
+=>	R0 =	data pointer (0 to read)
+	R1 =	data length (0 to read)
+	
+<=	R0 =	current pointer
+	R1 =	current length
+
+This SWI sets (or reads) data pointers. Note that the data must be in RMA.

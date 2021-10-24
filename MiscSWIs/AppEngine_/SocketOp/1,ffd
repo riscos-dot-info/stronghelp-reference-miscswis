@@ -1,0 +1,9 @@
+AppEngine_SocketOp 1  (&4D945)
+#Parent AppEngine_SocketOp
+=>	R0 =	1
+	R1 =	pointer to destination file descriptor
+	R2 =	pointer to source file descriptor
+
+<=	R0, R1, R2 preserved
+
+This call is used to copy one file descriptor block to another (or memory to be used as a new file descriptor).

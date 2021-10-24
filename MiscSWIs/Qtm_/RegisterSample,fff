@@ -1,0 +1,18 @@
+QTM_RegisterSample  (&47E5A)
+#Parent QTM_
+=>	R0 =	sample number to register as (1-64) (see notes below)
+	R1 =	sample address (of logarithmic sample data) or 0 to blank the sample information
+	If R1 \<> 0 then
+	 	R2 = sample length (in bytes)
+	 	R3 = repeat offset (bytes from start of sample, or 0)
+	 	R4 = repeat length (or 0)
+	 	R5 = default volume (0-64)
+	 	R6 = fine tune value (-8 to +7)
+
+<=	R0-R6 preserved
+
+This SWI allows a program to register a sample loaded into it's own memory, as a QTM sample. The above information will be entered into QTM's 64 slot sample table and will allow the user program to play the sample using <QTM_PlaySample>. If the sample number is <=31, the current song will use this sample rather than its default sample.
+
+It is good practice for non-desktop users of this call to blank their registered samples when returning to the desktop, by calling this SWI with R1=0.
+
+Note: All samples in the range 1-31 are re-set when a new song is loaded, to allow space for the new song's own samples. If you are using this range for sound effects etc. you must re-register all required samples after every song load.

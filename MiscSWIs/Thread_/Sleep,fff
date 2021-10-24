@@ -1,0 +1,6 @@
+Thread_Sleep (0x4DA4B)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	R0	=	Time to sleep in centiseconds
+#line
+*Notes*:	The thread that makes this call will go to sleep for the number of centiseconds specified in R0.

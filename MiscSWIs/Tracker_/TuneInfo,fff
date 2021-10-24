@@ -1,0 +1,14 @@
+Tracker_TuneInfo  (&4320A)
+#Parent Tracker_
+\<=	R0 =	Sequence table length (1-128)
+	R1 =	Number of voices (1-8)
+	R2 =	Current speed (1-15)
+	R3 =	Pointer to tune name (terminated by 0, max length 32 chars)
+	R4 =	Pointer to author's name (0 terminated, max length 32 chars) or zero if soundtracker format module (not applicable)
+	R5 =	Address of currently loaded tune module
+           
+If the tune is paused, the C flag is set, otherwise the C flag is cleared. If there is no tune loaded, R0 is set to zero, and R1-R5 are preserved.
+
+This call provides miscellaneous information about the tune currently loaded.
+
+You should not need to directly access the tune module (using the address passed in R5), because all information is available via the various SWI's, and soundtracker format modules will have been converted partially to Tracker format when loaded (and therefore in an unknown format). This information is provided if, for example, multi-tasking players/editors need to know if the tune currently playing is running from ordinary RMA, or the player's/editor's own workspace.

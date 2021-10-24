@@ -1,0 +1,16 @@
+PCIO
+#Parent !Root
+#Prefix PCIO_
+#Table Columns 2
+LPTInit
+LPTSetCallback
+COMInit
+COMSetCallback
+COMSetRate
+COMSetByteFormat
+COMSetModem
+COMTransmit
+COMGetStatus
+COMReceive
+LPTReadPort
+#EndTable

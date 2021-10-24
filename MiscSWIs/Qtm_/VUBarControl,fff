@@ -1,0 +1,20 @@
+QTM_VUBarControl  (&47E50)
+#Parent QTM_
+=>	R0 =	<control value=>.control>
+	R1 =	new VU gravity, or -1 to read
+
+<=	R0 =	previous VU controller state
+	R1 =	previous VU bar gravity
+
+This SWI allows control of the highly accurate VU bar routine contained in the QTM module. The default settings for the VU bar routine are: gravity = 2 (lines per 50th of a second) and the VU bar controller off.
+
+Note: Currently QTM VU bars are only available for channels 1-4.
+#Subpage control
+QTM VUBar control values
+\#	meaning
+#Line
+0	switch the VU bar controllers off
+1	set the VU bar controller to use 'fake' VU bars
+2	set the VU bar controller to use 'effect' VU bars
+3	set the VU bar controller to use 'real' VU bars
+-1	read current setting

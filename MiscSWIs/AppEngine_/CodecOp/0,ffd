@@ -1,0 +1,18 @@
+AppEngine_CodecOp 0  (&4D946)
+#Parent AppEngine_CodecOp
+=>	R0 =	0
+	R1 =	pointer to input data
+	R2 =	length of input data (no more than 189 bytes)
+
+<=	R0, R1, R2 preserved
+	R3 =	pointer to Base64-encoded string
+
+Encodes data into a Base64 string.
+
+This call is used to encode small amounts of data into the 7-bit MIME Base64 encoded format, for use in Internet applications.
+
+Since the output is a string, limited to a maximum of 255 characters you must ensure that you supply no more than 189 bytes of input.  This is because for every three bytes of input, the encoder generates four bytes of output and also strings of certain lengths are suffixed with '=' characters which reduces the maximum input length more.
+
+The exact method for detemining the output string length is:
+#align centre;fCode
+( ( in_length × 4 / 3 ) + 3 ) AND NOT 3

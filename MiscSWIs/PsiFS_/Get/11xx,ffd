@@ -1,0 +1,15 @@
+PsiFS_Get &11xx (&520C3)
+{f25}Þ{f}	R0 =	&1100 + drive
+{f25}Ü{f}	R1 =	<remote drive status=>.status>
+#line;tab
+This call reads the status of a single remote drive.
+
+The drive may be specified in one of three ways:
+{f24}g{f}	a zero based index	(0 for drive A, through to 25 for drive Z)
+{f24}g{f}	the ASCII code of the drive letter in upper case	(65 for drive A, through to 90 for drive Z)
+{f24}g{f}	the ASCII code of the drive letter in lower case	(97 for drive A, through to 122 for drive Z)
+#
+#subpage status
+PsiFS_Get &11xx status word
+/Bit/	/Meaning when set/
+0	drive present

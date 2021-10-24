@@ -1,0 +1,27 @@
+MenuUtil_New (&45BC1)
+#Parent MenuUtil_
+Creates new empty menu.
+
+{f25}Þ{f}	R1 {f25}®{f}	menu title string
+	R2 =	approximate number of items (default 5)
+{f25}Ü{f}	R0 =	handle of created menu
+#line
+*Use*:	This call creates new empty menu with specified title string. Colours and dimensions of the menu are in standard RISC OS style. You can specify number of items you are going to have in this menu. This is optional but it can speed up the process of menu creation. It may be important for big menus (for example for oldstyle fonts menu).
+	As Window Manager doesn't allow you to have menus absolutely without menu items so each new menu is created together with one special item. This item is created with the only aim to prevent crashes in case you will accidentially try to open unfinished menu. The special item will be removed automatically just after you add your first item to this menu.
+	If your program has complex menu structure with submenus then you can use this call to create not only main menu but also all submenus. And you have to remember the handles of all submenus in order to link them later to corresponding menu items in parent menu. If on the other hand your program have only one menu without submenus then you may ignore the returned menu handle because it will be anyway used as default in all future calls to MenuUtils.
+	After this call the new menu becomes the current menu.
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_New)
+Start construction of simple menu like one in Palette Utility
+
+#Fcode:  SYS "MenuUtil_New",,"Palette" 
+
+If you program has complex menu structure (like Source Editor) then you have to remember the handles of all submenus
+
+#FCode;Indent 2
+SYS "MenuUtil_New",,"SrcEdit" TO mainMenu%
+SYS "MenuUtil_New",,"Display" TO dispMenu%
+SYS "MenuUtil_New",,"Fonts",200 TO fontsMenu%
+#F;Indent

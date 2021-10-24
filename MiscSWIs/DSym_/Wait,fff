@@ -1,0 +1,5 @@
+DSym_Wait  (&45890)
+#Parent DSym_
+=>	R0 =	voice number (0-7)
+
+C is set if custom note buffer is not empty, else clear.

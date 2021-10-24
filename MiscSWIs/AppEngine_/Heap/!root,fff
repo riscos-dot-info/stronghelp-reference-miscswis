@@ -1,0 +1,23 @@
+AppEngine_Heap  (&4D949)
+#Wrap off
+=>	R0 = <reason code=>.reasons>
+	other registers are reason code dependent
+
+<=	R0 preserved
+	other registers are reason code dependent
+#Wrap
+
+This call provides a <sliding‘ heap manager=>appengine_heapmain>.
+#line;tab
+Related SWIs:	<OS_Heap=>OS:OS_Heap>, AppEngine_MemoryOp 0
+#Subpage reasons
+AppEngine_Heap reason codes
+#Wrap off
+R0	Action
+#Line
+0	<creates a new heap=>AppEngine_Heap0>
+1	<deletes a heap=>AppEngine_Heap1>
+2	<claims a block of memory from a heap=>AppEngine_Heap2>
+3	<releases a block of memory from a heap=>AppEngine_Heap3>
+4	<resizes a block of memory in a heap=>AppEngine_Heap4>
+#Wrap

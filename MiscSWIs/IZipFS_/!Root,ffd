@@ -1,0 +1,25 @@
+IZipFS
+#Parent !Root
+#Prefix IZipFS_
+#Table Columns 2
+Initialise
+Eject
+Lock
+Unlock
+SCSICommand
+DeviceInquiry
+Devices
+Reset
+ReadOp
+WriteOp
+DiscOp
+MiscOp
+Drives
+FreeSpace
+DescribeDisc
+GetStatus
+VerifyOp
+WriteProtect
+DiscFormat
+BootChanged
+#EndTable

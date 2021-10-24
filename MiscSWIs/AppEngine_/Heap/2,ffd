@@ -1,0 +1,13 @@
+AppEngine_Heap 2  (&4D949)
+#Parent AppEngine_Heap
+=>	R0 =	2
+	R1 =	pointer to heap
+	R2 =	size of block required (bytes)
+
+<=	R1 =	pointer to anchor
+
+This call is used to claim a block of memory from the heap.
+
+The size of the block claimed will always be rounded up to at least the nearest multiple of four bytes.
+
+The call returns a pointer to a word holding the address of the block, so in BASIC terms block_address%=!anchor%.  Blocks can move about in response to *any* heap operation, so you must ensure your block_address% is updated after any heap operation.

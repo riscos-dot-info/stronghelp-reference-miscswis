@@ -1,0 +1,6 @@
+Speak_Misc 0
+#Parent Speak_Misc
+=>	R0 =	0 (read version)
+<=	R0 =	version major number as integer (eg 2)
+
+This SWI returns the major part of the version of the Speak module.

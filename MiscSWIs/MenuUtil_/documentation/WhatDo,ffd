@@ -1,0 +1,6 @@
+What does it do?
+The MenuUtils module is not the extension to the Window Manager and it doesn't provide any extra feature. The module only provides a convenient interface for the programmer to Window Manager's menu system. The module has a collection of SWIs to do all the low level work concerned with direct accesses to menu data structures, memory allocation, etc. It saves the author of application program from the need to do this routine work himself.
+
+MenuUtils provides mechanism of item handlers. It allows to attach individual handler to each menu item. In case of BBC BASIC the handler may be simply a BASIC function. When menu item is selected the corresponding item handler may be invoked automatically. This feature saves the programmer from the need to decode the list of menu selections. During program development the use of individual item handlers simplifies the process of menu modification. You can freely rearrange menu items without the need to make any changes in other parts of the program. There is an example in the end of this text which illustrates the use of item handlers in BASIC programs.
+
+MenuUtils automatically allocates memory to hold menu data structures. And also it takes care about appearance of menus on screen by forcing them to be in standard RISC OS style.

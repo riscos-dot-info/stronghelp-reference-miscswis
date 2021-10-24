@@ -1,0 +1,54 @@
+SparkFS_Util (&445C4)
+#Parent SparkFS_
+=>	R0 =	reason code number
+	 	  0	<Parent of directory=>.code0>
+	 	  1	<Set number of files in directory=>.code1>
+	 	  2	<Insert entry=>.code2>
+	 	  3	<Remove entry=>.code3>
+	 	  4	<Map extension to type=>.code4>
+	 	  5	<Calculate directory length=>.code5>
+	 	  6	<Open scrap file=>.code6>
+	 	  7	<Close scrap file=>.code7>
+
+This call is used to do things to archives (!).
+#subpage code0
+SparkFS_Util 0
+=>	R0 =	0 (Parent of directory)
+	R1 =	pointer to archive
+	R2 =	child
+<=	R0 =	parent
+#subpage code1
+SparkFS_Util 1
+=>	R0 =	1 (Set number of files in directory)
+	R1 =	no of files
+#subpage code2
+SparkFS_Util 2
+=>	R0 =	2 (Insert entry)
+	R1 =	pointer to archive
+	R2 =	file number
+	R3 =	directory
+	R4 =	size
+#subpage code3
+SparkFS_Util 3
+=>	R0 =	3 (Remove entry)
+	R1 =	pointer to archive
+	R2 =	file number
+	R4 =	size
+#subpage code4
+SparkFS_Util 4
+=>	R0 =	4 (Map extension to type)
+	R1 =	pointer to extension
+<=	R0 =	file type
+#subpage code5
+SparkFS_Util 5
+=>	R0 =	5 (Calc dir lens)
+	R1 =	pointer to archive
+#subpage code6
+SparkFS_Util 6
+=>	R0 =	6 (Open scrap file)
+	R1 =	mode
+<=	R0 =	handle
+#subpage code7
+SparkFS_Util 7
+=>	R0 =	7 (Close scrap file)
+	R1 =	handle

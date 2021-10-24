@@ -1,0 +1,4 @@
+Displaying Menus On The Screen
+According to RISC OS rules you must display menu on screen when user clicks with Menu button over one of your windows or iconbar icon. To find out where to display the menu you have to perform some calculations. MenuUtils provides a SWI <MenuUtil_Show> which will perform all necessary calculations for you and open menu in the right screen position according to RISC OS standards.
+
+Special SWI <MenuUtil_ShowSubMenu> is provided to display submenu in reply to <Message_MenuWarning=>Wimp:Msg_400C0>.

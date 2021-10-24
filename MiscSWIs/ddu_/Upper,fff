@@ -1,0 +1,11 @@
+ddu_Upper (&506C0)
+{f25}Þ{f}	R0 !	string, ctrl term.
+{f25}Ü{f}	All preserved.
+Re-entrant.
+#line
+Convert a string to upper-case letters
+#line
+*Basic example*
+#wrap off;fCode;indent 4
+SYS "ddu_Upper","MixED cASe" TO Up$
+#indent;f;wrap

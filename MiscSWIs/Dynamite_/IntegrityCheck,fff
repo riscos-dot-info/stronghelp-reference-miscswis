@@ -1,0 +1,12 @@
+Dynamite_IntegrityCheck (SWI &4A3D1)
+#parent Dynamite_
+{*}Dynamite_IntegrityCheck{*}	Performs a rigorous check of Dynamite's heap
+On entry	˜
+On exit		˜
+Interrupts	Interrupt status is undefined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	Checks the Dynamite heap carefully.  If the heap has been corrupted, an error is returned.  You can use this SWI during debugging of applications.
+	Normally, Dynamite only performs simple checks, for performance reasons.  You must call this SWI by hand to check the heap fully.
+Related SWIs	/None/

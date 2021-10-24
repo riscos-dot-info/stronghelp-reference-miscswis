@@ -1,0 +1,8 @@
+THSound
+#parent !Root
+#prefix THSound_
+<InstallSample>		0x4B780
+<RemoveSample>		0x4B781
+<GetVoiceSlot>		0x4B782
+<ChannelInUse>		0x4B783
+<GetPollWord>		0x4B784

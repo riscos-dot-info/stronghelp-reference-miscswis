@@ -1,0 +1,3 @@
+DSym_IntState  (&45891)
+#Parent DSym_
+This call checks, what the module does in the moment. C is set if the call has interrupted the playing or filling routines.

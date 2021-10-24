@@ -1,0 +1,6 @@
+ZeriRegister_UnregisterModule (0x49840)
+#Parent ZeriRegister_
+{f25}Þ{f}	R0 =	ptr to module name
+#line
+{*}Notes{*}:	For more details see <*UnregisterModule=>ZeriRegister_Commands>
+		SWI part of the <ZeriRegister=>ZeriRegister_> package.

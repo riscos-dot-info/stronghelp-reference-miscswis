@@ -1,0 +1,50 @@
+Euclid_Draw (&80641) 
+#parent Euclid_
+=>	R0 =	<Drawing style=>.drawingstyle>
+ 	R1 !	Picture structure or zero.
+ 	R2 =	Offset of 3D origin from screen origin X.
+ 	R3 =	Offset of 3D origin from screen origin Y.
+ 	R4 !	String (possibly null) for camera name or zero.
+ 	R5 !	VDU variables block. (See 'Experts').
+<=	-
+#line
+This call is the fundamental one to get a picture on the screen. It has been designed for use with the Wimp (hence the origin offset parameters).
+#line
+<Examples=>.examples>
+#
+#subpage drawingstyle
+Euclid_Draw R0 values
+/Bit/	/Meaning/
+0	Wire frame (i.e. all odd styles are wire frame).
+1-6	Main style:
+ 	 	0 =	Faces only.
+ 	 	1 =	Faces and edges.
+ 	 	Other values undefined.
+7	Monochrome (i.e. use BLOCK!48)
+8	!named objects are *visible*
+9	Lights on.
+10	Front Light on (if no lights present).
+8-26	Reserved, set to zero.
+27	Use VDU drivers and ColourTrans (See 'Experts')
+28	Use old (printer?) palette values for 16 colour modes.
+29	Return DrawFile information (See 'Experts').
+30	Take VDU variables from R5 (See 'Experts').
+31	Pre-process only, no drawing (for timing only??).
+#
+#subpage examples
+Euclid_Draw Examples
+#fCode;wrap off;indent 3
+SYS "Euclid_Draw",1,,640,512  :REM draw in wire-frame at screen centre
+SYS "Euclid_Draw",1<<9,,X%,Y% :REM drawn lit with origin at X%,Y%
+STYLE% = STYLE% EOR 1         :REM flip style into/out of wire-frame mode.
+#indent;wrap;f
+   
+and in a loop after a Wimp_RedrawWindow request:
+#fCode;wrap off;indent 3
+SYS "Wimp_RedrawWindow",,WIMPBLOCK% TO FLAG%
+WHILE FLAG%
+ X% = WBLOCK%!8 - WBLOCK%!12
+ Y% = WBLOCK%!? - WBLOCK%!??
+ SYS "Euclid_Draw",STYLE%,BLOCK%,X%,Y%
+ENDWHILE
+#indent;wrap;f

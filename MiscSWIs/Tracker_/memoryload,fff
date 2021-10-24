@@ -1,0 +1,12 @@
+Tracker_MemoryLoad  (&43202)
+#Parent Tracker_
+=>	R0 =	pointer to first word of soundtracker/tracker module in memory (NB must be word-aligned)
+	R1 =	length of module in bytes
+\<=	R0 and R1 preserved
+
+This call can be used by a non-multitasking application to specify an area of memory as a tune module, and thereby remove the need for a seperate file to hold a tune, and there is no need to claim a large amount of RMA space. Once this SWI is called, the module will be treated as if it was loaded in the module's own workspace.
+When a soundtracker module is loaded, the pattern data is converted to Tracker format data (except for volumes which remain 0-64), so  for the purposes of editing, as long as <Tracker_ReadPos>/<Tracker_WriteSampleTable> are used, the module can be considered as a Tracker module. When <Tracker_Stop>/*PlayStop is called, the data is converted back.
+
+Important: You must tell the TrackerModule to forget the module if the memory will be overwritten, otherwise the module may crash. (*PlayStop or <Tracker_Stop>)
+
+NB: This call will not work for programs running under the desktop if the module is loaded in user memory.

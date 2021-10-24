@@ -1,0 +1,5 @@
+Gemini_StartBuffering (&4D506)
+#Parent Gemini_
+=>	R1 =	pointer to <TMviewblock=>Gemini_viewblock>
+
+This tries to reserve enough video memory to obtain a second bank to enable screen banking for smooth animation. If it succeeds, then it copies the first page into the second, to enable a bank switching also from desktop (the second page isn't filled with strange colours this way...). Otherwise nothing happens and Gemini will use the current video memory.

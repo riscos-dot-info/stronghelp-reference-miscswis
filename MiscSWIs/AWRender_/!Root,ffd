@@ -1,0 +1,14 @@
+AWRender
+#Parent !Root
+#Prefix AWRender_
+#Table Columns 2
+FileInitAddress
+RenderAddress
+DocBounds
+SendDefs
+ClaimVectors
+ReleaseVectors
+FindFirstFont
+FindNextFont
+MemoryNeeded
+#EndTable

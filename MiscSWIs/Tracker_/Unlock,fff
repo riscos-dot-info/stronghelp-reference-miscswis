@@ -1,0 +1,5 @@
+Tracker_Unlock  (&4320E)
+#Parent Tracker_
+=>	R0 =	locking code (specified in Tracker_Lock)
+
+This SWI should be called to unlock the module after it has been locked with <Tracker_Lock>. If the value passed in R0 is different to the locking code given in the lock SWI, or the module has not been locked, an error is generated.

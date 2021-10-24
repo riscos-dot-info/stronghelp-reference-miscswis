@@ -1,0 +1,29 @@
+Euclid_Initialise (&80640)
+#parent Euclid_
+=>	R0 =	Initialisation type
+ 	 	/Bits/	/Value/	/Meaning/
+ 	 	0	0	white on black
+ 	 	 	1	black on white
+ 	 	1	0	perspective factor -11 (i.e. axonometric)
+ 	 	 	1	perspective factor +11
+ 	R1 !	Picture structure to initialise
+ 	R2 =	Size of area available
+<=	R0 =	Version number of Euclid × 100
+#line
+As a special case R0=-1 on entry simply updates the Module‘s current block pointer‘ value. {*}It is necessary to make this call in a multitasking program{*}.
+#line
+<Example code=>.example>
+#
+#subpage example
+Euclid_Initialise Example code
+To allocate a block of memory at BLOCK% of size 50000 for Euclid's use:
+#fCode;wrap off;indent 3
+DIM block% 50000
+SYS "Euclid_Initialise",,block%,50000
+#indent;wrap;f
+
+To re-establish Euclid's block pointer (assuming R1=0 is the preferred method):
+#fCode;wrap off;indent 3
+SYS "Wimp_Poll",,wimpblock% TO code%
+SYS "Euclid_Initialise",-1,block%
+#indent;wrap;f

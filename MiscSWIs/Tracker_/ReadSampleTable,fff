@@ -1,0 +1,16 @@
+Tracker_ReadSampleTable  (&4320C)
+#Parent Tracker_
+=>	R0 =	Sample number (1-36)
+\<=	R0 preserved
+	R1 =	Pointer to sample name (0-terminated, max length 22 chars) 
+	R2 =	Sample volume (0-255, 255=maximum volume, 0=silent) (or for sound tracker 0-64, 64=max vol.) 
+	R3 =	Sample length (bytes)
+	R4 =	Repeat offset (bytes)
+	R5 =	Repeat length (bytes)
+	R6 =	Address of raw sample data
+
+This call returns all relevant information about the specified sample. 
+
+If there is no tune loaded, an error will be generated.
+
+If the sample number is out of range (for example, if reading sample 16 on a 15-instrument module), R1 and R6 will point to a zero, and R2-R5 will contain a zero.

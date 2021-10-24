@@ -1,0 +1,7 @@
+Operation codes
+#Wrap Off
+Code	Meaning
+#Line
+-1	Delete message
+0	Don't alter message
+1	Set data as passed

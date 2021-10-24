@@ -1,0 +1,5 @@
+Stream_Kill (&81942)
+#Parent Stream_
+No parameters
+
+Stream_Kill will set a flag internally to prevent <Stream_Enable> from being handled in the usual way. All calls to Stream_Enable will be ignored. This allows one piece of code which calls another routine or routines to prevent debugging being generated from the called routines.

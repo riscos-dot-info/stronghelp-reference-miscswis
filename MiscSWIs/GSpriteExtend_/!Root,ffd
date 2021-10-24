@@ -1,0 +1,8 @@
+GSpriteExtend
+#Parent !Root
+#Prefix GSpriteExtend_
+#Table Columns 1
+PlotSprite
+SwitchOutputToSprite
+ReadVariable
+#EndTable

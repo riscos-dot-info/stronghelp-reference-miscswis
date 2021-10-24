@@ -1,0 +1,5 @@
+LineEditor_DeleteLine
+#Parent LineEditor_
+=>	R0 =	buffer handle
+
+Deletes the last line from the history.

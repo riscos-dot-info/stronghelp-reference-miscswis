@@ -1,0 +1,37 @@
+MenuUtil_Add (&45BC2)
+#Parent MenuUtil_
+Adds new item to existing menu.
+
+{f25}Þ{f}	R0 =	handle of the menu or of the menu item or zero for current menu
+	R1 {f25}®{f}	item text
+	R2 {f25}®{f}	item handler
+{f25}Ü{f}	R0 =	handle of menu item
+	R1,R2	preserved
+#line
+*Use*:	This call adds one item to the existing menu. If handle is the handle of menu then new item will be added to the end of this menu. If handle is the handle of the item then new item will be inserted into menu just before this item. If R0 is zero on entry then item will be added to the end of current menu.
+	During this call the current menu may be moved in memory so if you keep direct pointers to the menu data structure they may become invalid. On the other hand if there are any menu items linked with this menu by means of <MenuUtil_Submenu> then all pointers will be recalculated automatically by the module and will remain valid.
+	MenuUtils makes his own copy of the string pointed to by R1 but inspite of this you still can easily change it with <MenuUtil_Text>. If R1 is zero on entry then null string ("") will be used as item text.
+	If R2 is not zero on entry then interpretation of it contents depends on the initialisation type specified early during the call to <MenuUtil_Initialise>. If initialisation type was specified as "BASIC" then it is assumed that R2 is a pointer to the ctrl-terminated text string. In this case the module makes his own copy of the string for later use in <MenuUtil_Decode>. If initialisation type was "machine code" (not supported by current version) then only the contents of R2 is saved by the module. This feature allows you to attach a handler to the menu item. In case of "BASIC" you can provide the name of BASIC function. In case of "machine code" - the address of ARM subroutine. See also <MenuUtil_Decode> and for possible use of item handlers.
+               
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_Add)
+Add item "Info" to the current menu
+
+#FCode:  SYS "MenuUtil_Add",,"Info" TO infoItem%
+
+Add item "Quit" and then insert item "Create" just before it.  Let's the first item will have the handler. The handler is assumed to be BASIC function FNquit. (See <MenuUtil_Decode> on how this handler may be called)
+
+#FCode;Indent 2
+SYS "MenuUtil_Add",,"Quit","quit" TO quitItem%
+SYS "MenuUtil_Add",quitItem%,"Create" TO createItem%
+#F;Indent
+
+Create menu similar to Display submenu in Filer. When items are added to current menu menu handle (dispMenu%) may be omitted as it will be used by default.
+
+#FCode;Indent 2
+SYS "MenuUtil_New",,"Display" TO dispMenu%
+SYS "MenuUtil_Add",,"Large icons" TO largeItem%
+SYS "MenuUtil_Add",,"Small icons" TO smallItem%
+SYS "MenuUtil_Add",,"Full info" TO fullItem%
+#F;Indent

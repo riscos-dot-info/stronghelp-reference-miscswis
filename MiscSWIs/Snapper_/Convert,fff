@@ -1,0 +1,5 @@
+Snapper_Convert  (&52381)
+# contributed by alex macfarlane smith
+{f25}Þ{f}	R0 = filename to load and save as
+
+Takes the filename in R0 and converts it into a <RISC OS sprite file=>FileTypes:ff9>.

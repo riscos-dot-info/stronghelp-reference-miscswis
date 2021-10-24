@@ -1,0 +1,22 @@
+ddu_ConvTime (&506C3)
+{f25}Þ{f}	R0 !	10-digit hexadecimal string giving the time to be converted. Does not require termination, but will be corrupted.
+ 		 	If 0, current realtime is used.
+ 		R1 !	format string, ctrl terminated.
+{f25}Ü{f}	R0 !	resulting string, CR terminated.
+Not re-entrant.
+#tab;line
+Converts a given 5-byte realtime to a string, using <Territory_ConvertDateAndTime=>OS:Territory_ConvertDateAndTime> and the configured settings for timezone and dst offsets.
+#line
+<Example=>.example>
+#
+#subpage example
+ddu_ConvTime Basic example:
+#wrap off;indent 4;fCode
+SYS "<ddu_RealTime>" TO RT$
+SYS "<ddu_ConvTime>",RT$,"%24:%mi" TO T$
+#f;indent
+is equal to
+#indent 4;fCode
+SYS "<ddu_ConvTime>",,"%24:%mi" TO T$
+#f;indent;wrap
+(see '<Format field names=>OS:swi_dateformat>' (<PRM 1-402=>PRM-1:402>) for details of the format string)

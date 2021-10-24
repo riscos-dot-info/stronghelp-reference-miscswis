@@ -1,0 +1,25 @@
+ARMEdit_TalkRX (&4BC44)
+#parent ARMEdit_
+{f25}Þ{f}	R0 =	Client handle for this task.
+{f25}Ü{f}	R0 !	Block containing waiting message, or 0 if no messages waiting.
+	R1 =	Source ID.
+	R2 =	Source client handle.
+#line;tab
+*Purpose*:	Check for any waiting messages for this client task.
+*Interrupts*:	Interrupt status is undefined.
+		Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:	SWI is not re-entrant.
+#wrap on
+*Use*:	Check for any waiting messages. If none are available R0 contains 0
+on exit, otherwise it contains a pointer to the first message. The
+message should be checked, and if it is claimed <ARMEdit_TalkAck> or
+<ARMEdit_TalkReply> should be called to prevent it being passed to
+other clients. Any information required from the message must be read
+or copied immediately, since the message could be overwritten by a
+new message.
+	The specified source client handle should be used for any reply;
+unlike the ID it uniquely identifies a particular instantiation of a
+client.
+	If this call is successful then it should be called again; it is
+possible for multiple messages to be pending for a single client.

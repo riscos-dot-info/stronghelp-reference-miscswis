@@ -1,0 +1,12 @@
+AppEngine_Heap 0  (&4D949)
+#Parent AppEngine_Heap
+=>	R0 =	0
+	R1 =	pointer to address to create heap at (usually =HIMEM),
+	 	or zero to create a dynamic area for the heap
+	R2 =	pointer to a name for the dynamic area (if R1=0)
+
+<=	R1 =	pointer to heap
+
+This call is used to create a new heap, either at the end of application memory or in a new dynamic area.
+
+The heap manager will automatically claim the required amount of memory from the free pool to set up the heap structure.

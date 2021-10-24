@@ -1,0 +1,15 @@
+TrackerModule sound data block
+Offset	Data
+#LINE
+0	The current pitch accumulator. (shift right 16 bits to get the actual byte offset into the sample being played).
+4	The current pitch increment (added to accumulator after every byte filled). This is obtained using internal tables given the sample period (word 7)
+8	The sample loop offset (given in bytes). When the routine reaches the end of a sample or the sample length, the accumul- ator is loaded with this value shifted left 16 bits (ie. to give a byte offset). If this is a zero value, the sample will stop instead of looping.
+12	The sample length / repeat length (in bytes). The routine checks every 4 bytes filled to see if the current accumulator exceeds this value when shifted right 16 bits. (See above)
+16	The sample number (1-36).
+20	The current volume (0-255). This value is subtracted from every byte filled, therefore 0 = maximum volume and 255 = silent. NB This is the reverse of the normal volume command.
+24	This is the tracker format note number of the sample being played (1-36, 1=C octave 1 36=B octave 3). The arpeggio command makes use of this word. If this word is zero, no sound will be played.
+28	This is a copy of the sample period (from which the pitch increment value is calculated), and is used by the portamento commands. The range of the sample period is from 1 to hex &400 (although the portamento commands have smaller limits in practice).
+32	Word 0 of sound channel 2...
+36	Word 1 of sound channel 2...  etc. 
+     
+etc until word 8 of sound channel 8

@@ -1,0 +1,38 @@
+MDWOpt_ReadArgs (&9FFC1)
+#parent MDWOpt_
+{f25}ﬁ{f}	R0 =	number of command line arguments
+	R1 =	arguments block
+	R2 =	short options descriptor string
+	R3 =	long options descriptor block
+	R4 =	state block (as set up by MDWOpt_InitArgs)
+	R5 =	<flags=>.flags>
+{f25}‹{f}	R0 =	preserved, or error if V set
+	R1 =	<meaning of option=>.r1>
+	R2 =	long option index, or -1
+	R3 =	number (if R0 indicates 'number')
+	R4 =	pointer to parameter string (if the option has one)
+	R5 =	index of next argument
+#line
+Reads options. This is intended to be equivalent to standard getopt implementations, although it provides many more features even than the standard GNU implementation.
+
+The precise manner of options parsing is determined by various flag settings, which is described in the section <How programs parse options=>MDWOpt_howtoparse>. By setting flag values appropriately, you can achieve behaviour very similar to most other getopt routines.
+#
+#subpage flags
+MDWOpt_ReadArgs R5 flags
+/bits/	/meaning/
+0	set if no long options (R3 ignored)
+1	set if no short options (R2 ignored)
+2	set if to allow numeric options ("-1" etc.)
+3	set if '+' is allowed to negate option arguments
+4	set if to parse environment variable (if b5 clear)
+5	set if no program name is supplied
+6	set if to allow negated number options ("--1" etc.)
+#
+#subpage r1
+MDWOpt_ReadArgs R1 meaning
+è	option word (long option),
+è	character (short option),
+è	&23 '#' (number),
+è	&123 (negated number),
+è	&3F '?' on error (&3A ':' if the short opts string specifies)
+è	-1 (no more options)

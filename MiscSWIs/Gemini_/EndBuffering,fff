@@ -1,0 +1,19 @@
+Gemini_EndBuffering (&4D507)
+#parent Gemini_
+=>	R1 =	pointer to <TMviewblock=>Gemini_viewblock>
+
+This ends the bank switching, releasing (if any) the reserved memory and copying the contents of the second page (if the current page is the second) into the first.
+#Line
+To have a working engine with bank switching do this:
+
+#Indent 2;fCode
+SYS "<Gemini_StartBuffering>"
+bank = 1
+REPEAT
+  bank = bank EOR 3
+  SYS "<Gemini_Render>",,,,bank,0
+UNTIL end
+SYS "<Gemini_EndBuffering>"
+#f;Indent
+
+This will also work even if there isn't enough memory for bank switching.

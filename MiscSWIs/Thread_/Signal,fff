@@ -1,0 +1,6 @@
+Thread_Signal (0x4DA46)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	R0	!	Semaphore
+#line
+*Notes*:	Performs a Signal (increment) operation on the given semaphore. If there is a thread waiting on this semaphore, then it will start executing again.

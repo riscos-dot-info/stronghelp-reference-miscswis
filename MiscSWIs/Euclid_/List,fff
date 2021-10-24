@@ -1,0 +1,23 @@
+Euclid_List (&8064F)
+#parent Euclid_
+=>	R0 =	Previous object pointer (0 first time round).
+	R1 !	Picture structure or zero.
+	R2 =	Object type to list
+	 	(or 0 for all types)
+<=	R0 =	Object pointer of next object (0 if no more).
+#line
+This function will find the next block of a particular (or any) type from any starting block in the picture structure.
+#line
+<Example=>.example>
+#
+#subpage example
+Euclid_List Example
+To find all blocks of type TYPE% (or all blocks if TYPE%=0):
+
+#fCode;indent 3;wrap off
+SYS "Euclid_List",,,TYPE% TO P%
+WHILE P%
+   PRINT "Object at "~P%
+   SYS "Euclid_List",P%,,TYPE% TO P%
+ENDWHILE
+#wrap;indent;f

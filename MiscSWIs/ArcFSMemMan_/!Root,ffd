@@ -1,0 +1,15 @@
+ArcFSMemMan
+#Parent !Root
+#Prefix ArcFSMemMan_
+#Table Columns 2
+ClaimWorkspace
+ResizeWorkspace
+ReleaseWorkspace
+ClaimFileCache
+ResizeFileCache
+ReleaseFileCache
+Init
+Final
+Slide
+LookupBlock
+#EndTable

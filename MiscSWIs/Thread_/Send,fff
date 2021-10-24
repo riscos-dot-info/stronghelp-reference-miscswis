@@ -1,0 +1,17 @@
+Thread_Send (0x4DA48)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	R0	!	Message
+#line
+*Notes*:	Sends the message, pointed to by R0, to the appropriate destination thread. The message block pointed to by R0 contains the following words:
+ 	 	1.	*reserved*
+ 	 	2.	*reserved*
+ 	 	3.	Source thread handle
+ 	 	4.	Destination thread handle
+ 	 	5.	Message number
+ 	 	6.	Data field
+ 	The *reserved* fields should be empty. The only field that must be filled in is the destination thread handle; the source thread handle will be useful, though, if the destination thread expects to be able toreply.
+ 	The message number and data fields of the message are both totally arbitrary values; there are no standards, it is up to the software author what to use. Several points must be observed:
+ 	 	1.	A message block can only exist in one thread's message queue
+ 	 	2.	A message block can only exist once in a given queue
+ 	 	3.	Messages can only be sent between the threads in the same task. If inter-task communication is required, use the Window Manager's own form of messaging. this could easily be extended to allow the encapsulation of a thread message within a WIMP message, should it be desired.

@@ -1,0 +1,7 @@
+ddu_WPutB (&506D3)
+{f25}Þ{f}	R0 =	File handle
+		R1 =	Word to write
+{f25}Ü{f}	All registers preserved
+Not re-entrant.
+#line
+Writes an 32-Bit word in big andian notation to an open file.

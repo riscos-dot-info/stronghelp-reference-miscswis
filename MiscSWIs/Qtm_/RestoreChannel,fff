@@ -1,0 +1,11 @@
+QTM_RestoreChannel  (&47E4C)
+#Parent QTM_
+#Wrap off
+=>	R0 =	channel number to restore (1-8)
+<=	R0 =	previous state of that channel:	0 = previously removed
+	 	 				1 = already a QTM channel
+#Wrap
+
+This SWI is used to restore channels previously removed by <QTM_RemoveChannel>.
+
+V flag set if channel number is out of range

@@ -1,0 +1,11 @@
+ARMEdit_TalkEnd (&4BC42)
+#parent ARMEdit_
+{f25}Þ{f}	R0 =	The previously assigned handle for this client task.
+{f25}Ü{f}	All registers preserved.
+#line;tab
+*Purpose*:	Deregister a client task.
+*Interrupts*:	Interrupt status is undefined.
+		Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:	SWI is not re-entrant.
+*Use*:	All applications that call <ARMEdit_TalkStart> must call this before they terminate. This releases the message buffer and allows other tasks to detect whether particular services are available.

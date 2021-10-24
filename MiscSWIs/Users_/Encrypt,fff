@@ -1,0 +1,6 @@
+Users_Encrypt
+#Parent Users_
+=>	R0 =	pointer to ctrl terminated string
+<=	string at R0 updated
+
+This SWI is used to encrypt a password. The encryption technique is not guarenteed secure and was thrown together very quickly.

@@ -1,0 +1,6 @@
+Item Handlers And Menu Decoding
+The mechanism of item handlers allows to link each menu item with individual item handler. The handler may be invoked automatically and you have no need to decode the list of selections in order to take the appropriate action.
+
+During the call to "<MenuUtil_Initialise>" you must specify initialisation type. Initialisation type defines the interpretation of item handlers and can be "BASIC" or "machine code" (latter is not supported in current version). In case of "BASIC" the item handlers are assumed to be the BASIC functions and in case of "machine code" - ARM subroutines. If you want to attach a handler to menu item you must pass the pointer to the name of BASIC function or respectively the address of the ARM subroutine to <MenuUtil_Add>.
+
+After user selection the corresponding item handler will be found by "<MenuUtil_Decode>". To invoke the handler you have to call either the BASIC function or the ARM subroutine depending on initialisation type.

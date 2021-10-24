@@ -1,0 +1,10 @@
+Thread_Purge (0x4DA4A)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	R0	=	Thread handle
+ 		R1	=	Termination flag
+{f25}Ü{f}	R1	!	Next message (if Termination flag is NUL)
+#line
+*Notes*:	This SWI should be used with care, either when a thread is in serious trouble, or during debugging. The action of this call is twofold:
+ 	 	1.	If the Termination flag in R1 is NUL, the call will return a pointer to the next esage in a given thread's incoming queue, after removing it, and re-starting the thread if it was waiting for a message from the queu. If the queue is empty, it will return NUL.
+ 	 	2.	If the Termination flag is TRUE, then the incoming message count in the given thread's queue will be set to zero. The call should only be used in this way after any message have been sucked out as above.

@@ -1,0 +1,9 @@
+DSym_PlaySingle  (&4589B)
+#Parent DSym_
+=>	R0 =	-1 then if R1 \<>-1 play pattern R1
+	 	if R1 = -1 play normal
+	 	other, -1 then play patterns from R0 to R1
+	R2 =	-1 to not loop at end
+		other, -1 to loop
+
+The pattern pos is set to 0. In the case of playing a part of the sequence, the current position is set to the first pos in that part.

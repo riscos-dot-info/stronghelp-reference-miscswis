@@ -1,0 +1,15 @@
+QTM_EffectControl  (&47E47)
+#Parent QTM_
+=>	R0 =	<effect number=>QTM_effects> (&0-&F,&E0-&EF for <'E' effects=>QTM_e-effects>) or -1 to read current state
+	R1 =	new state of effect (0-off/1-on)
+
+<=	R0 =	previous effect state word (&0-&F) 1 bit per effect, 16 bits
+	R1 =	previous effect state word (&E0-&EF) as above
+
+This SWI can be used to change the state of any effect (as seen by the QTM effect handlers). Disabling an effect will stop QTM taking any action over it. For example, disabling effect &F will not allow speed/tempo changes to take place, and the song may sound too fast or slow.
+
+Once re-enabled, the effect(s) will be run as usual again.
+
+The contents of R0 and R1 on exit are a copy of the effect words used by QTM - each has 16 bits used, with each bit representing the state of that effect 0-off, 1-on. R0 contains the flags for the normal effects (&0-&F), R1 contains the flags for the 'E' effects (&E0-&EF).
+
+V flag set if the effect number was out of range

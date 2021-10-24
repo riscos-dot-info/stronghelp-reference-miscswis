@@ -1,0 +1,8 @@
+THHeap_Free (&4C683)
+#Parent THHeap_
+#Wrap off
+{f25}Þ{f}	R0 =	Heap reference
+	R2 !	Block
+{f25}Ü{f}	R0-R2	Corrupted
+#line
+Frees a previously claimed heap.

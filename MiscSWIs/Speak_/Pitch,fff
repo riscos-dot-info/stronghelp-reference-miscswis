@@ -1,0 +1,5 @@
+Speak_Pitch  (&4AD87)
+#Parent Speak_
+=>	R0 =	new pitch value (default 128)
+
+This SWI sets the pitch.

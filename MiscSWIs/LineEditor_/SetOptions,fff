@@ -1,0 +1,9 @@
+LineEditor_SetOptions
+#Parent LineEditor_
+=>	R0 =	buffer size in kilobytes, or 0 for default
+	R1 =	<flags=>LineEditor_flags>
+	R2 =	minimum length to record, or 0 for no minimum
+	R3 =	maximum length to record, or 0 for no maximum
+	R4 =	<cursors=>LineEditor_cursors>
+
+Sets options for the global command line-editor.

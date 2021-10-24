@@ -1,0 +1,7 @@
+Filer_ObjectDesc
+#Parent Filer_
+=>	R0 =	pointer to Object name (will be canonicalised)
+<=	R2 =	pointer to Viewer description, or 0 if not visible
+	R3 =	pointer to Object description, or 0 if not visible
+
+This will return pointers to descriptions of the object and the viewer containing it if it is currently visible. If the viewer that should have contained the object is visible, but the object is not, R3 will be 0 on exit and R2 will point to the viewer description.

@@ -1,0 +1,5 @@
+Speak_Misc 4
+#Parent Speak_Misc
+=>	R0 =	4 (reload word dictionary)
+
+This SWI is used to reload the word dictionary.

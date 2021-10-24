@@ -1,0 +1,10 @@
+DSym_PlayInstrPacked  (&45885)
+#Parent Dsym_
+=>	R0 =	voice number (0-7)
+	R1 =	full note data
+	R5 =	minimum sustain time (in 1/50th sec)
+	R6 \<>	0 to wait for buffer empty, else don't wait
+
+<=	R0-R6 corrupted
+
+The new note is unpacked, put to the buffer and played. Setting sustain time means that the new note has priority on the tune notes during this time.

@@ -1,0 +1,15 @@
+LineEditor
+#Parent !Root
+#Prefix LineEditor_
+#Table Columns 2
+<SetOptions>
+<GetOptions>
+<CreateBuffer>
+<DeleteBuffer>
+<SetPos>
+<GetPos>
+<GetLine>
+<AppendLine>
+<DeleteLine>
+<ReadInfo>
+#EndTable

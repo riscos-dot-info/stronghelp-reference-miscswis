@@ -1,0 +1,25 @@
+QTM_Info  (&47E45)
+#Parent QTM_
+<=	R0 =	pointer to track name (0 terminated)
+	R1 =	pointer to author name (0 terminated) or 0 if none
+	R2 =	<song origin=>.origins>
+	R3 =	number of channels (currently only 4 channels)
+	R4 =	file length (in bytes)
+	R5 =	garbage data size (-ve if data missing)
+	R6 =	address where song is loaded
+
+This SWI returns general information about the current track loaded in QTM.
+
+It also uses an 'intelligent author detector' routine, to search through the sample names (usually used by authors, to store their name or group) to see if it can find anything that resembles a name. If it succeeds, a pointer to the name is returned in R1, otherwise 0 is returned.
+
+Note: The 'song origin' value (R2), corresponds to the original song type, NOT the format of the song in memory. After loading, QTM converts all songs to the 31 inst. ProTracker format. Future versions of QTM, however, may support different song types in memory. To avoid problems with new types being supported, it can be assumed that any song returning a value in R2 \< &10 (16), will be stored in memory as a 4 channel, 31 inst. ProTracker format song. Song editors and display programs should check this value, to ensure that the loaded song is in the expected format for the program.
+
+V flag set if no song is loaded
+#Subpage origins
+QTM Song origins
+value	origin
+#Line
+0	15 inst. Sound Tracker
+1	31 inst. Sound Tracker
+2	31 inst. ProTracker
+3	31 inst. Startrekker

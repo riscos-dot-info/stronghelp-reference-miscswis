@@ -1,0 +1,29 @@
+Decrunch_Decrunch (&C0AC0)
+#Parent Decrunch_
+=>	R0 =	<flags=>.flags>
+	R1 =	pointer to filename, file handle, or source in memory as determined by flag bits 1 & 2
+	R2 =	pointer to destination address, if forcing destination address (bit 4)
+
+#Tab
+\<=	if V set then
+	  R0 =	pointer to <error block=>OS:swi_errorblock>
+	  other registers preserved
+	  file pointer unchanged (if using file handle)
+	else
+	  R0 preserved
+	  R1 =	end of data, if reading from memory
+	  	preserved, otherwise
+	  R2 =	load address found in the source data
+	  R3 =	length of uncrunched data
+	  File pointer updated if reading from file
+
+This SWI will decrunch crunched data. As the decompressor works in SVC mode, you can decrunch to a protected area of memory.
+#Subpage flags
+Decrunch_Decrunch flags
+Bit	Meaning if set
+#Line
+0	Assume magic string not present
+1	Use a file handle instead of a filename pointer
+2	Decrunch data from memory
+3	Use hourglass
+4	Force destination address

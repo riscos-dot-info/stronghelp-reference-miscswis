@@ -1,0 +1,18 @@
+AppEngine_ResourceOp 0  (&4D940)
+#Parent AppEngine_ResourceOp
+=>	R0 =	0
+	R1 =	applicationës directory specifier, e.g. ê\<App$Dir>ë
+
+<=	R0 preserved
+	R1 =	pointer to path for resources
+
+#wrap on
+This call takes as input your applicationës directory variable and
+returns a string with ê.Resources.\<Country>ë appended, where
+\<Country> is the name of the currently configured territory.
+
+A check is made to see if the desired resources are present.  If not,
+then they are set to êUKë by default.
+
+All country names are purposely truncated to a maximum of ten
+characters.

@@ -1,0 +1,18 @@
+THHeap Credits
+#Parent THHeap:!Root
+{*}Credits{*}
+
+THHeap may be freely distributed. It may be used in applications provided it is unaltered and you credit me, the author. If possible, please include this file with it (I know that won't always be possible), or at least indicate that it is available with instructions from PD libraries. As a courtesy it would be very nice if you send me copies of any programs you write which use it.
+
+Note this is slightly different to before, because a change in implementation means that loading a new version of THHeap while some applications are using an older one is likely to cause a crash.
+
+Tony Houghton
+271 Upper Weston Lane
+Southampton
+SO19 9HY
+
+email:	<mailto:tonyh@tcp.co.uk=>#url>
+www:	<http://homepages.tcp.co.uk/~tonyh/=>#url>
+#Line;align right
+{/}StrongHelp file created by Will Everitt (6th May 1997)
+Edited by iain truskett (25th April, 1999){/}

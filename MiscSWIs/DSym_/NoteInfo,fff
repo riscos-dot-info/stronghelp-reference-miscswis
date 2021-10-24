@@ -1,0 +1,11 @@
+DSym_NoteInfo  (&45892)
+#Parent DSym_
+<=	R0 =	address of current notes table (1 word per voice) note is 0 to 1023
+	R1 =	address of current samples table (1 byte per voice) sample is 0 to 63
+	R2 =	address of effects table (1 word per voice)
+	 	bits 30-31 meaningless
+	 	bits 16-21 effect nr
+	 	bits  0-11 effect value
+	R3 =	address of volumes table (1 byte per voice) volume is 0 to 64
+
+This call gives the addresses of current note, sample, effect and volume table. You could use this informations for example to write your own VuBars routine.

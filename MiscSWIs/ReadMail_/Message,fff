@@ -1,0 +1,15 @@
+ReadMail_Message (&46801)
+#Parent ReadMail_
+=>	R0 =	file number to find
+	R1 =	<operation code=>ReadMail_operation>
+	R2 =	Unused
+	R3 =	previous file in chain (or -1 to leave unchanged)
+	R4 =	next file in chain (or -1 to leave unchanged)
+
+\<=	R0 preserved
+	R1 =	pointer to line in List file, or -1 if not found
+	R2 =	real message number
+	R3 =	previous file in chain
+	R4 =	next file in chain
+
+This call tries to find a particular file's information and returns it, or sets the information in the module's block.

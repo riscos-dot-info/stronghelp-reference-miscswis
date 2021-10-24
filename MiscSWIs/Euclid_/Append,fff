@@ -1,0 +1,17 @@
+Euclid_Append (&80644)
+#parent Euclid_
+=>	R0 =	/Value/	/Meaning/
+ 	 	0 =	Append
+ 	 	1 =	Do post-processing of append only. (See 'Experts').
+ 	R1 =	Pointer to picture structure or zero.
+ 	R2 =	Pointer to filename (or pointer to appended file's position - see 'Experts').
+#line
+Append allows files to be joined together (so files can act as libraries of shapes). The relevant portion of the Euclid file named is appended to the picture structure. The file has its header chopped off after it is loaded, and all pointers are relocated for the file's new position.
+#line
+<Example=>.example>
+#
+#subpage example
+Euclid_Append Example
+#fcode;wrap off;indent 3
+SYS "Euclid_Append",,BLOCK%,"ADFS::Winnie.$.ECPics.Plato"
+#indent;wrap;f

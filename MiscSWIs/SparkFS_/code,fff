@@ -1,0 +1,60 @@
+SparkFS_Code (&445C3)
+#Parent SparkFS_
+=>	R0 =	reason code number
+	 	  0	<CRC 16 block=>.code0>
+	 	  1	<CRC 32 block=>.code1>
+	 	  2	<Open encrypt=>.code2>
+	 	  3	<Encrypt block=>.code3>
+	 	  4	<Decrypt block=>.code4>
+	 	  5	<Close encrypt=>.code5>
+
+This SWI is used to do different forms of encoding on data.
+#Subpage code0
+SparkFS_Code 0
+=>	R0 =	0 (CRC 16 block)
+	R1 =	CRC in
+	R2 =	pointer to data block
+	R3 =	length of data
+
+<=	R1 =	CRC out
+
+This call will calculate a 16-bit CRC value for a block of data.
+#subpage code1
+SparkFS_Code 1
+=>	R0 =	1 (CRC 32 block)
+	R1 =	CRC in
+	R2 =	pointer to data block
+	R3 =	length
+
+<=	R1 = CRC out
+
+This call will calculate a 32-bit CRC value for a block of data.
+#subpage code2
+SparkFS_Code 2
+=>	R0 =	2 (Open Encrypt)
+	R1 =	type (1 for Garble, 2 for DES)
+	R2 =	pointer to password
+
+This call is used to start an encrypt or decryptiong session.
+#subpage code3
+SparkFS_Code 3
+=>	R0 =	3 (Encrypt block)
+	R1 =	type (1 for Garble, 2 for DES)
+	R2 =	pointer to data block
+	R3 =	length
+
+This call will encrypt a block of data using the password given in the previous call to <SparkFS_Code 2=>.code2>.
+#subpage code4
+SparkFS_Code 4
+=>	R0 =	4 (Decrypt block)
+	R1 =	type (1 for Garble, 2 for DES)
+	R2 =	pointer to data block
+	R3 =	length
+
+This call will decrypt a previously encrypted block of data, if the password matches that given by <SparkFS_Code 2=>.code2>.
+#subpage code5
+SparkFS_Code 5
+=>	R0 =	5 (Close Encrypt)
+	R1 =	type (1 for Garble, 2 for DES)
+
+This call will terminate an encrypt session.

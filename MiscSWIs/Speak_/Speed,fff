@@ -1,0 +1,5 @@
+Speak_Speed  (&4AD88)
+#Parent Speak_
+=>	R0 =	new speed value (default 128)
+
+This SWI sets the speed.

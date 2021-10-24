@@ -1,0 +1,6 @@
+Euclid_Insert, Euclid_Delete Note
+#parent Euclid_
+*Note*:	The following two functions parallel <Euclid_Create> and <Euclid_Destroy>, but create and destroy parts of the variable section within a block. The number of children the object has will increase or decrease by 1 (and the functions make the relevant change to the structure). Pointers which you hold will need adjusting by the size of one variable section for the relevant object.
+
+	è	<Insert=>Euclid_Insert>
+	è	<Delete=>Euclid_Delete>

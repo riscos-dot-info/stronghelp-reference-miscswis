@@ -1,0 +1,15 @@
+QTM_RemoveChannel  (&47E4B)
+#Parent QTM_
+=>	R0 =	channel number to remove from song player (1-8)
+
+<=	R0 =	previous state of that channel:	0 = already removed
+	 	 				1 = QTM channel
+
+This SWI has the effect of 'removing' the given channel from the QTM player routine. This means no samples from the song will be played through this channel, although it is still possible to play samples directly, using the PlaySample SWIs, or through the Transparent sound system (if active).
+
+While the channel is 'removed', the player will continue to keep up to date the effects and sample information, so that when the channel is restored, the song will continue as if nothing had happened.
+
+Note: QTM v1.22 does not use channels 5-8 for song playing, so although they can be 'removed', this will make no noticeable difference as they can only be used for sample playing anyway!
+
+V flag set if channel number is out of range
+Interrupts: IRQ interrupts disabled while QTM sound flags are altered.

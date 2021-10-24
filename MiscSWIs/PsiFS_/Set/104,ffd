@@ -1,0 +1,6 @@
+PsiFS_Set &104 (&520C2)
+{f25}Þ{f}	R0 =	&104
+		R1 =	automatic baud rate identification (0 disables)
+{f25}Ü{f}	Registers preserved
+#line
+This call enables or disables automatic baud rate identification. Only the remote link is affected; the printer mirror always uses the configured baud rate.

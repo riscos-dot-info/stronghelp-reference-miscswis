@@ -1,0 +1,9 @@
+AppEngine_SocketOp 3  (&4D945)
+#Parent AppEngine_SocketOp
+=>	R0 =	3
+	R1 =	bit to set (0-255)
+	R2 =	pointer to file descriptor
+
+<=	R0, R1, R2 preserved
+
+This call is used to clear a bit within a file descriptor thus indicating that the respective socket is not active.

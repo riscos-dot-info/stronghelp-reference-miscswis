@@ -1,0 +1,100 @@
+Euclid_Compress,Expand (&80653-4)
+#parent Euclid_
+{*}Euclid_Compress{*}	(&80653)
+{*}Euclid_Expand{*}	(&80654)
+=>	R0 =	Compression technique (0 is the only one defined so far).
+	R1 !	Data block.
+	R2 !	Last screen base, or 0
+<=	R1 !	Word beyond compressed data.
+	R2 !	Screen base of current screen.
+#line;wrap on;tab
+The data block is a chunk of memory which holds compressed screen images.
+The data block return value points to the word past the end of the frame
+just compressed/expanded (i.e. it is ready for the next call if winding a
+film forwards).
+
+Euclid_Compress	will compress the current graphics window (which {*}must{*} have
+it's edges byte aligned) into the data block. The length of the block is
+placed in the first and last words of the block (to enable fast
+forward/rewind), the next word is set to zero. If the last screen base value
+is non-zero, then delta compression takes place between the last screen and
+the current screen - the current screen is calculated internally so you do
+not need to access the Vdu Variables.
+
+Euclid_Expand	will expand the data block into the current graphics window
+(see constraints above). If the last screen base value is non-zero then
+delta expansion takes place between the last screen and the current screen.
+Note that the last screen and the current screen can be the same, in which
+case delta expansion will be {*}very{*} fast, assuming the differences between the
+frames are small.
+
+{*}Note that attempts to expand a film into the wrong size of window are likely
+to end in catastrophe.{*}
+#line
+<Examples=>.examples>
+#
+#subpage Examples
+Euclid_Compress and Expand examples
+To compress a sequence using 'Normal' compression:
+#fCode;indent 3;wrap off
+ DIM datablock% dblocksize%
+ DPTR%=datablock%
+ FOR FRAME%=1 TO FRAME_MAX%
+ PROCDRAWPICCY
+ SYS"Euclid_Compress",,DPTR% TO ,DPTR%
+ NEXT
+ IFDPTR%>datablock%+dblocksize% THEN ERROR1,"Oops!"
+#wrap;indent;f
+
+To compress a sequence using 'Delta' compression:
+#fCode;indent 3;wrap off
+ DIM datablock% dblocksize%
+ DPTR%=datablock:LAST%=0:SCREEN%=1
+ FOR FRAME%=1 TO FRAME_MAX%
+ SYS&70,SCREEN%:SCREEN%=3-SCREEN%:SYS&71,SCREEN%:REM Flip screens
+ PROCDRAWPICCY
+ SYS"Euclid_Compress",,DPTR%,LAST% TO ,DPTR%,LAST%
+ NEXT
+ IFDPTR%>datablock%+dblocksize% THEN ERROR1,"Oops!"
+#wrap;indent;f
+
+To expand a sequence using 'Normal' decompression:
+#fCode;indent 3;wrap off
+ DIM datablock% dblocksize%:OSCLI"Load Film "+STR$~datablock%
+ DPTR%=datablock%
+ FOR FRAME%=1 TO FRAME_MAX%
+ SYS"Euclid_Expand",,DPTR% TO ,DPTR%
+ NEXT
+ (Alternatively REPEAT:SYS"Euclid_Expand",,DPTR% TO ,DPTR%:UNTIL!DPTR%=0)
+#wrap;indent;f
+
+To expand a sequence using 'Delta' decompression on two screens:
+#fCode;indent 3;wrap off
+ DIM datablock% dblocksize%
+ DPTR%=datablock:LAST%=0:SCREEN%=1
+ FOR FRAME%=1 TO FRAME_MAX%
+ SYS"<OS_AMBControl=>OS:OS_AMBControl>",SCREEN%:SCREEN%=3-SCREEN%:SYS&71,SCREEN%:REM Flip screens
+ SYS"Euclid_Expand",,DPTR%,LAST% TO ,DPTR%,LAST%
+ NEXT
+#wrap;indent;f
+
+#wrap on
+To expand on one screen simply remove the screen flip line.
+
+Note that Normal compression and Delta compression are data compatible. This
+means that you can use Normal decompression on a Delta compressed screen to
+see the differences between frames.
+
+You can run both Normal and Delta films backwards, although in the latter
+case you will probably need to run the film forward to find the last frame.
+To get to the end of the film use:
+
+#fCode;indent 3;wrap off
+ DPTR%=datablock%:REPEAT:DPTR%+=!DPTR%:UNTIL!DPTR%=0
+#wrap;indent;f
+
+Note that it is important that you save the 0 word on the end of a film,
+i.e. you should use SYS"<OS_File=>OS:OS_File>",10,"Film",&D6A,,datablock%,DPTR%+4.
+
+To go to the previous frame use: DPTR%-=DPTR%!-4 (which can be repeated
+until DPTR%=datablock%).

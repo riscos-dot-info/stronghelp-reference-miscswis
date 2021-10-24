@@ -1,0 +1,27 @@
+PsiFS_Set (&520C2)
+{f25}Þ{f}	R0 =	<option=>.opts> to modify
+		 	If the option specified by R0 requires a numeric value
+		 	 	R1 =	value to set
+		 	If the option specified by R0 requires a string value
+		 	 	R1 !	ctrl-termed string
+{f25}Ü{f}	Registers preserved
+#line;tab
+Modify a PsiFS option
+
+*Interrupts*:	Interrupt status is undefined
+		Fast interrupts are enabled
+*Processor mode*:	Processor is in SVC mode
+{*}Re-entrancy{*}:	SWI is not re-entrant
+*Use*:		This call sets the value of a PsiFS option. An error may be returned if an attempt is made to modify an option that is meaningless for the current mode of operation.
+*Related SWIs*:	<PsiFS_Get>, <PsiFS_Mode>
+*Related vectors*:	None
+#
+#subpage opts
+PsiFS_Set options
+#wrap off
+R0	Type	Option
+&100	string	<name of the serial block driver=>PsiFS_Set100>
+&101	numeric	<serial block driver port number=>PsiFS_Set101>
+&102	numeric	<serial block driver baud rate=>PsiFS_Set102>
+&103	string	<optional extra serial block driver options=>PsiFS_Set103>
+&104	numeric	<automatic baud rate identification mode=>PsiFS_Set104>

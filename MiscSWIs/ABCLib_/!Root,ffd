@@ -1,0 +1,9 @@
+ABCLib
+#Parent !Root
+#Prefix ABCLib_
+#Table Columns 2
+Init
+Register
+Profile
+WAC
+#EndTable

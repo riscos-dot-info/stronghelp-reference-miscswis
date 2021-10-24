@@ -1,0 +1,5 @@
+PsiFS_Get &101 (&520C3)
+{f25}Þ{f}	R0 =	&101
+{f25}Ü{f}	R1 =	port number (0 for the first)
+#line
+This call reads the configured serial block driver port number.

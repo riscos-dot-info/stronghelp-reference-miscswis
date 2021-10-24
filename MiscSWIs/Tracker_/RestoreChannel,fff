@@ -1,0 +1,6 @@
+Tracker_RestoreChannel  (&43210)
+=>	R0 = channel to turn on (1-8)
+
+This SWI will reverse the effect of a <Tracker_MuteChannel> SWI, and turn the selected channel back on.
+
+No error is generated if the channel number is higher than the number of channels actually being used by the TrackerModule.

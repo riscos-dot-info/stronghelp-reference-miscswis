@@ -1,0 +1,11 @@
+Audio_Mute (&452CA)
+#Parent Audio_
+#Prefix Audio_
+#Wrap Off
+=>	R0 = Memory value (-1 to read, 0 to use whatever is available)
+
+<=	R0 = Current memory value.
+
+#Wrap On
+This SWI sets (or reads) the maximum RAM to use for LoadFile, otherwise
+play from file.

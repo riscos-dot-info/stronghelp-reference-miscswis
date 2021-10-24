@@ -1,0 +1,15 @@
+ddu_ReadLine (&506D5)
+{f25}Þ{f}	R0 =	file handle to read from
+		R1 !	buffer
+		R2 =	Size of buffer
+{f25}Ü{f}	R2 =	Number of bytes read
+Not re-entrant.
+#line
+Reads a CR terminated line out of a file and places it into a block of memory.
+If the line won't fit into the buffer the rest is discarded.
+If no buffer is given an internal buffer is used and the length of the string is set to 254 characters.
+#line
+*Basic example*
+#wrap off;indent 4;fCode
+SYS "ddu_ReadLine",File,Blk,255 TO ,,Len
+#f;indent;wrap

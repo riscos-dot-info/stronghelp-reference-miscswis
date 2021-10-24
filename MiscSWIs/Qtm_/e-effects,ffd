@@ -1,0 +1,21 @@
+'E' commands/effects
+#Table Columns 2
+E0 Set filter *
+E1 Fine pitch slide up
+E2 Fine pitch slide down
+E3 Glissando control
+E4 Set vibrato waveform
+E5 Set fine tuning
+E6 Pattern loop
+E7 Set tremelo waveform
+E8 \<not used>
+E9 Retrig note
+EA Fine volume slide up
+EB Fine volume slide down
+EC Note cut
+ED Note delay
+EE Pattern delay
+EF Invert loop
+#EndTable
+
+* The 'Set filter' command can't be implemented on the Archimedes.

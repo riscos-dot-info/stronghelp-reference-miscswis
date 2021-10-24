@@ -1,0 +1,7 @@
+Tracker_Speed  (&43211)
+#Parent Tracker_
+=>	R0 =	new speed setting (0-3)
+
+This SWI will select the future sample rate and overall pitch to cater for VIDC enhancers and 8-channel tunes, taking effect immediately if a tune is currently playing.
+
+For details of the different options see the command *PlaySpeed. This SWI is not included in the locking system because it was only introduced in version 4.04, and some programs may have already been written which use the locking system but don't control the sample speed/pitch etc. 

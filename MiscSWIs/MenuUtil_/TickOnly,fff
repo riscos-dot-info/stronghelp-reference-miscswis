@@ -1,0 +1,18 @@
+MenuUtil_TickOnly (&45BD1)
+#Parent MenuUtil_
+Tick only specified menu item
+
+{f25}Þ{f}	R0 =	handle of the menu item or 0 for current item, or
+	R0 =	handle of the menu
+	 	R1 =	item position in the menu (starting from 0)
+{f25}Ü{f}	R0,R1	preserved
+#Line
+*Use*:	This call ticks specified item and clears tick flags in remaining items in the menu. If you don't know the handle of the menu then you can specify handle of the menu in R0 and position of the item in R1.
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_TickOnly)
+Tick black colour in colour menu:
+#wrap off
+
+#FCode:  SYS "MenuUtil_TickOnly",colourMenu%,7

@@ -1,0 +1,100 @@
+Euclid_MiscOp (&80652)
+#parent Euclid_
+=>	R0 =	<Reason code=>.reasons>
+	Others vary according to reason code.
+<=	Vary according to reason code.
+#line;wrap on
+Euclid_MiscOp covers a number of general functions, some of which now have
+their own dedicated entry. The list can be expanded if you wish, to include
+functions to return pointers to internal tables/use of Euclid's internal
+arithmetic calculations. Please apply in writing if you have some particular
+need.
+#
+#subpage reasons
+Euclid_MiscOp Reason Codes
+#wrap off
+{/}R0{/}	/Meaning/
+0		Superceded by <Euclid_Compress> (Swap R3,R4;R0=0)
+1		Superceded by <Euclid_Expand> (Swap R3,R4;R0=0)
+2		<Return the system Materials block pointer=>.two>
+3		<Smooth the image=>.three>
+4		<Check block size=>.four>
+
+{/}The following two MiscOps are for handling the 16 colour modes:{/}
+5		<Return dither pattern=>.five>
+6		<Invalidate palette cache=>.six>
+#
+#subpage two
+Euclid_MiscOp 2
+{/}Return the system Materials block pointer.{/}
+=>	R0 =	2
+<=	R0 !	System Materials table.
+#line;wrap on
+The pointer is for you to copy the table or to examine it for Material
+names. If you Load or Append a file then the system automatically finds the
+last Materials block in the picture structure and puts its pointer in at
+Block+72. (Future versions of Euclid may also delete all other Materials
+blocks - be warned!)
+#
+#subpage three
+Euclid_MiscOp 3
+{/}Smooth the image{/}
+=>	{/}(Current graphics window.){/}
+	R0 =	3
+	R1 =	Set to zero for future expansion.
+<=	-
+#line;wrap on
+Does a form of smoothing to the image. It is expected that this function
+will be expanded to allow various other forms of image post-processing. Any
+suggestions welcome. The current form only works in a 256-colour mode.
+#
+#subpage four
+Euclid_MiscOp 4
+{/}Check block sizes{/}
+=>	R0 =	4
+	R1 =	Block identifier
+<=	R0 =	Fixed header size
+	R1 =	Variable section size
+#line;wrap off
+Returns a definitive value for the fixed/variable parts of a block
+irrespective of what this manual says! Note that this call returns an error
+for a bad id, so a function to return the varying part might be:
+#wrap 
+
+#fCode
+DEF FNVARY(ID%)
+SYS"XEuclid_MiscOp",4,ID% TO F%,V%
+=-(F%\<256)*V%
+#f
+#
+#subpage five
+Euclid_MiscOp 5
+{/}Return dither pattern{/}
+=>	R0 =	5
+	R1 =	Colour:
+	 	Bits 0-7	Red component
+	 	Bits 8-15	Green component
+	 	Bits 16-23	Blue component
+<=	R0 =	Bytes for screen
+#line
+
+The call would normally be in a sequence like:
+#fCode;indent 3;wrap off
+SYS"Euclid_MiscOp",5,Colour% TO Byte%
+A%=Byte%:B%=Byte%<<4 OR Byte%>>4:REM swap nibbles
+VDU 23,2,A%,B%,A%,B%,A%,B%,A%,B%:GCOL 16,0
+#wrap;indent;f
+
+After this a good representation of the colour will occur using a checkerboard dither.
+#
+#subpage six
+Euclid_MiscOp 6
+{/}Invalidate palette cache{/}
+=>	R0 =	6
+<=	-
+#line;wrap on
+In order not to spend too long recalculating a suitable palette for the 16
+colour modes, the module keeps a copy of the current palette after it has
+calculated it. This cached palette is invalidated on a Mode change, but the
+Module is unaware of palette changes, so this call must be used when an
+application receives a 'Palette changed' message.

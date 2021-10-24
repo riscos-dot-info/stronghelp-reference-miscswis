@@ -1,0 +1,21 @@
+MDWOpt_AddLongOption (&9FFC3)
+#parent MDWOpt_
+{f25}Þ{f}	R0 =	long options buffer
+	R1 =	strings buffer, or 0
+	R2 =	remaining space in buffer, or 0
+	R3 =	long option name (less the initial "--"), NUL terminated
+	R4 =	long option flags
+	R5 =	pointer to the flags word affected by this option, or 0
+	R6 =	option word
+
+{f25}Ü{f}	R0 =	0 or error
+	R1, if non-0, updated to point past the copy of the option name
+	R2, if non-0, updated to show that there is less space in the buffer
+#line
+Adds a long option descriptor to the buffer.
+
+If R1 {f25}¹{f} 0, then the name is copied into the next free space in the strings buffer.
+
+The space requirements for long options buffer are 16 bytes per entry, and 4 bytes for the end marker; you must set its first word to 0 before the first call to MDWOpt_AddLongOption.
+
+The strings buffer, if you're using one (and you will if your program works in the same way as the example program), must have enough space for all of the option names plus the string terminators.

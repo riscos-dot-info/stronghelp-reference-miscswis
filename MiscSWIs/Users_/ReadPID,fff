@@ -1,0 +1,5 @@
+Users_ReadPID
+#Parent Users_
+<=	R0 =	pid number
+
+This SWI is used to read the current pid.

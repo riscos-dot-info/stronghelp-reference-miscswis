@@ -1,0 +1,13 @@
+ddu_GIN (&506E9)
+{f25}Þ{f}	R0 =	Window handle
+		R1 =	ESG
+{f25}Ü{f}	R0 =	Icon number
+		 	or -1 if none selected
+Not re-entrant.
+#line
+Get the number of the first icon in an ESG that is selected.
+#line
+*Basic example*
+#fCode;wrap off;indent 4
+SYS "ddu_GIN",Window,ESG TO Icon
+#indent;wrap;f

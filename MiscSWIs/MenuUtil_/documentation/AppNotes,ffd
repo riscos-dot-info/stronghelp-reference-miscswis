@@ -1,0 +1,47 @@
+Application Notes
+#Parent MenuUtil_
+#f24=Selwyn 12 12 24 24 24
+#f25=Sidney 12 12 25 25 25
+This example illustrates the use of menu item handlers in programs in BBC BASIC. Lets consider simple menu consisting of single item.
+
+#draw c,f MenuUtil_Documentation.AppFig1
+
+{f24}g{f}	To create this menu we must call "<MenuUtil_New>" and to add an item - "<MenuUtil_Add>".
+
+#FCode
+ SYS "MenuUtil_New",,"Simple menu"
+ SYS "MenuUtil_Add",,"Item #1","func1"
+#F
+
+{f24}g{f}	here "Simple menu" is menu title, "Item#1" - item text and "func1" - name of the item handler. The name of the handler is "func1" so we must have a function with the name "FNfunc1".
+
+#FCode
+ DEF FNfunc1
+ ...
+ =TRUE
+#F
+
+{f24}g{f}	Then we organize the main Wimp_Poll loop in the following way.
+
+#FCode
+ DIM q% &100
+ REPEAT SYS "Wimp_Poll",,q% TO reason%
+   CASE reason% OF
+     ...         
+     REM Mouse click
+     WHEN 6
+            IF q%!8=2 THEN SYS "<MenuUtil_Show>",,q%
+ 
+     REM Menu selection  
+     WHEN 9
+            SYS "<MenuUtil_Decode>",,q% TO handler%
+            IF handler% THEN
+              handler$="FN"+$handler%   
+              IF EVAL handler$
+            ENDIF
+     ...
+   ENDCASE
+ UNTIL FALSE
+#F
+
+{f24}g{f}	If the user clicks with Menu button we will call "<MenuUtil_Show>" to display menu on screen. If user selects something from our menu we will call "<MenuUtil_Decode>" to find out corresponding item handler. Variable handler% will contain pointer to the handler name. In our example if user will select item "Item#1" variable handler% will point to string "func1". The full name of the handler will be "FN"+$handler%. And EVAL statement is used to call it.

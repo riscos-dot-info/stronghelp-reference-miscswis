@@ -1,0 +1,11 @@
+THHeap_CreateLimited (&4C686)
+#Parent THHeap_
+{f25}Þ{f}	R0 !	Name to give dynamic area
+	R1 =	Maximum size of area
+{f25}Ü{f}	R0 = 	Heap reference ('handle')
+#line
+This call performs a similar function to <THHeap_CreateHeap> but allows a maximum size to be set for the dynamic area to grow to, to avoid hogging address space.
+
+It calls <THHeap_CreateGranular> with a granularity value of 3.
+
+Restrict the dynamic area name to a length suitable for the Task Manager window. Use the returned handle in all subsequent calls using this heap.

@@ -1,0 +1,39 @@
+MenuUtil_Text (&45BC8)
+#Parent MenuUtil_
+Changes menu title string or text of menu item
+
+{f25}Þ{f}	R0 =	handle of menu item or handle of menu or 0 for current item
+	R1 {f25}®{f}	pointer to text string 
+{f25}Ü{f}	R0,R1	preserved
+#Line
+*Use*:	This call allows you to change title string of menu or text of menu item. The structure of menu tree remains unchanged but pointer to item text may be changed. The handle of the menu or menu item must be specified in R0. If R0 is zero on entry then the text of current item will be changed. R1 must point to the ctrl-terminated text string. If R1 is zero on entry then null string will be used. Remember that the length of menu title is limited by 12 symbols.
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_Text)
+Set new menu title string:
+
+#FCode:  SYS "MenuUtil_Text",objectMenu%,"Directory"  
+
+Let's variable type% contains one of the values 0,1,2 or 3 depending on the object selected in Filer window and variable name$ contains the name of the file or directory selected.
+
+#FCode
+  CASE type% OF
+    WHEN 0:i$="File ''"
+    WHEN 1:i$="File '"+name$+"'":s$="File"
+    WHEN 2:i$="Dir. '"+name$+"'":s$="Directory"
+    WHEN 3:i$="Selection":s$=i$
+  ENDCASE
+
+REM fade the item if nothing is selected
+
+  SYS "MenuUtil_Fade",objectItem%,type%=0
+
+REM set new item text
+
+  SYS "MenuUtil_Text",,i$
+
+REM set new submenu title
+
+  SYS "MenuUtil_Text",toolsMenu%,s$
+#F

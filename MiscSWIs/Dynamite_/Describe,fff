@@ -1,0 +1,13 @@
+Dynamite_Describe (SWI &4A3D0)
+#parent Dynamite_
+{*}Dynamite_Describe{*}	Describes the Dynamite area at the time of the call
+On entry	˜
+On exit	R0 =	handle of dynamic area, or -1 for pre-RISC OS 3.5 machines
+	R1 =	total size of Dynamite area
+	R2 =	size of unused area
+Interrupts	Interrupt status is undefined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is re-entrant
+Use	This call returns some information on the Dynamite area. The sizes returned are only valid for the time that the caller has control and doesn't call another Dynamite SWI.
+Related SWIs	None.

@@ -1,0 +1,46 @@
+PsiFS_Get (&520C3)
+#parent PsiFS_
+{f25}Þ{f}	R0 =	option or <status value=>.value> to read
+		If the value specified by R0 is a string
+ 		 	R1 !	buffer to contain null terminated string value
+		 	R2 =	size of buffer
+{f25}Ü{f}	If the value specified by R0 is numeric
+		 	R1 =	value of the option
+		If the value specified by R0 is <a string=>.string>
+		 	R2 =	number of spare bytes in the buffer including the null terminator, i.e.:
+		 	 	R2 > 0	implies there are (R2-1) completely unused bytes in the buffer; so R2=1 implies there are 0 unused bytes in the buffer, and therefore the terminator just fitted
+		 	 	R2 \< 1	implies there are (1-R2) too many bytes to fit in the buffer, which has consequently not been filled in; so R2=0 implies there is 1 byte too many - the terminator - to fit in the buffer
+#line;tab
+Read a PsiFS option or status value
+
+*Interrupts*:	Interrupt status is undefined
+ 		Fast interrupts are enabled
+*Processor mode*:	Processor is in SVC mode
+{*}Re-entrancy{*}:		SWI is not re-entrant
+*Use*:	This call reads a PsiFS option or status value. An error may be returned if an attempt is made to read the value of an option that is meaningless for the current mode of operation.
+*Related SWIs*:	<PsiFS_Set>, <PsiFS_Mode>
+*Related vectors*:	None
+#
+#subpage value
+PsiFS_Get values
+R0	Type	Option
+#line
+&0	numeric	<mode of operation=>PsiFS_Get0>
+&100	string	<name of the serial block driver=>PsiFS_Get100>
+&101	numeric	<serial block driver port number=>PsiFS_Get101>
+&102	numeric	<serial block driver baud rate=>PsiFS_Get102>
+&103	string	<optional extra serial block driver options=>PsiFS_Get103>
+&104	numeric	<automatic baud rate identification mode=>PsiFS_Get104>
+&200	numeric	<number of bytes of serial data received=>PsiFS_Get200>
+&201	numeric	<number of bytes of serial data transmitted=>PsiFS_Get201>
+&1000	numeric	<status of the remote link=>PsiFS_Get1000>
+&11xx	numeric	<status of the specified remote drive=>PsiFS_Get11xx>
+&12xx	string	<name of the specified remote drive=>PsiFS_Get12xx>
+&2000	numeric	<status of the printer mirror=>PsiFS_Get2000>
+&2001	string	<name of the printer mirror destination=>PsiFS_Get2001>
+#
+#subpage string
+PsiFS_Get strings
+If a string value is specified this may be used as a two-pass process:
+{f24}g{f}	On entry, set R0 to specify the value to read, and R1 and R2 (the pointer to, and the size of, the buffer) to zero. On exit, R2 = -(length of string)
+{f24}g{f}	Claim a buffer of the right size (1-R2, not just -R2, as a space is needed for the terminator). On entry, ensure that R0 still specifies the value to read, that R1 is set to point to the buffer, and R2 contains the lenght of the buffer. On exit the buffer should be filled in, and R2 should be 1; but check to make sure.

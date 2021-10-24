@@ -1,0 +1,15 @@
+Shifting heaps
+#fh2:About the Dynamite heap
+#fh3:Shifting heaps
+#line
+Dynamite allocates blocks from a shifting heap.  This means that blocks allocated from the heap will be moved around in order to close up any gaps created by freeing blocks.  In a normal heap, for example that implemented by <OS_Heap=>OS:OS_Heap> or the C library's <malloc=>C-Version5:malloc> function, the free memory in the heap can become fragmented.  For example, consider a heap from which 3 blocks have been allocated:
+
+#draw c,f Dynamite_DocsDiag_3_1
+
+The lower area of the heap has been allocated, but there is a chunk of free memory at the end, which can be claimed.  If block 2 is now freed, the heap would look like this:
+
+#draw c,f Dynamite_DocsDiag_3_2
+
+There are now two free areas which memory may be allocated, but since they are not contiguous, the size of the largest block which can be allocated is dictated by the size of the largest free area.  If the free space could be coalesced in some way, then obviously all the free space in the heap is available for allocation.
+
+Clearly, the only way to gather these free areas together is by moving the allocated blocks.  It is this property which defines the shifting heap.  The problem with a shifting heap is that the blocks allocated in it can move whenever free space is generated within the heap.  Programs making use of such a memory manager must be able to cope with this.

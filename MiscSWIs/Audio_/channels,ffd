@@ -1,0 +1,9 @@
+Number of Channels
+Bits 0 to 1
+	0	Read current no.of channels
+	1	mono
+	2	stereo
+	
+Bits 2 to 5 are unused
+Bit 6	Stereo reversed flag
+Bit 7	Unused

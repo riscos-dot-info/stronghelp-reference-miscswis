@@ -1,0 +1,25 @@
+Dynamite_MidExtend (SWI &4A3C6)
+#parent Dynamite_
+{*}Dynamite_MidExtend{*}	Inserts or deletes bytes at a given offset within a block
+On entry	R0 =	address of block anchor
+	R1 =	offset within block to add or remove bytes
+	R2 =	signed number of bytes to add
+On exit	R0 preserved
+	R1 =	address of block, which may have moved
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	This call will, depending on whether R2 is positive or negative, insert or remove bytes from a Dynamite block starting at the offset given in R1.  This may of course cause the block's size to change. Always after a call to Dynamite_MidExtend, the data that was previously at offset R1 is moved to offset R1+R2.
+	The diagrams below show the effects of inserting or removing bytes from a block:
+
+#draw c,f Dynamite_Diag_4_1
+
+	{/}Diagram 1: Inserting bytes{/}
+
+#draw c,f Dynamite_Diag_4_2
+
+	{/}Diagram 2: Removing bytes{/}
+
+	This SWI may cause blocks to move within the Dynamite heap.
+Related SWIs	* <Dynamite_Resize>

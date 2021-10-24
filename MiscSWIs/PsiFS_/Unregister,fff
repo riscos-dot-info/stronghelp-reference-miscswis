@@ -1,0 +1,13 @@
+PsiFS_Unregister (&520C1)
+{f25}Þ{f}	R0 =	the previously allocated pollword for this client
+{f25}Ü{f}	Registers preserved
+#line;tab
+Unregister a previously registered client
+
+*Interrupts*:	Interrupt status is undefined
+		Fast interrupts are enabled
+*Processor mode*:	Processor is in SVC mode
+{*}Re-entrancy{*}:	SWI is not re-entrant
+*Use*:	This call unregisters a previously registered client. The same pollword as returned by <PsiFS_Register> must be specified.
+*Related SWIs*:	<PsiFS_Register>
+*Related vectors*:	None

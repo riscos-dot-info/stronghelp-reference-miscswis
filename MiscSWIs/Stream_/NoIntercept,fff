@@ -1,0 +1,6 @@
+Stream_NoIntercept (&81945)
+#Parent Stream_
+No parameters
+
+Passes character codes on to the next interrupt handler on the WrchV as
+normal. Reverses effect of <Stream_Intercept>.

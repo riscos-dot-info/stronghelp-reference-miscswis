@@ -1,0 +1,48 @@
+ddUtil
+#prefix ddu_
+#parent !Root
+#Table columns 3
+<Upper>
+<ReadOSVar>
+<RealTime>
+<ConvTime>
+<ConvUTCTime>
+<CRC16>
+<CRC32>
+<WGetL>
+<WGetB>
+<WPutL>
+<WPutB>
+<SwapSex>
+<ReadLine>
+<SIS>
+<SIC>
+<SIT>
+<GIT>
+<GIV>
+<GIS>
+<GIN>
+<OpenWind>
+<OpenWindCentered>
+<SetTitle>
+<SetCaret>
+#endtable
+#line
+<Notes=>.author>
+#
+#subpage author
+ddUtil module notes
+ddUtil 0.39 © Digital Developments by Birger Harzenetter
+
+This Module is FreeWare. You are allowed to use and copy it free of charge as long as you don't ask for money.
+You can include it in your own applications provided you spread it for free too and leave a short copyright notice in your documentation. You do not need to include this file, however if you don't please point out that the documentation is available from me.
+
+Birger Harzenetter	<wimpy@yeti.microdata.de=>#url mailto:wimpy@yeti.microdata.de>
+Jürgensgaarder Str. 72	<B.Harzenetter@fl.maus.de=>#url mailto:B.Harzenetter@fl.maus.de>
+24943 Flensburg		FidoNet#2:240/1005.0
+Germany			AcoNet#77:8500/600
+
+#tab
+Voice:		+49-461-23240
+Mobile:		+49-172-4505226
+Fax/BBS:	+49-461-23272

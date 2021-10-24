@@ -1,0 +1,8 @@
+LineEditor_CreateBuffer
+#Parent LineEditor_
+=>	R0 =	buffer size, or 0 for default
+	R1 =	expansion word (0), or taskhandle for auto-delete, or -1 for none
+	R2 =	expansion word if R1 is taskhandle, or none
+<=	R0 =	handle, or 0 if can't create
+
+Creates a new private history buffer.

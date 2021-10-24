@@ -1,0 +1,5 @@
+Spch_Ready?  (&42B80)
+#Parent Spch_
+<=	R0 =	-1 if not speaking, 0 if speaking
+
+This SWI checks whether the speech system is in use.

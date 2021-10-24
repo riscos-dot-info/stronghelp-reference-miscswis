@@ -1,0 +1,94 @@
+AppEngine_Heap  (&4D949)
+#Parent AppEngine_
+AppEngine_Heap provides a êslidingë heap manager.
+
+ 	è	<Introduction=>.introduction>
+ 	è	<Anchors=>.anchors>
+ 	è	<Warnings=>.warnings>
+ 	è	<Notes=>.notes>
+ 	è	<Example=>.example>
+#
+#subpage introduction
+Introduction
+#wrap on
+AppEngine provides a êslidingë heap manager. This is unlike RISC OS's
+own <OS_Heap=>OS:OS_Heap> heap manager in that it ensures any unused
+memory inside the heap is returned to the free memory pool.
+
+This is achieved by allowing blocks claimed from the heap to êslideë (move
+about within the heap) and by referencing each of the blocks indirectly via a
+fixed address known as an êanchorë.  Doing this allows the heap manager to
+squeeze out any free space from the heap without this affecting the client
+application.
+
+Any heap operation can cause claimed blocksë position in memory to move.
+
+One significant difference between this heap manager and others is that it
+never allows gaps of free space to appear among the blocks.  As soon as any
+free space is created, then the heap manager will rearrange the heap such
+that the block of free space is removed.  This means that the heap is always
+kept at its smallest possible size.
+#
+#subpage anchors
+Anchors
+#wrap on
+Anchors are located at the base of the heap immediately before the blocks.
+Initially the heap manager allocates enough space for eight anchors and hence
+eight heap-managed blocks.  If you claim a ninth block, then the heap manager
+will make space for eight more anchors, and so on.
+
+The space allocated for anchors cannot be freed unless the heap is destroyed.
+For this reason it is strongly recommended that you should maintain a
+êblocks_allocatedë counter in your own heap interface code, and when it
+becomes zero, you should delete the heap.  When a claim for a block is made
+and blocks_allocated is zero, you should (re-)create the heap.
+#
+#subpage warnings
+Warnings
+#wrap on
+i.	When the heap manager is active and is residing at the top of your
+application's slot, you should *never* use <Wimp_SlotSize=>Wimp:Wimp_SlotSize>
+(or END= in BASIC since that calls Wimp_SlotSize). Neither should you attempt to
+store anything above the heap.
+
+ii.	Executable code may not be contained in dynamic areas, so you
+should avoid keeping code in a heap-managed block.
+
+iii.	The internal structure of the heap will not be documented here. To
+ensure future compatibility you should only use the defined software
+interfaces.
+#
+#subpage notes
+Notes
+#wrap on
+i.	The heap manager is very frugal, it doesnët align blocks or block
+sizes to 16-byte boundaries as some others do.
+
+ii.	It is written in 100% hand-crafted assembler and I've optimised
+certain parts of it for the StrongARM, despite not owning one. (In fact
+it was written on my 2Mb ARM 2 A3000. :-)
+
+iii.	It is coded to work if using memory above 2Gb, which I understand
+will happen if you have 128Mb or more memory (this remains untested).
+#
+#subpage example
+Example
+#wrap off;fCode
+REM Create a heap residing above BASIC's workspace
+SYS "<AppEngine_Heap>",0,HIMEM,"" TO ,heap%
+
+REM Claim a 2000 byte block
+SYS "AppEngine_Heap",2,heap%,2000 TO ,anchor%
+
+REM Find the base address of the block
+address%=!anchor%
+
+REM Add 48 bytes to the end of the block
+SYS "AppEngine_Heap",4,heap%,anchor%,48 TO ,success%
+
+REM Delete the block
+SYS "AppEngine_Heap",3,heap%,anchor% TO ,anchor%
+
+REM Delete the heap
+SYS "AppEngine_Heap",1,heap% TO ,heap%
+#f

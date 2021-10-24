@@ -1,0 +1,7 @@
+THHeap_RemoveHeap (&4C681)
+#Parent THHeap_
+#Wrap off
+{f25}Þ{f}	R0 =	Heap reference
+{f25}Ü{f}	R0	Preserved
+#line
+Removes a previously created heap.

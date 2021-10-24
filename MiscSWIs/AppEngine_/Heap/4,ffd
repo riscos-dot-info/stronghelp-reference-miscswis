@@ -1,0 +1,16 @@
+AppEngine_Heap 4  (&4D949)
+#Parent AppEngine_Heap
+=>	R0 =	4
+	R1 =	pointer to heap
+	R2 =	pointer to anchor
+	R3 =	bytes to be added or removed from the end of the specified block (a signed integer)
+
+<=	R1 =	-1 for success, 0 for failure
+
+This call is used to add (R3 positive) or remove (R3 negative) memory to/from the end of the specified block.
+
+If adding to a block, then on return R1 holds a value indicating whether the operation was successful or not.
+
+If removing from a block, then the resultant free memory is returned back to the free pool.
+
+Note that as with the claim operation, block sizes are rounded *up* to at least the nearest multiple of four bytes.  This means that if you try to remove, say, 3 bytes from a block (R3 = -3) then *nothing* will be removed since -3 is rounded up to zero.

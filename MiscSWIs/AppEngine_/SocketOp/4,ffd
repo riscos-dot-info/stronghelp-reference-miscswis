@@ -1,0 +1,10 @@
+AppEngine_SocketOp 4  (&4D945)
+#Parent AppEngine_SocketOp
+=>	R0 =	4
+	R1 =	bit to test (0-255)
+	R2 =	pointer to file descriptor
+
+<=	R0, R2 preserved
+	R1 =	-1 if the bit was set, or 0 if it was not set
+
+This call is used to test if a bit within a file descriptor is set, indicating whether the respective socket is active.

@@ -1,0 +1,8 @@
+DSym_FreezeOutput  (&45589)
+#Parent DSym_
+=>	R0 =	-1 to read output status
+	 	other, to set
+
+<=	R0 =	previous output state (0= off, \<>0= on)
+
+This call controls, whether the current notes on all channels are played on or not.

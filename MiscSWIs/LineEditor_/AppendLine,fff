@@ -1,0 +1,6 @@
+LineEditor_AppendLine
+#Parent LineEditor_
+=>	R0 =	buffer handle
+	R1 =	pointer to line to add, ctrl terminated
+
+Adds a line to the history.

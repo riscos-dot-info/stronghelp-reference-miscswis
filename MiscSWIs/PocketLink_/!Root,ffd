@@ -1,0 +1,32 @@
+PocketLink
+#Parent !Root
+#Prefix PocketLink_
+#Table Columns 3
+StartLink
+CloseLink
+p_open
+p_close
+p_read
+p_write
+p_iow
+Enquire
+ErrorConv
+PanicConv
+p_fparse
+p_chdir
+p_delete
+p_rename
+p_mkdir
+p_sfstat
+p_fdate
+p_testpth
+p_finfo
+p_dinfo
+p_ninfo
+DateToPocket
+ZapLink
+DateFromPocket
+NameFromHandle
+p_seek
+p_locchg
+#EndTable

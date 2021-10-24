@@ -1,0 +1,21 @@
+ddu_SIT (&506E2)
+{f25}Þ{f}	R0 =	Window handle
+		R1 =	Icon handle
+		R2 !	string
+		or R2 =	value
+		 	If R2 {f25}³{f} &8000 the string at this address is copied into the icon
+		 	If R2 \< &8000 it is converted to a decimal string first
+{f25}Ü{f}	All registers preserved
+Not re-entrant.
+#line
+Set an inderected icon's text.
+This call also clears the selected and shaded bits.
+#line
+*Basic example*
+#fcode;indent 4;wrap off
+SYS "ddu_SIT",Window,Icon,"25"
+#wrap;indent;f
+is equal to
+#fcode;indent 4;wrap off
+SYS "ddu_SIT",Window,Icon,25
+#wrap;indent;f

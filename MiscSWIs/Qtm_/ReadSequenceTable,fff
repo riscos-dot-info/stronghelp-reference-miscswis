@@ -1,0 +1,8 @@
+QTM_ReadSequenceTable  (&47E4F)
+#Parent QTM_
+=>	R0 = sequence number to read (0-127)
+<=	R0 = pattern number stored at that position
+
+This SWI enables you to read the pattern to be played at a given position in the current song's sequence table.
+
+V flag set if no song is loaded or if sequence number is larger than the song's maximum sequence position.

@@ -1,0 +1,31 @@
+Gemini TMmemoryblock
+#Parent Gemini_
+TMmemoryblock (256 bytes)
+#Line
+This contains memory information for Gemini. Some of the locations are updated, some other are filled with ldm of tables of precalculated datas. These must be filled:
+
++0	ldm start of points workspace
++8	dimension of points workarea in bytes (but currently unused)
++12	ldm start of primitives workspace
++20	dimension of primitives workarea in bytes (but currently unused)
++40	ldm start of Z buffer
++44	ldm colours, materials, textures and groups table
+
+Other relevant values, set by <Gemini_Initialise>, when you call it with bit 0 (in the flag word) set, are:
+
++4	first free location in points workspace (where to load Points from file). Updated when loading the file (or editing it).
++16	first free location in primitives workspace (where to load Points from file). Updated when loading the file (or editing it).
+	When no object is loaded, the default values are:
+	TMmemoryblock!4  =	TMmemoryblock!0 + 58 * 32
+	TMmemoryblock!16 =	TMmemoryblock!12
++52	ldm of texture table
++64	ldm of materials table
++68	ldm of groups table
+
+These three are used by Gemini to speed up things. Instead of recalculating each time the ldm of the start of each area, Gemini simply calculates them once when a <Gemini_Initialise> is called, storing the start ldm of textures, materials and groups tables out of the address you pass in TMMemoryblock!44.
+
+Simply:
++44	colours, materials, textures and groups table; this is also the ldm of the start of colour area:  512 * 16 bytes
++52	texture table: (previous + 512 * 16); it uses 256 * 32 bytes
++64	materials table: (previous + 256 * 32); it uses 512 * 16 bytes
++68	groups table: (previous + 512 * 16); it uses 2048 * 8  bytes

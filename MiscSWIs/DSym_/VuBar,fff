@@ -1,0 +1,6 @@
+DSym_VuBar  (&45893)
+#Parent DSym_
+=>	R0 =	voice number (0-7)
+<=	R1 =	Vu bar height (0-64)
+
+This call gives you the current VuBar height. I consider this call not that good, because the information is not given on what you hear, but only on every played note, so you can't get eventual pitch bending or any effects and so on.

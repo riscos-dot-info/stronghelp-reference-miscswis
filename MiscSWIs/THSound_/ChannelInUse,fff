@@ -1,0 +1,22 @@
+THSound_ChannelInUse (&4b783)
+#parent THSound_
+{f25}Þ{f}	R0 =	Channel number
+{f25}Ü{f}	R0	Non-zero if a THSound sample is playing on specified channel.
+#line
+{*}New in version 1.10, remember to check the version if you use this SWI.{*}
+
+This reads data from the SCCB to test whether a THSound voice is currently playing (it won't work for most other samples, because THSound uses the SCCB in a slightly non-standard way). The necessary information in the SCCB is invalid immediately after calling <Sound_Control=>OS:Sound_Control> and may wrongly show the channel not to be in use, so if you want to wait for a channel to become free you should use something like:
+
+#fCode;indent 3;wrap off
+  REM First wait for SCCB to be updated,
+  REM   showing channel is in use
+  REPEAT
+   SYS"THSound_ChannelInUse",1 TO inuse%
+  UNTIL inuse%
+  REM Now wait until channel is free
+  REPEAT
+   SYS"THSound_ChannelInUse",1 TO inuse%
+  UNTIL NOT inuse%
+#wrap;indent;f
+
+The second loop can be after, say, a <Wimp_Poll=>Wimp:Wimp_Poll>, but I suggest you put the first loop immediately after a <Sound_Control=>OS:Sound_Control> (or similar) instruction.

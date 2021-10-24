@@ -1,0 +1,15 @@
+QTM_SetSpeed  (&47E5B)
+#Parent QTM_
+=>	R0 =	new song speed (01-31) or tempo (32-255)
+	 	(speed (beats per note), fast 01-31  v. slow, default 06)
+	 	(tempo (beat frequency), slow 32-255 v. fast, default 125)
+
+<=	R0 preserved
+
+This SWI provides user control over the speed of the currently playing song. This command has the same effect (and takes the same parameters) as the speed-change 'F' effect as used in ProTracker compatible songs. The only difference being that a value of 0 will NOT stop the song, use SWI QTM_Stop to do this.
+
+After using this SWI, the song speed will remain at the new value until an 'F' effect is played, or the song is stopped. Note: if the 'F' effect is disabled, using <QTM_EffectControl>, the song will play at the new speed until it is stopped, or 'F' effects are enabled again.
+
+The current speed and tempo can be read using <QTM_ReadSpeed>.
+
+V flag set if no song loaded or the new speed/tempo is out of range.

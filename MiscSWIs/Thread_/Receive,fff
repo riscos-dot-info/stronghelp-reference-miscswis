@@ -1,0 +1,9 @@
+Thread_Receive (0x4DA49)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	R0	=	Boolean flag
+{f25}Ü{f}	R0	!	Message (or NUL if flag set, and no messages waiting)
+#line
+*Notes*:	The thread that called the SWI receives a message from its incoming message list, if there is one present. If not, the action can be twofold:
+ 	 	1.	If the flag in R0 is NUL, then the thread will be suspended until a message arrives.
+ 	 	2.	If the flag in R0 is TRUE, then a NUL pointer will be returned in R0

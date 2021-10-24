@@ -1,0 +1,16 @@
+QTM_PlaySample  (&47E54)
+#Parent QTM_
+=>	R0 = channel number (1-8)
+	R1 = sample number (0,1-64), 0 to clear channel
+	R2 = note number (1-36 for standard, 113-856 for amiga pitch)
+	R3 = linear volume (0-64)
+
+<=	R0-R3 preserved
+
+This SWI allows you to play any of the 64 samples held in the QTM sample table on any of the 4 or 8 available channels. A sample can be played at any time, including while a song is playing, although the sample may be cut short if the song is playing. Playing a non-existent sample will result in nothing being played. The samples above 31 can be used after they are registered, using <QTM_RegisterSample>.
+
+This SWI will also start up the QTM sound system if it is called while the
+song is stopped or paused, though it will not switch the system off after
+the sample finishes, use <QTM_SoundControl> to do this.
+
+V flag set if any of the registers contain illegal values.

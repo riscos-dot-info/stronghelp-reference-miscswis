@@ -1,0 +1,5 @@
+Spch_Mouth  (&42B89)
+#Parent Spch_
+=>	R0 =	mouth to use
+
+This SWI will change the mouth of the spoken voice.

@@ -1,0 +1,14 @@
+DocumentManager
+#Parent !Root
+#Prefix DocumentManager_
+#Table Columns 3
+Open
+Close
+File
+Find
+Args
+GBPB
+Compact
+Reset
+Stamp
+#EndTable

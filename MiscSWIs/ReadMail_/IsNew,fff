@@ -1,0 +1,6 @@
+ReadMail_IsNew (&46803)
+#Parent ReadMail_
+=>	R0 =	number of file to check
+\<=	R0 =	0 if not new, -1 if new
+
+This SWI checks the new files log to check if the file is there.

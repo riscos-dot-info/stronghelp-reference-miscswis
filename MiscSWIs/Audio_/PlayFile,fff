@@ -1,0 +1,13 @@
+Audio_PlayFile (&452CB)
+#Parent Audio_
+#Prefix Audio_
+#Wrap Off
+#Prefix Audio_PlayFile_
+=>	R0 => 	Filename (0-terminated)
+	R1 =	<Control=>Audio_PlayFile_Ctrl>
+	R2 =	Key or Mouse (or 0 for any)
+	R3 = 	from (0 for beginning)
+	R4 =	to (0 for end)	
+
+#Wrap On
+This SWI plays a file from disc, typicially an Acorn Replay file.

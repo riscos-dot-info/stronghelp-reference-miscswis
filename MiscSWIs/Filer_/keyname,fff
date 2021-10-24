@@ -1,0 +1,6 @@
+Filer_KeyName
+#Parent Filer_
+=>	R0 =	<key code=>Wimp:Wimp_Poll8a>
+<=	R0 =	pointer to key name
+
+This SWI should really have been provided by the Toolbox, but since it isn't, I've put it in ProFiler. The reason for this SWI is to get a consistent naming of keys. It returns the name of the given key code.

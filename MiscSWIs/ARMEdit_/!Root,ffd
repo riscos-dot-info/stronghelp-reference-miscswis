@@ -1,0 +1,12 @@
+ARMEdit
+#parent !Root
+#prefix ARMEdit_
+<ControlPC>	0x4BC40
+<TalkStart>	0x4BC41
+<TalkEnd>	0x4BC42
+<TalkTX>	0x4BC43
+<TalkRX>	0x4BC44
+<TalkAck>	0x4BC45
+<HPC>		0x4BC46
+<Polling>	0x4BC47
+<TalkReply>	0x4BC48

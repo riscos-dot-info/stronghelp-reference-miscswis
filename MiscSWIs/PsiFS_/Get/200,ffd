@@ -1,0 +1,5 @@
+PsiFS_Get &200 (&520C3)
+{f25}Þ{f}	R0 =	&200
+{f25}Ü{f}	R1 =	number of bytes of serial data received
+#line
+This call reads the number of bytes of serial data received since the remote link or printer mirror was last enabled.

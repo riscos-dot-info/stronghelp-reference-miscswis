@@ -1,0 +1,5 @@
+Tracker_Version  (&43200)
+#Parent Tracker_
+=>	R0 =	version number*100  (ie. for v1.23 = 123)
+
+Use this call to ensure that the TrackerModule installed is a recent enough version to support the SWI's you wish to use. Versions 4.00 onwards incorporate the SWI's.

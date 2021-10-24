@@ -1,0 +1,53 @@
+Tracker and Soundtracker commands
+In all tunes, there are special commands which have a type (0-&F for amiga, 0-9 & A-Z for Tracker) and data (usually presented as a hex byte, ie. &XX), which is sometimes treated as two seperate nibbles (ie. arpeggio).
+A list of the commands found in Tracker/STracker tunes is as follows:
+
+Command	 Effect
+#LINE
+0 (both)	Arpeggio -
+		note2=<base note=>Tracker_NoteTable>+(first digit of data) semitones
+		note3= " " +(second ""	 ") "
+	Play note3 for one vsync, then note2, base note, note3, note2 and then the base note to achieve a chord effect (ie. C-2 with command 0 data '&47' (hex) would play a major arpeggio of C-2, E-2, G-2.If the speed is less than 6, the arpeggio will be cut short.
+
+1 (both)	Pitch slide (portamento up) -
+	While the command is playing, DECREMENT the sample period by \<parameter> (0-15 usually). This has the effect of INCREASING the pitch smoothly without restarting the sample. Note that the pitch gained by a fixed change to the sample period is not constant over the 3 octaves.
+
+2 (both)	Pitch slide (portamento down) -
+	Like command 1 but slides the pitch down.
+
+3 (amiga only)	Portamento -
+	Sounds similar to commands 1 & 2, but behaves differently. When you use command 3 with a note specified, the note is not played, but the pitch of the note is set as the 'goal' of the portamento. Then, whenever a command 3 comes up, the pitch is automatically slided in the appropriate direction by the value last given as a parameter for command 3, until the 'goal' is met, and further command 3's will have no effect.
+
+4 (amiga only)	Vibrato -
+	This causes the volume to rise and fall in a warbling effect. The first digit gives the speed of the volume change (1=slow, &F=fast), and the second digit gives the magnitude of the vibrato. The vibrato is created by subtracting a sinusoidally varying amount from the volume of the channel.
+
+5,6,7 (amiga)	Combinations of the volume and pitch slides (Not implemented)
+
+9 (amiga only)	Set sample offset (Not implemented).
+
+A (amiga)	Volume slide -
+	If the first nibble is non-zero, add this value to the current volume every vsync, else subtract the second nibble in a similar fashion.
+
+G, H (Tracker)	Volume slide up, down -
+	These commands are the same as the A command on the amiga, but take a byte parameter.
+
+B (amiga)	Position jump -
+J (Tracker)	When this command is met, jump to position \<parameter> in song.
+
+B (Tracker)	Break pattern -
+	Equivalent to amiga command D
+
+C (amiga)	Set volume -
+V (Tracker)	Alters the current volume of the channel to the value specified (0-64 amiga, 0-255 arc). Volume 0 means mute sound.
+
+D (amiga)	Break pattern -
+B (Tracker)	When this command is encountered, the pattern is ended, and the next pattern jumped to.
+
+E (amiga)	Various commands (ie. h/w filter commands) [Not implemented].
+
+E (Tracker)	Set stereo -
+	Set the stereo position (1-7) of the current sound channel
+	(1-8).
+
+F (amiga)	Set speed -
+S (Tracker)	Sets the speed (number of vsyncs between events) to parameter.

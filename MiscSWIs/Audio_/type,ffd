@@ -1,0 +1,8 @@
+Sample Type
+	Value	Meaning
+#Line
+	0	Read current value
+	1	Signed Linear
+	2	Unsigned Linear
+	3	Archimedes log (µ-law)
+	4	ADPCM

@@ -1,0 +1,5 @@
+QTM_Stop  (&47E42)
+#Parent QTM_
+This SWI will stop the current song playing, switch off QTM's sound controllers and reset all the internal song variables, including the position counters - which it sets to 0.
+
+V flag set if no song is loaded

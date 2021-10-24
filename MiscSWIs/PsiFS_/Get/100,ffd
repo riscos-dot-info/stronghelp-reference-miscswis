@@ -1,0 +1,7 @@
+PsiFS_Get &100 (&520C3)
+{f25}Þ{f}	R0 =	&100
+		R1 !	buffer to contain null terminated serial block driver name
+		R2 =	size of buffer
+{f25}Ü{f}	R2 =	number of spare bytes in the buffer including the null terminator
+#line
+This call reads the name of the configured serial block driver.

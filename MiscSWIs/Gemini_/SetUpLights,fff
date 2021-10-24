@@ -1,0 +1,10 @@
+Gemini_SetUpLights (&4D502)
+#Parent Gemini_
+=>	R0 =	pointer to <TMmemoryblock=>Gemini_memoryblock>
+	R1 =	pointer to <TMviewblock=>Gemini_viewblock>
+	R2 =	pointer to <TMcolourblock=>Gemini_colourblock>
+<=	R4 =	Number of lights present in the scene
+
+After loading a file, you should compile a light table, to access quickly to the light information. The lights (up to 1024 per scene) are stored in a table (of 1024*4 bytes) within the <TMcolourblock=>Gemini_colourblock>. You only have to dimension correctly the <TMcolourblock=>Gemini_colourblock> and call this routine, which scans the Point database (in which lights are stored) and compile a table of ldm of the lights in memory. Then recalculates also the illumination of points and primitives...
+
+If you want to move your scene in memory, once you have loaded and used it, just move phisically the memory, update the links within <TMmemoryblock=>Gemini_memoryblock> (+0 to +20), call <Gemini_InitScene> with the new parameters; then call <Gemini_SetUpLights>.

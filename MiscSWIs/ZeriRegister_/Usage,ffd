@@ -1,0 +1,7 @@
+Usage
+#parent !Root
+Simply *RMLoad ZRegister in your system's boot sequence. It is possible to indicate the amount of memory that is to be used for the module database by using
+
+#fCode:*RMLoad ZRegister \<K's\>
+
+where \<K's> indicates the number of Kbytes to use for the database. \<K's> may be from 1-9, else it defaults to 1. 1k is sufficient for roughly 50 entries, which should be enough in normal use.

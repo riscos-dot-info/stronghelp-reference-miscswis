@@ -1,0 +1,12 @@
+THSound_InstallSample (&4b780)
+#parent THSound_
+{f25}Þ{f}	R0 =	Address of sample (in VIDC 8-bit signed log format)
+	R1 =	Size of sample in bytes (word aligned)
+	R2 =	Slot to install in or 0 for next free slot (see <Sound_InstallVoice=>OS:Sound_InstallVoice>)
+{f25}Ü{f}	R0 =	Sample's "handle" (pointer to workspace)
+	R1 =	Voice slot sample is installed in
+	R2 =	Voice slot (copy of R1)
+#line
+It is recommended that sample data is kept in the RMA, using <OS_Module=>OS:OS_Module> for memory management (Archimedes), or in a <dynamic area=>OS:OS_DynamicArea> (Risc PC). Having sample data in application workspace could crash SoundDMA if the application is paged out eg by <Wimp_Poll=>Wimp:Wimp_Poll> while the sample is playing.
+
+Each sample's voice is given the name THSVoice\<hh> where \<hh> is a unique hex code.

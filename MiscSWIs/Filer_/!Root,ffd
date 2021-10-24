@@ -1,0 +1,18 @@
+ProFiler (Thomas Olsson)
+#Parent !Root
+#Prefix Filer_
+#Table Columns 3
+<ObjectDesc>
+<ObjectName>
+<CreateSprite>
+<SetSprite>
+<CopySprite>
+<ReadChoices>
+<NewChoices>
+<LoadKeys>
+<KeyName>
+<ViewerDesc>
+<Boot>
+<Select>
+<Sprite>
+#EndTable

@@ -1,0 +1,6 @@
+Filer_ViewerDesc
+#Parent Filer_
+=>	R0 =	pointer to canonical directory name
+<=	R2 =	pointer to viewer description, or 0 if not visible
+
+Converts a name to a viewer description. You need to know the format of the descriptor block to make use of it, and as that format can still change, it has not been documented here. At the moment is can be used to determine if the viewer is open.

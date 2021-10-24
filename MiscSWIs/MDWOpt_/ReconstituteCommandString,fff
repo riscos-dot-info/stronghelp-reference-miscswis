@@ -1,0 +1,13 @@
+MDWOpt_ReconstituteCommandString (&9FFC4)
+#parent MDWOpt_
+{f25}Þ{f}	R0 =	argument buffer ({fCode}char * []{f}, terminated by a null pointer)
+	R1 =	buffer for reconstituted command string, or 0
+	R2 =	size of the buffer pointed to by R1 (ignored if R1 = 0)
+	R3 =	0 to use C-style quoting, non-0 for RISC OS-style
+
+{f25}Ü{f}	R0 =	(if input R1 {f25}¹{f} 0)
+ 	 	 	the offset of the terminating NUL
+	 	(if input R1 == 0)
+	 	 	the space required for the buffer (inc. NUL)
+#line
+Rebuilds a command string from an argv built by, for example, either <MDWOpt_ParseCommandString> or the C runtime.

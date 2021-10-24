@@ -1,0 +1,14 @@
+MenuUtils module v.0.10
+#align centre
+<Introduction=>MenuUtil_documentation.Intro>
+<What does MenuUtils do?=>MenuUtil_documentation.WhatDo>
+<Technical details=>MenuUtil_documentation.TechDet>
+<Menu handles=>MenuUtil_documentation.MHandles>
+<Menu creation=>MenuUtil_documentation.MCreation>
+<Menu modification=>MenuUtil_documentation.MModification>
+<Displaying menu on screen=>MenuUtil_documentation.Displaying>
+<Item handlers and menu decoding=>MenuUtil_documentation.Handlers>
+<Other features=>MenuUtil_documentation.Features>
+<Application notes=>MenuUtil_documentation.AppNotes>
+<Notes from the author=>MenuUtil_documentation.Author>
+#align

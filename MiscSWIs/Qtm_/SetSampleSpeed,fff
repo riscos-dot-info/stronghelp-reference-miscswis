@@ -1,0 +1,10 @@
+QTM_SetSampleSpeed  (&47E49)
+#Parent QTM_
+=>	R0 =	new sample speed (16-96µS) or -1 to read current speed
+<=	R0 =	previous sample speed (16-96µS)
+
+This SWI lets you set the time between sample outputs (ie. sample quality) to a value between 16µS and 96µS. Smaller speed values give better sample quality, but also use more processor time, slowing the computer down more. The default speed is 32µS.
+
+Note: If 8 channels are enabled, the minimum sample speed is 24µS.
+
+V flag set if sample speed is out of range

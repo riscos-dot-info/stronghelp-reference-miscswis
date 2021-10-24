@@ -1,0 +1,5 @@
+QTM_Start  (&47E41)
+#Parent QTM_
+This SWI will start the current song playing (and start up the sound system), after loading, or being paused or stopped.
+
+V flag set if no song is loaded

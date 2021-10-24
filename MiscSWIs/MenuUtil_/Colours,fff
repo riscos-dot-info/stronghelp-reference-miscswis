@@ -1,0 +1,19 @@
+MenuUtil_Colours (&45BD0)
+#Parent MenuUtil_
+#f24=Selwyn 12 12 24 24 24
+#f25=Sidney 12 12 25 25 25
+Sets new foreground and background colours of menu item
+
+{f25}Þ{f}	R0 =	handle of the menu item or 0 for current item
+	R1 =	foreground colour
+	R2 =	background colour
+{f25}Ü{f}	R0-R2	preserved
+#Line
+*Use*:	This call allows you to change colours of particular menu item. Colours must be selected from 16 Wimp colours.
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_Colours)
+Change colours of current item to black on yellow:
+
+#FCode:  SYS "MenuUtil_Colours",,7,9

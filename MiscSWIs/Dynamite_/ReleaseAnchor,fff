@@ -1,0 +1,11 @@
+Dynamite_ReleaseAnchor (SWI &4A3CE)
+#parent Dynamite_
+{*}Dynamite_ReleaseAnchor{*}	Releases an anchor allocated by Dynamite_ClaimAnchor
+On entry	R0 =	address of anchor
+On exit	˜
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	This SWI will allow you to release an anchor you claimed with <Dynamite_ClaimAnchor>, so it can be used again.
+Related SWIs	* <Dynamite_ClaimAnchor>

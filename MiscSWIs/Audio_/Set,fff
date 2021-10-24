@@ -1,0 +1,14 @@
+Audio_Set (&452C0)
+#Prefix Audio_
+#Parent Audio_
+=>	R0 =	sample rate (or 0 to read)
+	R1 =	sample <type>
+	R2 = 	number of <channels>
+	R3 = 	<bits> per sample
+	
+<=	R0 =	current sample rate
+	R1 = 	current sample type
+	R2 =	current channels
+	R3 =	current bits
+
+This SWI sets up (or reads) the values for the current data.

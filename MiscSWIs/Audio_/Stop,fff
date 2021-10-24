@@ -1,0 +1,4 @@
+Audio_Stop (&452C3)
+#Parent Audio_
+#Wrap Off
+This SWI stops playback immediately.

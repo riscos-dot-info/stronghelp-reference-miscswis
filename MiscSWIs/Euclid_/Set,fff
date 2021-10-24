@@ -1,0 +1,24 @@
+Euclid_Set (&80646)
+#parent Euclid_
+=>	R0 =	Entry number (0 = header).
+ 	R2 !	Object to set entry in.
+ 	R3-R7 =	Relevant data for object header or variable section.
+<=	-
+#line
+R3 to R7 contain data to overwrite the data currently in the object whose pointer is in R2. If R0 is zero the object's header is altered. If R0 is non-zero then the nth variable section is altered. If, for example, the variable section is only 8 bytes in length, then only R3 and R4 would be used.
+
+As a special case, if the object's header contains a name (e.g. for a Group/Solid) then R3 is taken as a pointer to a string, and R4-R7 will set the bounding sphere. If R3 is zero, then the name remains intact.
+#line
+<Examples=>.examples>
+#
+#subpage examples
+Euclid_Set Examples
+#fCode;indent 3;wrap off
+SYS"Euclid_Set",0,,Group,"Tony"          :REM set the object's name
+SYS"Euclid_Set",0,,Group,,X%,Y%,Z%,R%    :REM set object's bounding sphere
+SYS"Euclid_Set",2,,Group,Transform,Child :REM set a group entry
+SYS"Euclid_Set",1,,Solid,Colour,Plane    :REM set a solid entry
+SYS"Euclid_Set",7,,Mesh,Colour,Vane      :REM set a mesh entry
+SYS"Euclid_Set",4,,Plane,X,Y,Z           :REM set the plane's 4th point
+SYS"Euclid_Set",3,,Vane,C1,C2,X,Y,Z      :REM set corner colours/coords
+#wrap;indent;f

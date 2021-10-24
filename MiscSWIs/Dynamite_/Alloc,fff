@@ -1,0 +1,15 @@
+Dynamite_Alloc (SWI &4A3C0)
+#parent Dynamite_
+{*}Dynamite_Alloc{*}	Allocates a block of memory from the Dynamite heap
+On entry	R0 = address of block anchor
+ 	R1 = size of block to allocate, in bytes
+ 	R2 = block ID, or 0 for none
+On exit	R0, R1 preserved
+ 	R2 = address of allocated block
+Interrupts	Interrupt status is undefined
+ 	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	This SWI allocates a block from the Dynamite heap.
+ 	This SWI may cause blocks to move within the Dynamite heap.
+Related SWIs	* <Dynamite_Free>

@@ -1,0 +1,7 @@
+Tracker_MuteChannel  (&4320F)
+#Parent Tracker_
+=>	R0 =	channel to mute (1-8)
+
+This SWI allows you to turn off selected channels while leaving all the other channels unaffected. The channels can be turned back on by using the <Tracker_RestoreChannel> SWI.
+
+No error is generated if the channel number is higher than the number of channels actually being used by the TrackerModule.

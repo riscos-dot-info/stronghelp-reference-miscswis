@@ -1,0 +1,32 @@
+How Dynamite works
+#fh2:Overview
+#fh3:How Dynamite works
+#line
+#fh4:Operation under RISC OS 3.5 or later
+#indent 2
+
+Dynamite's operation under RISC OS 3.5 is fairly simple -- the new facilities provided by <OS_DynamicArea=>OS:OS_DynamicArea> are used to create and resize the heap as required.
+#indent
+#line
+#fh4:Operation under RISC OS versions prior to 3.5
+#indent 2
+
+Since early versions of RISC OS do not provide calls for creating dynamic areas, Dynamite takes matters into its own hands.  It uses the area of logical memory at the end of the System Sprite area (up to &01800000) to build its heap.
+
+Normally, the System Sprite Area is laid out as shown below:
+
+#draw c,f Dynamite_DocsDiag_1_1
+
+Only the shaded area used by the system sprites actually has physical memory pages associated with it.
+
+Dynamite creates its area at the other end of the System Sprite Area, from 24M downwards, as shown overleaf.
+
+#draw c,f Dynamite_DocsDiag_1_2
+
+Operating system routines are intercepted to ensure that Dynamite's maintenance of this area does not affect the normal operation of the kernel's memory management.
+
+It should be noted that because of this method of implementation, there is a limit of 4M (assuming there are no System Sprites) on the size of Dynamite's heap.  The RMA also has a limit of 4M, and this is rarely exceeded, so this is unlikely to cause a problem in practice.
+
+It should be noted that the Task Manager will show the size of the Sprite area including Dynamite's area.  However, <OS_ReadDynamicArea=>OS:OS_ReadDynamicArea> will return only the amount occupied by the System Sprites, allowing programs which use sprites to store their data to work as before. <OS_ChangeDynamicArea=>OS:OS_ChangeDynamicArea> will continue to work as before; only the area containing the System Sprites will change in size.
+
+{*}Warning{*}: To the best of our knowledge, there are no other programs which use the area of memory at the end of the Sprite area.  If similar modules appear, there are likely to be severe compatibility problems.  It is for this reason that we have decided to publish the interface to Dynamite.

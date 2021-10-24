@@ -1,0 +1,5 @@
+Spch_Tongue  (&42B8A)
+#Parent Spch_
+=>	R0 =	tongue to use
+
+This SWI will change the tongue of the spoken voice.

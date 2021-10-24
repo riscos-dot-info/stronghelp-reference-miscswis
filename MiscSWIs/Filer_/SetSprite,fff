@@ -1,0 +1,9 @@
+Filer_SetSprite
+#Parent Filer_
+=>	R0 =	pointer to sprite name validation (including leading 'S')
+	R1 =	pointer to full pathname
+<=	all preserved
+
+This will use the given sprite for the object given in R1. If the directory is still open, the sprite will replace the one currently used, which will usually be 'file_wait'. If the object is not visible, nothing will happen.
+
+You can also report an error with this SWI. The sprite will change to 'file_err', and the text will be shown in the infobox. The error number should have bits 24-30 clear in order to be recognised as such.

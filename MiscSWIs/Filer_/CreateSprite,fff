@@ -1,0 +1,8 @@
+Filer_CreateSprite
+#Parent Filer_
+=>	R0 =	pointer to sprite name
+	R1 =	Sprite mode
+<=	R1 =	pointer to sprite area
+	R2 =	pointer to sprite
+
+This will create a sprite in the Filer's sprite pool.

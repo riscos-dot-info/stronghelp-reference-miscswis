@@ -1,0 +1,35 @@
+ArcFS
+#Parent !Root
+#Prefix ArcFS_
+#Table Columns 2
+<ArchiveInfo>
+<Status>
+<OpenArchive>
+<CloseArchive>
+<Encryption>
+<Compression>
+<CreateArchive>
+<Compact>
+ReadOptions
+HourglassOn
+HourglassOff
+SetEncryption
+SetCompression
+AutoCompOn
+AutoCompOff
+ArcInfo
+OpenArc
+CloseArc
+CreateArc
+CompactArc
+ObjectInfo
+ReadBufferSizes
+SetRDBSize
+SetRABSize
+SetHeaderGaps
+NamedArcInfo
+GetArcName
+ReadCompressed
+WriteCompressed
+EnsureGaps
+#EndTable

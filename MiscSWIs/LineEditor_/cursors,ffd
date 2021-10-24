@@ -1,0 +1,13 @@
+LineEditor cursors
+#Parent LineEditor_SetOptions
+Byte	Contents
+#Line
+0	Normal cursor type
+1	Overtype cursor type
+
+Cursor types:
+
+Bit	Meaning if set
+#Line
+0	cursor is a block, otherwise cursor is an underline
+1	cursor is steady, otherwise cursor is cursor

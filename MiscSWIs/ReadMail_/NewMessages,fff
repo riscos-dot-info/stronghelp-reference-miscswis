@@ -1,0 +1,6 @@
+ReadMail_NewMessages (&46801)
+#Parent ReadMail_
+\<=	R0 =	Number of messages in base
+	R1 =	Number of new files in base
+
+This call notifies the ReadMail module that the message base List (or New) file has been altered and it needs to read it.

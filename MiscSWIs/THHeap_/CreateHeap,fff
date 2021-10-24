@@ -1,0 +1,10 @@
+THHeap_CreateHeap (&4C680)
+#Parent THHeap_
+{f25}Þ{f}	R0 !	Name to give dynamic area
+{f25}Ü{f}	R0 = 	Heap reference ('handle')
+#line
+Restrict the dynamic area name to a length suitable for the Task Manager window. Use the returned handle in all subsequent calls using this heap.
+
+It is advised that you *do not use* this SWI, since it places no restriction on the size of a Dynamic Area, which could lead to a lack of address space being available for other applications.
+
+The new SWI is <THHeap_CreateLimited>.

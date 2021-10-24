@@ -1,0 +1,10 @@
+PsiFS_Get &2000 (&520C3)
+{f25}Þ{f}	R0 =	&2000
+		R1 =	<printer mirror status=>.status>
+#line
+This call reads the status of the printer mirror.
+#
+#subpage status
+PsiFS_Get &2000 status word
+/Bit/	/Meaning when set/
+0	printer mirror active

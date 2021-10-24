@@ -1,0 +1,9 @@
+ARCTOOLS_Assemble  (&DFFC0)
+#Parent ARCTOOLS_
+=>	R0 =	pointer to string to assemble
+	R1 =	address where the instruction will be put
+
+<=	R0 =	assembled instruction
+	R1 =	length of string in R0 at start
+
+This call is provided to assemble a instruction contained in the string pointed to by R0. The address in R1 is used to calculate the destination address in PC relative opcodes like ADR or B.

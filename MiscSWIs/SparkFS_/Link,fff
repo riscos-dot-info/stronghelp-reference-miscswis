@@ -1,0 +1,17 @@
+SparkFS_Link (&445C0)
+#Parent SparkFS_
+=>	R0 =	reason code number
+	 	  0	<Add new link=>.code0>
+	 	  1	<Remove link=>.code1>
+
+This call is used to perform operations on 'links'.
+#subpage code0
+SparkFS_Link 0
+=>	R0 =	0 (Add new link)
+	R1 =	pointer to flink
+	R2 =	pointer to private workspace
+	R3 =	compatibility level
+#subpage code1
+SparkFS_Link 1
+=>	R0 =	1 (Remove link)
+	R1 =	pointer to flink

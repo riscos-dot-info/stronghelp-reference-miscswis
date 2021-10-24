@@ -1,0 +1,16 @@
+THHeap Obey File Syntax
+#Parent THHeap:!Root
+#Background wimp 1
+{*}Obey file syntax{*}
+
+It is recommended that the Obey file sequence to load THHeap is based on the following:
+
+#fCode;indent 3;Wrap off
+Set AppName$THHeap \<App$Dir\>.THHeapR
+RMEnsure UtilityModule 3.50 Set AppName$THHeap \<App$Dir\>.THHeapA
+RMEnsure THHeap 0.00 RMLoad \<Appname$THHeap\>
+Unset AppName$THHeap
+RMEnsure THHeap 1.21 Error 0 You need THHeap 1.21 or later
+#Wrap;indent;f
+
+Note this is slightly different to before, because a change in implementation means that loading a new version of THHeap while some applications are using an older one is likely to cause a crash.

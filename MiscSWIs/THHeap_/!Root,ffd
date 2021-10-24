@@ -1,0 +1,15 @@
+THHeap 1.21
+#Parent !Root
+#prefix THHeap_
+<CreateHeap>
+<CreateLimited>
+<CreateGranular>
+<RemoveHeap>
+<Claim>
+<Extend>
+<Size>
+<Free>
+#Line
+è 	<Introduction>
+è 	<Obey file syntax=>THHeap_Obey>
+è 	<Credits=>THHeap_Credits>

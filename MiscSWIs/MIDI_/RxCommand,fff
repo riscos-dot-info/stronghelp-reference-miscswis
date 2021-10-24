@@ -1,0 +1,6 @@
+MIDI_RxCommand  (&404C8)
+#Parent MIDI_
+<=	R0 =	<MIDI word=>MIDI_word>, or 0 if buffer was empty
+	R1 =	<fastclock time=>MIDI_fastclock>, if running
+
+This SWI is used to read an entry from the MIDI buffer.

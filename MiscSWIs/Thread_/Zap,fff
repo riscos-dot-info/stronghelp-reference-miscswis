@@ -1,0 +1,4 @@
+Thread_Zap (0x4DA4D)
+#parent Thread_
+#tab ,,align centre,
+*Notes*:	The thread that calls this will be terminated.

@@ -1,0 +1,34 @@
+SparkFS_Memory (&445C1)
+#Parent SparkFS_
+=>	R0 =	reason code number
+	 	  0	<Allocate=>.code0>
+	 	  1	<Extend=>.code1>
+	 	  2	<Free=>.code2>
+	 	  3	<Set=>.code3>
+
+This call is used to manipulate SparkFS' memory manager.
+#subpage code0
+SparkFS_Memory 0
+=>	R0 =	0 (Allocate)
+	R1 =	pointer to anchor
+	R2 =	size
+<=	R0 =	0 if failed
+#subpage code1
+SparkFS_Memory 1
+=>	R0 =	1 (Extend)
+	R1 =	pointer to anchor
+	R2 =	size
+<=	R0 =	0 if failed
+#subpage code2
+SparkFS_Memory 2
+=>	R0 =	2 (Free)
+	R1 =	pointer to anchor
+#subpage code3
+SparkFS_Memory 3
+=>	R0 =	3 (Set)
+	R1 =	min
+	R2 =	max
+
+<=	R1 =	min
+	R2 =	max
+	R3 =	curr

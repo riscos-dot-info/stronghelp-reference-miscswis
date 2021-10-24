@@ -1,0 +1,5 @@
+Using Dynamite from command line applications
+#fh2:About the Dynamite heap
+#fh3:Using Dynamite from command line applications
+#line
+You must be aware that the user may want to run your command line application within a TaskWindow.  This may cause your application to lose control of the processor at arbitrary points within your program, during which time, the rest of the desktop is active.  This means that other applications may cause blocks to move within the Dynamite heap ˜ in particular, Dynamite may be compacting the heap during this time.  To prevent this from happening, you should <lock=>Dynamite_Lock> the heap while you are accessing Dynamite blocks and unlock it again when you have finished, using the relevant SWIs.

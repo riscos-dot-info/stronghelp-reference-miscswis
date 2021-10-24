@@ -1,0 +1,8 @@
+ArcFS_ArchiveInfo  (&437C0)
+#Parent ArcFS_
+=>	R0 =	archive number
+<=	R0 =	archive name (or null if not open)
+	R1 =	archive path
+	R1 =	pointer to archive headers (internal use)
+
+This SWI gives the name and pathname of the archive whose number is given.

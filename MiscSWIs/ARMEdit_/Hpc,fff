@@ -1,0 +1,19 @@
+ARMEdit_HPC (&4BC46)
+#parent ARMEdit_
+{f25}Þ{f}	R0 =	Length of first input block.
+	R1 =	Pointer to first input block.
+	R2 =	Length of second input block.
+	R3 =	Pointer to second input block.
+	R4 =	Length of first output block.
+	R5 =	Pointer to first output block.
+	R6 =	Length of second output block.
+	R7 =	Pointer to second output block.
+{f25}Ü{f}	All registers preserved.
+#line;tab
+*Purpose*:	Call an ARMEdit HPC service.
+*Interrupts*:	Interrupt status is undefined.
+		Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:	SWI is not re-entrant.
+*Use*:	This call may either be used to test HPC services, or to provide access to the routines from a system that does not support either of the communications systems used normally by the ARMEdit system.
+	For convenience the input and output data may be split into two portions. Any length value may be zero to omit that portion. The input data must be at least two bytes long to contain a valid ID.

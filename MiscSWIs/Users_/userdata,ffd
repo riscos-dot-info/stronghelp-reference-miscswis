@@ -1,0 +1,10 @@
+User data block
+Offset	Contents
+#Line
+&0	user id (uid)
+&4	group id (gid)
+&8	pointer to shell name
+&C	pointer to <encrypted=>Users_Encrypt> password
+&10	pointer to login name
+&14	pointer to user name
+&18	pointer to home directory (asterisk translated to colon)

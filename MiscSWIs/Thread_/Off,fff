@@ -1,0 +1,7 @@
+Thread_Off (0x4DA43)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	None
+#line
+*Notes*:	Turns multithreading off, leaving the thread of execution with whichever thread called this SWI.
+ 	For example usage, see SWI <Thread_On>

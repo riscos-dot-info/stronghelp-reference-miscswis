@@ -1,0 +1,6 @@
+ArcFS_Compression  (&437C5)
+#Parent ArcFS_
+<=	R0 =	<compression format=>ArcFS_compresstypes>
+	R1 =	number of bits (if applicable)
+
+This SWI sets the data compression format to be used.

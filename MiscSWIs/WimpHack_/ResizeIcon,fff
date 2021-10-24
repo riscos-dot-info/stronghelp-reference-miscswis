@@ -1,0 +1,3 @@
+WimpHack_ResizeIcon (&C0480)
+#Parent WimpHack_
+Identical in usage to <Wimp_ResizeIcon=>Wimp:Wimp_ResizeIcon>, but for use with Wimps which do not have Wimp_ResizeIcon.

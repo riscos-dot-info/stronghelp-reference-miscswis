@@ -1,0 +1,17 @@
+CAIFS
+#Parent !Root
+#Prefix CAIFS_
+#Table Columns 2
+CreateArchive
+CompactFreeSpace
+CloseGaps
+FreeSpace
+DirSize
+CompactionType
+LZWBits
+CacheFile
+ScrapFile
+DirCache
+ReadFileInfo
+FixRMA
+#EndTable

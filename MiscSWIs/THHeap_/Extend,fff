@@ -1,0 +1,9 @@
+THHeap_Extend (&4C685)
+#Parent THHeap_
+{f25}Þ{f}	R0 =	Heap reference
+	R1 =	Required change in size
+	R2 !	Block
+{f25}Ü{f}	R0-R1	Corrupted
+	R2 !	New block
+#line
+Extends a previously claimed block. This may cause the block to move, so its new address is returned. If it moves its data will be copied to the new address for you by the OS before returning.

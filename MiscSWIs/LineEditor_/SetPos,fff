@@ -1,0 +1,16 @@
+LineEditor_SetPosition
+#Parent LineEditor_
+=>	R0 =	buffer handle
+	R1 =	line number, or <'special'=>.special> codes
+
+Sets the position in a private history buffer.
+#Subpage special
+Special position codes
+Value		Position
+#Line
+-ve		Number of lines from end of history
+&7FFFFFFF	End of buffer
+&80000000	previous line, wrapping to end
+&80000001	previous line, stopping at start
+&80000002	next line, stopping at end
+&80000003	next line, wrapping to start

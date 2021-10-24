@@ -1,0 +1,10 @@
+AppEngine_StringOp 7  (&4D941)
+#Parent AppEngine_StringOp
+=>	R0 =	7
+	R1 =	pointer to address to read string from
+
+<=	R0 preserved
+	R1 =	pointer to character after the input's terminator
+	R2 =	pointer to output string (up to 255 chars)
+
+This call converts an input string which contains leading space and tab characters to one without them.

@@ -1,0 +1,7 @@
+WimpKey
+#Parent !Root
+#Prefix WimpKey_
+#Table Columns 1
+CodeToString
+StringToCode
+#EndTable

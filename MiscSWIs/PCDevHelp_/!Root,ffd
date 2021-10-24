@@ -1,0 +1,13 @@
+PCDevHelp
+#Parent !Root
+#Prefix PCDevHelp_
+#Table Columns 2
+Init
+RegisterIO
+RegisterMem
+RegisterDMA
+RegisterEvent
+RegisterConfig
+RegisterHPC
+GetStructAddr
+#EndTable

@@ -1,0 +1,7 @@
+ddu_WGetL (&506D0)
+{f25}Þ{f}	R0 =	File handle
+{f25}Ü{f}	R0	preserved
+		R1 =	Word read
+Not re-entrant.
+#line
+Reads an 32-Bit word in little endian notation from an open file.

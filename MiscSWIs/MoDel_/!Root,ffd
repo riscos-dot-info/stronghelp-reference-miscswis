@@ -1,0 +1,12 @@
+MoDel
+#Parent !Root
+#Prefix MoDel_
+#Table Columns 2
+On
+Off
+Address
+WatchFiles
+LoseFiles
+IgnoreDiscs
+WatchDiscs
+#EndTable

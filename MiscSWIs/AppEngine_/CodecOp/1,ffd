@@ -1,0 +1,18 @@
+AppEngine_CodecOp 1  (&4D946)
+#Parent AppEngine_CodecOp
+=>	R0 =	1
+	R1 =	pointer to Base64-coded input data
+	R2 =	length of input data (no more than 340 bytes)
+
+<=	R0, R1, R2 preserved
+	R3 =	pointer to decoded string
+
+Decodes Base64 data into a string.
+
+This call is used to decode small amounts of MIME Base64 encoded data into a string, for use in internet applications.
+
+Since the output is a string, limited to a maximum of 255 characters you must ensure that you supply no more than 340 bytes of input.  This is because for every four bytes of input, the encoder generates three bytes of output.
+
+The method for detemining the output string length is not detailed here as it cannot be easily calculated without access to the input data.
+
+This SWI is not suitable for decoding non-ASCII data.

@@ -1,0 +1,5 @@
+Initialisation Type
+#tab
+Bit	Meaning
+0	0 -	"BASIC"
+	1 -	"machine code" (not supported by current version)

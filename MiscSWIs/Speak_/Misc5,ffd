@@ -1,0 +1,6 @@
+Speak_Misc 5
+#Parent Speak_Misc
+=>	R0 =	5 (read voice names)
+<=	R0 =	pointer to zero terminated array of name pointers
+
+This SWI is used to read the names of the currently known voices which Speak can use.

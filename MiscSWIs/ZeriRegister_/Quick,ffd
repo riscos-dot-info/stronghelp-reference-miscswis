@@ -1,0 +1,8 @@
+Quick start
+#parent !Root
+If you want to tidy up your 'naughty' applications right away, without reading the rest of this guide, simply do the following :
+
+{f24}g{f}	Ensure ZRegister is loaded in your boot sequence.
+{f24}g{f}	Then, for all the modules used by the application, bracket the ...!RunImage line in your apps' !Run files with *RegisterModule \<module name> and *UnregisterModule \<module name>, i.e. place these before and behind the ...!RunImage line, respectively.
+
+If you need more detailed usage information, read the rest of this guide.

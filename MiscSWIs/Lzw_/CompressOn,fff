@@ -1,0 +1,3 @@
+LZW_CompressOn  (&CD002)
+#Parent LZW_
+Works as <LZW_Compress> but appends the compressed data to an existing destination file.

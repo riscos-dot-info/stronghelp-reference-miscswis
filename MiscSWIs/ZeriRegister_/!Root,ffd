@@ -1,0 +1,18 @@
+zeriRegister
+#parent !Root
+#prefix zeriRegister_
+<RegisterModule>
+<UnregisterModule>
+#line
+#table columns 2
+<Introduction=>zeriRegister_Intro>
+<The package=>zeriRegister_Package>
+<Quick start=>zeriRegister_Quick>
+<Usage>
+<Commands>
+<Tidying up=>zeriRegister_Tidying>
+<Final remarks=>zeriRegister_Final>
+#endtable
+#line
+#align right
+{/}1.00 user guide{/}

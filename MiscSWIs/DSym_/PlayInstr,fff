@@ -1,0 +1,13 @@
+DSym_PlayInstr  (&45886)
+#Parent DSym_
+=>	R0 =	voice number (0-7)
+	R1 =	note number (0-36)
+	R2 =	sample number (0-63)
+	R3 =	effect number (0-63)
+	R4 =	effect value (0-&FFF)
+	R5 =	minimum sustain time (in 1/50th sec)
+	R6 \<>	0 to wait for buffer empty, else don't wait
+
+<=	R0-R6 corrupted
+
+The new note is put to the buffer and played. Setting sustain time means that the new note has priority on the tune notes during this time.

@@ -1,0 +1,7 @@
+ArcFS_Compact  (&437C7)
+#Parent ArcFS_
+<=	R0 =	archive name (or 0 for CSD)
+
+This SWI compacts an archive to removed gaps left by deletions and file overwrites.
+
+Note: Read/Write version only.

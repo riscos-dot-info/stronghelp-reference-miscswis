@@ -1,0 +1,7 @@
+ArcFS Compression formats
+code	type
+#Line
+&82	Store
+&83	Pack
+&88	Crunch
+&FF	Compress

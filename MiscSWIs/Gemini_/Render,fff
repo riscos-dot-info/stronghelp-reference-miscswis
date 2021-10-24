@@ -1,0 +1,42 @@
+Gemini_Render (&4D505)
+#Parent Gemini_
+=>	R0 =	pointer to <TMmemoryblock=>Gemini_memoryblock>
+	R1 =	pointer to <TMviewblock=>Gemini_viewblock>
+	R2 =	pointer to <TMcolourblock=>Gemini_colourblock>
+	R3 =	screen bank to use (1 or 2; 1 for default)
+	R4 =	<rendering mode=>.mode>
+
+Gemini enables you to have a full double buffering for smooth animation. Just redraw the screen with R3 set to 1 or 2 alternatively. See <Gemini_EndBuffering>.
+#Subpage mode
+Gemini_Render mode
+Bit	Meaning if set	Meaning if not set
+#Line
+0	Colour	[grey-shade]
+1	Wireframe
+2	Flat shading
+3	Gouraud shading
+4	Phong shading
+5	Transparency enabled ({/}not activated yet{/})	[always opaque]
+6	Texture mapping enabled
+7	Chrome mapping enabled
+8	Bump mapping enabled
+9-11	reserved, must be zero
+12	draw primitives	[don't draw them]
+13	reserved, must be zero
+14	perspective view	[axonometric view]
+15	normal navigation mode	[VR mode: objects behind observer aren't drawn]
+16	visualize axes	[don't]
+17	recalculate active plane while rotating	[don't]
+18	remove objects with normals against the current view vector	[draw all]
+19	test Escape key to stop redraw	[don't]
+20	fog activated	[fog disabled]
+21	reserved, must be zero
+22	recalculate light reflections if you aren't in Phong mode	[don't]
+23	clear the workarea with the current background colour	[draw just objects]
+24	draw bezier-curves/surfaces visual-hull lines	[don't]
+25	draw polygons' vertices	[don't]
+26	draw control points	[don't]
+27	enable lens-flares	[don't]
+28-31	reserved, must be zero
+
+Please note: bits 1-4 are mutually exclusive; you should set just one of these.

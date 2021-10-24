@@ -1,0 +1,7 @@
+PlayFile Control
+#Wrap Off
+	Value	Meaning
+#Line
+	1	play until key pressed
+	2	play until a mouse button is pressed
+	3	continue play on Audio_Poll

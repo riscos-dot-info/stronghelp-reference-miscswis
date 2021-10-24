@@ -1,0 +1,7 @@
+Thread_CloseDown (0x4DA41)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	None
+{f25}Ü{f}	All registers are preserved.
+#line
+*Notes*:	This SWI does not take arguments via registers. Whichever task calls this SWI will be deregistered by Thread, and will revert to a normal, single threaded execution.

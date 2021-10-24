@@ -1,0 +1,22 @@
+Virtualise_Start (&4B6C1)
+#parent Virtualise_
+{f25}Þ{f}	R0 =	The number of the dynamic area to virtualise.
+	R1 =	Maximum size of area (reserved logical address space), or -1 to use maximum size of the dynamic area.
+	R2 !	Name to use for swap file. If this is a null pointer then a name is chosen automatically.
+{f25}Ü{f}	All registers preserved.
+#line;tab
+*Purpose*:	Start virtual memory in an existing dynamic area.
+*Interrupts*:	Interrupts are enabled.
+ 		Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:	SWI is not re-entrant.
+*Use*:	After a dynamic area has been created using <OS_DynamicArea=>OS:OS_DynamicArea> 0 (as usual) use this SWI to enable virtual memory.
+	The initial size of the virtual memory is the same as the actual size of the dynamic area; any data already in the area is copied into the virtual memory. If there is no data in the area when virtual memory is enabled then it would be more efficient to shrink the area to 0 size before using this SWI, and to grow the virtual memory with <OS_ChangeDynamicArea=>OS:OS_ChangeDynamicArea> afterwards.
+	Normally virtual memory is restricted to being within the logical address space of the dynamic area. However, if more contiguous logical address space has been reserved it is possible to set R1 to this value to allow its use. It should never be necessary to use this option since the Virtualise module is capable of creating dynamic areas with maximum sizes greater than the RAM size of the computer.
+	The swap file will normally be placed in the automatically created directory \<Virtualise$SwapDir>. This may be changed by specifying a full pathname in R2. The variable \<Virtualise$SwapDir> defaults to \<Wimp$ScrapDir>.Virtualise.
+*Note*:	that the following flags must be set:
+	 	bit 4	0 -	Area is bufferable
+	 	bit 5	0 -	Area is cacheable
+	 	bit 6	0 -	Area is singly mapped.
+	 	bit 8	0 -	Area does not require specific physical pages
+	If the dynamic area has a handler routine then virtual memory can only be enabled for it if this module was loaded when the area was created.

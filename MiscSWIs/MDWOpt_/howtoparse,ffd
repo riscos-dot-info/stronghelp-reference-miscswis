@@ -1,0 +1,117 @@
+How programs parse options
+#wrap on
+An application parses its options by calling <MDWOpt_ReadArgs>
+repeatedly. Each time it is called, MDWOpt_ReadArgs returns a value
+describing the option just read, and stores information about the
+option in a data block (the most useful information is also returned
+in registers). The value -1 is returned when there are no more
+options to be read.
+
+Errors are returned in the usual RISC OS manner; it is normal to
+report the error by converting the first character to lower case and
+prepending "program: ", where "program" is the program (leaf)name.
+You'll have to do this yourself, though.
+
+If you're using, eg. BASIC or pure ARM assembler, your environment
+string (command line) will not have been chopped up into a format
+suitable for use by <MDWOpt=>MDWOpt_>. To do this, you must claim 2K of
+workspace and call <MDWOpt_ParseCommandString>. (The example BASIC
+program does this.)
+
+If your program allows long options, you will also need a long
+options block; again, see the example program. If you're using
+C, see below.
+
+Before starting to parse options, you must call <MDWOpt_InitArgs>
+to find out how large the state block needs to be. You then
+allocate space for it, and call MDWOpt_InitArgs again in order
+to initialise the block/
+
+The program's argument block and argument count are passed to
+<MDWOpt_ReadArgs> so that it can read the command line. A flags
+word is also passed, allowing the program fine control over
+parsing. The flags are described with the SWI.
+
+Short options are described by a string, which once just contained
+the permitted option characters. Now the options string begins
+with a collection of flag characters, and various flag characters
+can be put after options characters to change their properties.
+
+If the first character of the short options string is '+', '-' or
+'!', the order in which options are read is modified, as follows:
+#tab
+
+'+'	forces the POSIX order to be used. As soon as a non-option
+is found, <MDWOpt_ReadArgs> returns -1 in R1. R5 contains the
+index of the next argument; if this is = the argument count,
+then there are no more arguments.
+
+'-'	makes mdwopt treat non-options as being 'special' sorts
+of option. When a non-option word is found, the value 0 is
+returned, and the actual text of the word is stored as being
+the option's argument.
+
+'!'	forces the default order to be used. The entire command
+line is scanned for options, which are returned in order.
+However, during this process, the options are moved in the
+argument block (by pointer shuffling), so that they appear
+before the non- options.
+#tab
+
+A ':' character may be placed after the ordering flag (orat the
+very beginning if no ordering flag is given) which indicates that
+the character ':', rather than '?', should be returned in R1 if
+a missing argument error is detected. (R0 will point to an error
+block, and the V flag will be set.)
+
+Each option in the string can be followed by a '+' sign, indicating
+that it can be negated, a ':' sign indicating that it requires an
+argument, or a '::' string, indicating an optional argument. Both
+'+' and ':' or '::' may be given, although the '+' must come first.
+
+If an option is found, the option character is returned to
+the caller. A pointer to an argument is returned in R4; if there is
+no argument, then 0 is returned. If a negated option was found, the
+option character is returned with bit 8 set.
+
+Long options are described in a table. Each entry in the table
+consists of four words:
+#fCode;indent 3;wrap off
+  struct option \{
+    const char *name;	// points to the option name
+    int has_arg;	// the option's flags word
+    int *flag;		// points to a flag variable (optional)
+    int val;		// value to store or return
+  };
+#wrap;indent;f
+
+The table is terminated by an entry whose name field is null. Each
+option has a flags word which, due to historical reasons, is called
+'has_arg'. This describes various properties of the option, such as
+what sort of argument it takes, and whether it can be negated.
+
+When <MDWOpt_ReadArgs> finds a long option, it looks the name up in the
+table. The index of the matching entry is returned in R2; a value of
+-1 indicates that no long option was found. The behaviour is then
+dependent on the values in the table entry. If 'flag' is nonzero, it
+points to an integer to be modified by MDWOpt_ReadArgs. Usually the
+value in the 'val' field is simply stored in the 'flag' variable. If
+the flag 'gFlag_switch' (bit 2) is set, however, the value is
+combined with the existing value of the flags using a bitwise OR. If
+'gFlag_negate' (bit 3) is set, then the flag bit will be cleared if a
+matching negated long option is found. 0 is returned in R1.
+
+If 'flag' is zero, the value in 'val' is returned in R1, possibly
+with bit 8 set if the option was negated.
+
+Arguments for long options are returned in R4, as before.
+
+Numeric options, if enabled, cause the value '#' to be returned in R1
+(bit 8 may be set if the option is negated), and the numeric value to
+be returned in R3.
+
+If the flag 'gFlag_envVar' (R5 bit 4) is set on entry, options will
+be extracted from an environment variable whose name is either
+\<leafname>$Options or \<leafname> (where \<leafname> is the leafname of
+the calling program; this depends on R5 b5 being clear, indicating
+that the program name is supplied as one of the arguments).

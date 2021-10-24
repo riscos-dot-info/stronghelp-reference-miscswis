@@ -1,0 +1,22 @@
+ARMEdit_TalkStart (&4BC41)
+#parent ARMEdit_
+{f25}Þ{f}	R0 =	Pre-allocated ID for this task.
+	R1 =	<Flags=>.flags>
+	R2 !	A function to be called when a message is available, or 0 for none.
+	R3 =	Value for R12 to contain when function pointed to by R2 is called.
+{f25}Ü{f}	R0 =	A unique client handle.
+	R1 !	A poll word for this task.
+#line;tab
+*Purpose*:	Register a new client task.
+*Interrupts*:	Interrupt status is undefined.
+ 	Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:	SWI is not re-entrant.
+*Use*:	An application that provides services to PC software should call this when it is starting. A message buffer is allocated and a unique handle for this task assigned. This handle should be stored and used in all other calls relating to this task.
+	The poll word is initially set to zero. When there is potentially a message waiting for this task the poll word is set to a non-zero value. The poll word is cleared when either the message has been read, or no message is available for some other reason. *Note* that a non-zero poll word does not imply that a message will be available; another task might have read the message if it was not directed to a specific handle. The poll word must not be written to; it must only be modified by the ARMEdit module.
+#
+#subpage flags
+ARMEdit_TalkStart R1 Flags
+/Bit/	/Meaning if set/
+0	Messages from the ARMEdit module are required.
+1..31	Reserved; set to 0

@@ -1,0 +1,6 @@
+Users_SetUID
+#Parent Users_
+=>	R0 =	uid number
+	R1 =	pointer to password, or 0 to ignore password
+
+This SWI is used to set the current process' uid. If the password is incorrect, or the user is not root then this call will cause an error, leaving the user in the previous uid. The {fCode}su{f} command uses this call to change uid's.

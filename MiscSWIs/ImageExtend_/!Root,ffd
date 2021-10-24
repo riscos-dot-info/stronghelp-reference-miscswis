@@ -1,0 +1,15 @@
+ImageExtend
+#Parent !Root
+#Prefix ImageExtend_
+#Table Columns 2
+Info
+PutSpriteTransformed
+PutSpriteToBufferTransformed
+PutStringTransformed
+GetBBox
+GetImageBBox
+MakeMatrix
+MakeHalftoneTile
+AddKernelToMatrix
+MakeSimpleScreenTile
+#EndTable

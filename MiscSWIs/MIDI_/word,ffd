@@ -1,0 +1,14 @@
+MIDI data word
+#Parent MIDI_
+MIDI data words are of the form :
+
+#fCode
+#indent 2
+&AABBCCDD
+#indent
+#f
+
+AA =	number of bytes in MIDI command
+BB =	<MIDI command byte=>MIDI_commands>
+CC =	data byte 1
+DD =	data byte 2

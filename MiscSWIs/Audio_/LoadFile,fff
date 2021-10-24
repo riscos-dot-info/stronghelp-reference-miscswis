@@ -1,0 +1,17 @@
+Audio_LoadFile (&452C9)
+#Prefix Audio_
+#Parent Audio_
+#Wrap Off
+=>	R0 =>	filename (0-terminated)
+	
+<=	R0 =	sample rate
+	R1 =	sample <type>
+	R2 =	<channels>
+	R3 =	<bits>
+	R4 =	file length (bytes)
+
+#Wrap On
+This SWI loads a file into memory for later playback.
+
+If the module recognises the file type, it will set the sample parameters
+accordingly.

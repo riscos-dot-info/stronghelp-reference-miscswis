@@ -1,0 +1,3 @@
+Spch_Oldchannel  (&42B81)
+#Parent Spch_
+This SWI sets the sound system to the old channel and speed settings.

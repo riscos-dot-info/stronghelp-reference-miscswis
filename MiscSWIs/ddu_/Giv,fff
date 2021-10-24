@@ -1,0 +1,17 @@
+ddu_GIV (&506E7)
+{f25}Þ{f}	R0 =	Window handle
+		R1 =	Icon handle
+		R2 =	Base if {f25}³{f} 2 AND {f25}£{f} 36, otherwise ignored
+{f25}Ü{f}	R0 =	Value
+Not re-entrant.
+#line;tab
+Get the numerical value of an inderected icon's text.
+
+*Note*:	ddUtil versions \<0.37 returned an error if the icon was empty; now it returns 0
+#line
+*Basic example*
+#fCode;indent 4;wrap off
+SYS "ddu_GIV",Window,Icon TO Value
+SYS "ddu_GIV",Window,Icon,16 TO Value
+#wrap;indent;f
+(see <OS_ReadUnsigned=>OS:OS_ReadUnsigned> (<PRM 1-448=>PRM-1:448>) for a description of R2, possible errors and on how the value is treated)

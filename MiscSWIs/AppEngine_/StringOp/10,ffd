@@ -1,0 +1,11 @@
+AppEngine_StringOp 10  (&4D941)
+#Parent AppEngine_StringOp
+=>	R0 =	10
+	R1 =	pointer to address to read string from
+	R2 =	directory separator character, typically '.' or '/' (ASCII code)
+
+<=	R0, R2 preserved
+	R1 =	pointer to character after the input's terminator
+	R3 =	pointer to output string (up to 255 chars)
+
+This call takes an input path string (e.g. ADFS::HD4.$.Sounds.Wave‘) and returns what follows the last instance of the separator character (in this case, Wave‘).

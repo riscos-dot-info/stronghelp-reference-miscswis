@@ -1,0 +1,18 @@
+Virtualise_Configure (&4B6C0)
+#parent Virtualise_
+{f25}Þ{f}	R0 =	Set the amount of logical address space, in bytes, allocated for dynamic areas when -1 is passed to <OS_DynamicArea=>OS:OS_DynamicArea> 0, or -1 to read current value.
+	R1 =	Amount of memory to claim automatically, in bytes, or -1 to read current value.
+	R2 =	Amount of memory to leave free, in bytes, or -1 to read current value.
+{f25}Ü{f}	R0 =	The size of address space to allocate.
+	R1 =	The amount of memory to claim, in bytes.
+	R2 =	The amount of memory to leave free, in bytes.
+#line;tab
+*Purpose*:	Configure logical and physical memory usage.
+*Interrupts*:	Interrupt status is undefined.
+		Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:		SWI is not re-entrant.
+*Use*:	This call provides control over how much real memory to claim, and how much to leave free. These values are only treated as guidelines. In particular the user may drag the bar in the Task Manager or the specified values may lie outside the range of required or useful memory.
+	*Do not* rely on any particular default values. They may be altered by another application, the configuration specified by the user, or they could change in a future release of this module.
+	The recommended way of using this call (if it is used at all) is to include an option in the application configuration window for minimum amount of memory to claim and minimum memory to leave free. When the window is opened this call should be used to read the current settings. When the user selects OK or Save this call should be used to set the values. If the application saves a configuration then it should call this SWI when it starts to set the required values. The application should not normally set these values any more frequently - it is likely to result in confusing behaviour for the user if more that one application is using the virtual memory system.
+	It is also possible to control how much address space is allocated for dynamic area which are created with -1 passed for the maximum size. This allows badly written programs to be used on machines with a large memory without using ridiculously large sections of the logical address space. This option should not normally be used by applications themselves - it is intended for use by the user to control wastage of logical address space by programs which are not aware of virtual memory.

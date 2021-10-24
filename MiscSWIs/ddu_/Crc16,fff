@@ -1,0 +1,28 @@
+ddu_CRC16 (&506C4)
+{f25}Þ{f}	R0 =	Old (Start) CRC value
+	 	If R1 \< 256 or R2=0
+	 	 	R1 =	Byte to add
+	 	If R1 {f25}³{f} &8000 and R2 > 0
+	 	 	R1 =	Start address of buffer in memory
+	 	 	R2 =	Length of buffer
+{f25}Ü{f}	R0 =	New CRC value
+Re-entrant.
+#line
+Calcuates 16-Bit CRCs compatible with the X/Y/Z-Modem polynominal (&8408)
+
+<Example=>.example>
+
+*Note*:	ddUtil versions \<0.31a checked for R1 > &8000 instead of R1 {f25}³{f} &8000!
+#
+#subpage example
+ddu_CRC16 Basic example
+#wrap off;fCode;indent 4
+CRC=0
+FOR A=0 TO 1023
+  SYS "ddu_CRC16",CRC,Buffer?A TO CRC
+NEXT A
+#indent;f;wrap
+is equal to
+#wrap off;fCode;indent 4
+SYS "ddu_CRC16",0,Buffer,1024 TO CRC
+#indent;f;wrap

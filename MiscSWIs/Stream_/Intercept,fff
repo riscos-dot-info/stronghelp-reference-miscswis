@@ -1,0 +1,5 @@
+Stream_Intercept (&81944)
+#Parent Stream_
+No parameters
+
+All printable characters will be intercepted by VDUstream when the stream is enabled rather than being passed on to the default handler.

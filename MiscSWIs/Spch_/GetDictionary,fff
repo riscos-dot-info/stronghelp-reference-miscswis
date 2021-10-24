@@ -1,0 +1,6 @@
+Spch_GetDictionary  (&42B8B)
+#Parent Spch_
+<=	R0 =	offset of dictionary in module
+
+This SWI will return the offset of the dictionary in the module.
+# Gerph> This is not documented.

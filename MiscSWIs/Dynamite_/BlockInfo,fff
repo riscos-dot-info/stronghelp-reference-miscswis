@@ -1,0 +1,15 @@
+Dynamite_BlockInfo (SWI &4A3C3)
+#parent Dynamite_
+{*}Dynamite_BlockInfo{*}	Returns information about a Dynamite block
+On entry	R0 = address of block anchor
+On exit	R0 preserved
+	R1 = address of block
+	R2 = current size of block, in bytes
+	R3 = block ID, as passed to <Dynamite_Alloc>
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is re-entrant
+Use	This SWI returns various pieces of information about a Dynamite block.
+	The size in R2 is the byte aligned size given to <Dynamite_Alloc> when the block was created, possibly altered subsequently by <Dynamite_Resize> or <Dynamite_MidExtend>.
+Related SWIs	/None/

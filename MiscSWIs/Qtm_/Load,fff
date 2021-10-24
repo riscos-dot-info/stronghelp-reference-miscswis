@@ -1,0 +1,26 @@
+QTM_Load  (&47E40)
+#Parent QTM_
+There are three forms of this call :
+=>	 	<Form 1=>.form1>		<Form 2=>.form2>	<Form 3=>.form3>
+	R0 =	filename			0			-1
+	R1 =	address, or 0 for QTM memory	address        			address to copy from
+
+<=	R0, R1 preserved
+
+The address and type of the loaded song can be read by <QTM_Info>.
+
+Note: When a song is loaded (by any method) its sample data is converted into 8-bit logarithmic data, from signed linear data. 15 inst. format songs are converted to a 31 inst. format at the same time. The sample data CAN be converted back to signed linear, so the song can be saved or re-loaded etc. by calling <QTM_Clear> with R0=-1, although the song format will not be converted back, and will remain as 31 inst.
+
+V flag set if there was not enough space in the RMA for the song, the file was not found, the music format was not understood, or an illegal memory address was specified.
+#Subpage form1
+QTM_Load form 1
+Depending on the value in R1, QTM will either load the specified song file into QTM's own memory (R1=0), or to the memory address given in R1 (R1\<>0).
+#Subpage form2
+QTM_Load form 2
+QTM will initialise the song pointed to by R1, at that address.
+This enables a program to load a song into its own reserved memory (eg. application memory or its own RMA block) and get QTM to play it from there, rather than from a QTM-controlled RMA block.
+#Subpage form3
+QTM_Load form 3
+QTM will COPY the song from the address given in R1, to its own memory (RMA) and use it from there.
+
+Note: If the address in R1 is the START of an RMA block, QTM will take control of this block, and release it after transfering the song. This is done to reduce possible fragmentation of the RMA. The loader program must *NOT* access the old RMA address of the song, after this call.

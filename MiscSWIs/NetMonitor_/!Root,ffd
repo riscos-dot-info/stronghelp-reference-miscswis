@@ -1,0 +1,11 @@
+NetMonitor
+#Parent !Root
+#Prefix NetMonitor_
+#Table Columns 2
+PrintChar
+DefineTask
+AbandonTask
+ConvertFont
+UseFont
+RestoreFont
+#EndTable

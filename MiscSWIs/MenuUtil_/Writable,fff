@@ -1,0 +1,26 @@
+MenuUtil_Writable (&45BCD)
+#Parent MenuUtil_
+Makes menu item writable.
+
+{f25}Þ{f}	R0 =	handle of menu item or 0 for current item or handle of the menu
+	R1 {f25}¹{f}	0 ˜ makes item writable
+	 	R2 =	buffer size
+	 	R3 {f25}®{f}	validation string, or
+	R1 =	0 ˜ makes item not writable
+{f25}Ü{f}	R0-R3	preserved
+#Line
+*Use*:	If R1 is not zero on entry then this call will convert existing menu item into writable item. R0 must contain the handle of the menu item or zero for current item. If R0 contains handle of the menu then all the items in this menu will be converted. 
+	R2 on entry contains the length of the buffer for the input string. The value in R2 must be not less then the length of the current item text. In the latter case the buffer will remain unchanged.
+	If R3 {f25}¹{f} 0 on entry then it points to the ctrl-terminated validation string. The module makes its own copy of the string. If R3 = 0 on entry then no validation string will be used.
+	If R1 is zero on entry then the item will be converted back into ordinary menu item. In this case contents of registers R2 and R3 will be ignored.
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_Writable)
+Make current item writable without validation string:
+
+#FCode:  SYS "MenuUtil_Writable",,TRUE  
+
+Make menu item with handle widthItem% writable, with buffer size 40 and allow to enter to it only digits:
+
+#FCode:  SYS "MenuUtil_Writable",widthItem%,TRUE,40,"A0-9"

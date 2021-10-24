@@ -1,0 +1,6 @@
+Spch_Error  (&42B82)
+#Parent Spch_
+<=	R0 =	last error
+
+This SWI will return the last error in the speech system.
+# Gerph> This is not documented.

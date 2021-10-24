@@ -1,0 +1,11 @@
+ddu_OpenWindCentered (&506EA)
+{f25}Þ{f}	R0 =	Window handle
+{f25}Ü{f}	All registers preserved
+Not re-entrant
+#line
+Open a window on top of the pile with the work area centered to the screen
+#line
+*Basic example*
+#fCode;indent 4;wrap off
+SYS "ddu_OpenWind",Window
+#wrap;indent;f

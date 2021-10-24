@@ -1,0 +1,8 @@
+AppEngine_SocketOp 0  (&4D945)
+#Parent AppEngine_SocketOp
+=>	R0 =	0
+	R1 =	pointer to block of 32 bytes to become a file descriptor
+
+<=	R0, R1 preserved
+
+This call is used to clear the specified block of 32 bytes so that it may be used as a file descriptor block.

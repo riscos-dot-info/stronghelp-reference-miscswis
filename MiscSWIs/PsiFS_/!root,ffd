@@ -1,0 +1,12 @@
+PsiFS
+#prefix PsiFS_
+#parent !Root
+#table columns 3
+<Register>
+<Unregister>
+<Set>
+<Get>
+<Mode>
+#endtable
+#line
+A comprehensive <OSLib=>#url http://www.arcade.demon.co.uk/oslib/> interface (assembler header file and C veneers) to all of the /PsiFS/ SWIs is available on request.

@@ -1,0 +1,5 @@
+Stream_Disable (&81941)
+#Parent Stream_
+No parameters
+
+This swi decrements the claim count and releases WrchV if it is zero. Subsequent text will appear as normal if the stream is released.

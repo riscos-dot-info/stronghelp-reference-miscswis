@@ -1,0 +1,6 @@
+PsiFS_Set &101 (&520C2)
+{f25}Þ{f}	R0 =	&101
+		R1 =	port number (0 for the first)
+{f25}Ü{f}	Registers preserved
+#line
+This call sets the configured serial block driver port number.

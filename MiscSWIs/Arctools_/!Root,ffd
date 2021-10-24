@@ -1,0 +1,6 @@
+ARCTOOLS
+#Parent !Root
+#Prefix ARCTOOLS_
+#Table Columns 2
+<Assemble>
+#EndTable

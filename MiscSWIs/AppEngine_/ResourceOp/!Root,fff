@@ -1,0 +1,17 @@
+AppEngine_ResourceOp  (&4D940)
+#Wrap off
+=>	R0 =	<reason code=>.reasons>
+	other registers are reason code dependent
+
+<=	R0 preserved
+	other registers are reason code dependent
+#Wrap
+
+This call provides operations to handle resources such as Templates, Messages, etc.
+#Subpage reasons
+AppEngine_ResourceOp reason codes
+#Wrap off
+R0	Action
+#Line
+0	<Locate resources for this application using the currently configured territory=>AppEngine_ResourceOp0>
+#Wrap

@@ -1,0 +1,7 @@
+DSym_Params  (&45899)
+#Parent DSym_
+<=	R0 =	speed (1-&FFF)
+	R1 =	tempo (1-&FFF)
+	R2 =	counter (0-&FFE)
+
+This call reads the current speed variables. The counter varies from 1 to speed-1 at a speed according to tempo (50 times a sec for default tempo).

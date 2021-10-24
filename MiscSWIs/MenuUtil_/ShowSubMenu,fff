@@ -1,0 +1,21 @@
+MenuUtil_ShowSubMenu (&45BC6)
+#Parent MenuUtil_
+Display submenu after receiving Message_MenuWarning
+
+{f25}Þ{f}	R0 =	handle of the submenu or zero for current menu
+	R1 {f25}®{f}	block
+{f25}Ü{f}	R0,R1	preserved
+#line
+*Use*:	This call may be used to display submenu when a message type <MenuWarning (&400C0)=>Wimp:Msg_400C0> is received by an application. This message is sent by the Wimp when submenu is about to be accessed by the pointer moving over the right-pointing arrow of the parent menu. (To find out the handle of the menu item in parent menu you can use <MenuUtil_Decode>).
+	R1 on entry must point to message block (in fact only two words at offsets +24 and +28 will be used).
+*Note*:	If you plan to use <MenuUtil_Decode> then all submenu pointers must be valid. It means that you have to link submenu pointed to by R0 with corresponding menu item. This can be done by <MenuUtil_SubMenu>.
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_ShowSubMenu)
+Display fonts submenu on screen after receiving MenuWarning:
+
+#FCode;Indent 2
+SYS "MenuUtil_SubMenu",fontsItem%,fontsMenu%
+SYS "MenuUtil_ShowSubMenu",fontsMenu%,q%
+#F;Indent

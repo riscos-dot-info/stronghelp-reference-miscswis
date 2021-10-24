@@ -1,0 +1,4 @@
+ddu_ConvUTCTime (&506C6)
+Converts a given 5-byte realtime to a string, using <Territory_ConvertDateAndTime=>OS:Territory_ConvertDateAndTime> and no timezone or dst offsets.
+
+See <ddu_ConvTime> for documentation

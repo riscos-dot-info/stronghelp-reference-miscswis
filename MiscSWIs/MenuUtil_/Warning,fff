@@ -1,0 +1,20 @@
+MenuUtil_Warning (&45BCC)
+#Parent MenuUtil_
+This call can be used to make menu item generate a message when moving to the submenu 
+
+{f25}Þ{f}	R0 =	handle of menu item or zero for current menu item or handle of menu
+	R1 —	defines action
+	 	if R1 = 0	clear message menu flag
+	 	if R1 {f25}¹{f} 0	set message flag (ie. message will be generated) 
+{f25}Ü{f}	R0,R1	preserved
+#Line
+*Use*:	R0 must contain the item handle or zero for the current menu item. R1 defines to set or to clear the flag which changes submenu behaviour. If R1 is not zero, then moving over the right arrow will cause a <MenuWarning message (&400C0)=>Wimp:Msg_400C0> to be generated. The application can respond by calling <MenuUtil_ShowSubMenu> to display appropriate object.
+	If R0 instead of item handle contains menu handle then the state of the flag will be changed in all items of this menu.
+	It is convenient to pass in R1 the result of logical expression (to set flag if result is TRUE and to clear it if FALSE).
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_Warning)
+Generate message when moving to the fonts submenu:
+
+#FCode:  SYS "MenuUtil_Warning",fontsItem%,TRUE

@@ -1,0 +1,7 @@
+Thread_Semaphore (0x4DA45)
+#parent Thread_
+#tab ,,align centre,
+{f25}Þ{f}	R0	!	Semaphore
+ 		R1	=	Initial value
+#line
+*Notes*:	This call initialises a counting semaphore (which must be one word in size, properly aligned etc.) with the given value.

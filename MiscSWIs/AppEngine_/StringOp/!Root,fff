@@ -1,0 +1,44 @@
+AppEngine_StringOp  (&4D941)
+#Wrap off
+=>	R0 = <reason code=>.reasons>
+	other registers are reason code dependent
+
+<=	R0 preserved
+	other registers are reason code dependent
+#Wrap
+
+This call provides various operations to deal with ASCII strings.
+
+<More info=>.more>.
+#Subpage more
+AppEngine_StringOp information
+This call provides various operations to deal with ASCII strings.
+
+Most (if not all) of the calls place their result within AppEngine's workspace and return a pointer to the string within the workspace.  For this reason, you must always copy the string to somewhere else before calling StringOp again - if you don't do that then further calls to StringOp will overwrite the workspace, destroying the string.
+
+All strings are stored in the same style as BASIC, i.e. with CR (13) as the terminating character.  As with BASIC, they are limited to a maximum of 256 characters, including terminator (although this may change later on).  Typically you will use the operations in this way:
+	
+{fCode:SYS "AppEngine_StringOp",1,source% TO ,,string$}
+	
+Input strings can be terminated by any control character, unless otherwise stated.
+#Subpage reasons
+AppEngine_StringOp reason codes
+#Wrap off
+R0	Action
+#Line
+0	<reads a string from memory (LF terminated)=>AppEngine_StringOp0>
+1	<reads a string from memory (control terminated)=>AppEngine_StringOp1>
+2	<shortens a string, adding an ellipsis on the left=>AppEngine_StringOp2>
+3	<shortens a string, adding an ellipsis on the right=>AppEngine_StringOp3>
+4	<converts a string to lower-case characters=>AppEngine_StringOp4>
+5	<converts a string to upper-case characters=>AppEngine_StringOp5>
+6	<tests whether a string is a valid integer number=>AppEngine_StringOp6>
+7	<strips leading spaces and tabs from a string=>AppEngine_StringOp7>
+8	<compares two strings=>AppEngine_StringOp8>
+9	<joins two strings=>AppEngine_StringOp9>
+10	<returns the leafname from a path string=>AppEngine_StringOp10>
+11	returns the branchname from a path string (not yet implemented)
+12	<substitutes arguments into a string=>AppEngine_StringOp12>
+13	<returns the length of a string=>AppEngine_StringOp13>
+14	<copies a string=>AppEngine_StringOp14>
+#Wrap

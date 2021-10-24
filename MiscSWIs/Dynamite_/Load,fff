@@ -1,0 +1,14 @@
+Dynamite_Load (SWI &4A3C8)
+#parent Dynamite_
+{*}Dynamite_Load{*}	Restores registers from Dynamite's relocation stack
+On entry	R0 =	bit mask of registers to load
+On exit	As described below
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	This SWI will load the registers specified in R0 from Dynamite's relocation stack.  R0 should contain a bit set for each register that you want loaded ˜ i.e.  bit 1 set to load R1, etc.
+	You must not load R9-R15, so the corresponding bits of R0 should not be set on entry.
+	The stack is ascending, and follows the normal ARM rules for ascending stacks.  Hence if you save R1-R7 on the stack, the saved R7 will be the first register to be removed.
+	The upper two bytes of R0 are ignored by this SWI.  Therefore R0 on entry can actually contain an LDM instruction specifying the required registers.
+Related SWIs	* <Dynamite_Save>

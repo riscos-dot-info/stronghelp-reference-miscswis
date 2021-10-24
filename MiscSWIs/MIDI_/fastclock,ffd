@@ -1,0 +1,4 @@
+MIDI Fastclock
+#Parent MIDI_TxCommand
+The fastclock (when in use) is a 1ms incrementing timer which can be used to synchronise and schedule MIDI events. It may not work correctly on all hardware/software.
+# Gerph> I've got to have this confirmed by someone.

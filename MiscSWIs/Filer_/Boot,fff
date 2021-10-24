@@ -1,0 +1,6 @@
+Filer_Boot
+#Parent Filer_
+=>	R0 =	pointer to canonical directory name
+<=	all preserved
+
+Does exactly the same as the *Filer_Boot command.

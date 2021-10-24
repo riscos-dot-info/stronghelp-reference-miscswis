@@ -1,0 +1,31 @@
+MenuUtil_Show (&45BC5)
+#Parent MenuUtil_
+Displays menu on screen
+
+{f25}Þ{f}	R0 =	handle of the menu or 0 for current menu
+	R1 {f25}®{f}	block or 0
+{f25}Ü{f}	R0,R1	preserved
+#Line
+*Use*:	This call may be used to display menu on screen. Screen position for menu will be calculated according to rules described in PRM. Block pointed to by R1 must contain the same information as returned by <Wimp_Poll=>Wimp:Wimp_Poll> in case of mouse click event (in fact only mouse coordinates and window handle will be used) :
+
+	 	R1 + 0	mouse X
+	 	R1 + 4	mouse Y
+	 	R1 + 8	buttons
+	 	R1 +12	window handle (-2 if icon bar)
+	 	R1 +16	icon handle                
+
+	MenuUtils automatically distinguishes iconbar menus from ordinary window menus. If menu is already on screen and you want to reopen it after user selection with Adjust button then pointer to the block may be omitted.
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_Show)
+Suppose <Wimp_Poll=>SWI:Wimp_Poll> has returned reason code 6 (<Mouse_Click=>SWI:Wimp_Poll6>) and q% points to the returned block. Display menu on screen if the click is with Menu button.
+
+#FCode;Indent 2
+buttons%=q%!8
+IF (buttons% AND 2)\<>0 THEN SYS "MenuUtil_Show",mainMenu%,q%  
+#F;Indent
+  
+Leave menu on screen after selection with Adjust button
+
+#FCode:  SYS "MenuUtil_Show"

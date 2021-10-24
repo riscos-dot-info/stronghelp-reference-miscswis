@@ -1,0 +1,16 @@
+Director command SWI equivilents
+#Parent Director_
+=>	R0 = pointer to line
+
+The SWIs :
+#Indent 2
+<Director_Menu>
+<Director_EndMenu>
+<Director_Option>
+<Director_Dash>
+<Director_Command>
+#Indent
+
+are directly equivilent to their OSCLI command counterparts.
+
+These are defined because processing star commands is very slow and in dynamic menus especially it is important that items can be added to menus quickly.

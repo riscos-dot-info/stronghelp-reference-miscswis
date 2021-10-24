@@ -1,0 +1,12 @@
+Dynamite_Reduce (SWI &4A3C9)
+#parent Dynamite_
+{*}Dynamite_Reduce{*}	Performs a partial compaction of the Dynamite heap
+On entry	˜
+On exit	C set if no compaction performed, clear otherwise
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	This call will partially compact Dynamite's heap.  It may fail (returning C set) if either the heap is already compact, or if the heap is locked.  Calling Dynamite_Reduce in a loop until it returns with C set will result in the heap being fully compacted.
+	{*}This SWI may cause blocks to move within the Dynamite heap.{*}
+Related SWIs	* <Dynamite_Compact>

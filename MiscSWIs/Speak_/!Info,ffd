@@ -1,0 +1,7 @@
+Speak
+#Parent Speak_
+Module name:	Speak
+Author:		Johnathan Duddington
+Version:	2.09 (23 Jul 1997)
+#Line
+The Speak module provides facilities to make simple lines of text into spoken words. This documentation was provided with his permission. Many thanks to him.

@@ -1,0 +1,6 @@
+LineEditor_GetPosition
+#Parent LineEditor_
+=>	R0 =	buffer handle
+<=	R1 =	line number
+
+Reads the position in a private history buffer.

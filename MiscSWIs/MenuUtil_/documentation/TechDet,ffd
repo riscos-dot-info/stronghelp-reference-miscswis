@@ -1,0 +1,8 @@
+Technical Details
+Module MenuUtils may be used only by programs which are WIMP tasks. Special SWI <MenuUtil_Initialise> is provided to register the program as MenuUtils client. MenuUtil_Initialise must be called after <Wimp_Initialise=>Wimp:Wimp_Initialise> has been called and before any other call to MenuUtils module is made.
+
+All menus created by MenuUtils are kept in RMA. So you have no need to reserve memory for them. On exit from your program all the memory will be automatically returned to RMA.
+
+Single MenuUtils module can handle menus for several WIMP tasks.
+
+Internal format of menu data structures created by the module is the same as described in RISC OS 2 PRM. So it is possible to combine menus created by MenuUtils with other menus. To find out address of menu data structure you can use SWI <MenuUtil_Info>.

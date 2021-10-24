@@ -1,0 +1,13 @@
+ROMCache
+#Parent !Root
+#Prefix ROMCache_
+#Table Columns 2
+Cache
+Link
+Load
+Swap
+Uncache
+Save
+SetState
+Allocate
+#EndTable

@@ -1,0 +1,16 @@
+ARMEdit_ControlPC (&4BC40)
+#parent ARMEdit_
+{f25}Þ{f}	R0 =	Operation to perform:
+	 	0	Suspend full screen mode
+	 	1	Freeze running in a window
+	 	2	Reset the PC
+	 	3	Quit the front-end
+{f25}Ü{f}	All registers preserved.
+#line;tab
+*Purpose*:	Control the PC front-end.
+*Interrupts*:	Interrupt status is undefined.
+		Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:	SWI is not re-entrant.
+*Use*:	This call allows the PC front-end to be controlled. Note that if the PC front-end is not the current application then this will only take effect the next time the front-end is paged in.
+	Note that suspending full screen mode only starts execution in a window if enabled by the current configuration.

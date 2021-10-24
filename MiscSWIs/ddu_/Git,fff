@@ -1,0 +1,12 @@
+ddu_GIT (&506E3)
+{f25}Þ{f}	R0 =	Window handle
+		R1 =	Icon handle
+{f25}Ü{f}	R0 !	text, CR term
+Not re-entrant.
+#line
+Get an inderected icon's text.
+#line
+*Basic example*
+#fCode;wrap off;indent
+SYS "ddu_GIT",Window,Icon TO Text$
+#indent;wrap;f

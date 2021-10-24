@@ -1,0 +1,16 @@
+FileBuffer
+#Parent !Root
+#Prefix FileBuffer_
+#Table Columns 2
+Open
+Close
+Clear
+Read
+ReadByte
+Write
+WriteByte
+ReadPTR
+WritePTR
+TaskStart
+TaskQuit
+#EndTable

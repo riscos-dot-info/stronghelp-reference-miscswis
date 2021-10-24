@@ -1,0 +1,30 @@
+GDraw
+#Parent !Root
+#Prefix GDraw_
+#Table Columns 2
+ProcessPath
+ProcessPathFP
+Fill
+FillFP
+Stroke
+StrokeFP
+StrokePath
+StrokePathFP
+FlattenPath
+FlattenPathFP
+TransformPath
+TransformPathFP
+ProcessClipPath
+ProcessClipPathFP
+ClipPath
+ClipPathFP
+ClipPathToPath
+ClipPathToPathFP
+ClearClipRegion
+SetClipRegion
+SetFillStyle
+FillRegion
+SetPrintFlag
+ReadFillStyle
+GetClipRegion
+#EndTable

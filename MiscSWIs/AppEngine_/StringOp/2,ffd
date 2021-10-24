@@ -1,0 +1,11 @@
+AppEngine_StringOp 2  (&4D941)
+#Parent AppEngine_StringOp
+=>	R0 =	2
+	R1 =	pointer to address to read string from
+	R2 =	length of output string (maximum of 255, \<3 is undefined)
+
+<=	R0, R2 preserved
+	R1 =	pointer to character after the input‘s terminator
+	R3 =	pointer to output string (up to 255 chars)
+
+This call copies a string, truncating the left-hand side and prefixing an ellipsis (...‘) if it's longer than the specified size.

@@ -1,0 +1,36 @@
+Euclid_Find (&80645)
+#parent Euclid_
+=>	R1 !	picture structure or zero.
+ 	R2 !	string for name to find.
+<=	R0 !	leaf of object named.
+ 	R1 !	transformation controlling object or -1
+ 	R3 !	matrix transformation applied to object.
+ 	R4 !	inverse of matrix pointed to by R3.
+ 	R5 !	entry in Group controlling object named (or 0).
+ 	R6 !	Group controlling object named (or 0).
+#line
+Names are formed by the global name of an object in the pool followed by the local names of sub-objects if necessary. Ambiguous names are distinguished by #n. Names are case-sensitive.
+
+This function is use internally to process the camera information for <Euclid_Draw>.
+
+(Mind boggling example: The name "Group#4.Group#2" implies that there are at least 4 objects in the pool (of any type) called 'Group'. The fourth one of these has at least two children, and two of these at least are themselves called Group. Note that the children called Group cannot be the same as the parent (otherwise a loop would be formed) and that Group#4.Group#1 and Group#4.Group#2 could refer to different objects in the pool.)
+#line
+<Examples=>.examples>
+#
+#subpage examples
+Euclid_Find Examples
+To find, say, the second hand of a clock, and rotate into position:
+#fCode;indent 3;wrap off
+SYS "Euclid_Find",,,"Clock.Seconds" TO ,Transform
+SYS "Euclid_Rotate",,,Transform,0,0,(TIME DIV 100*6)<<6
+#wrap;indent;f
+
+To work out the non-ambiguous version of the name of an object you can use:
+#fCode;indent 3;wrap off
+N$=$(Object%+4):C%=0
+REPEAT
+   C%+=1
+   NAME$ = N$+"#"+STR$C%
+   SYS "XEuclid_Find",,,NAME$ TO P%
+UNTIL P%=Object%
+#wrap;indent;f

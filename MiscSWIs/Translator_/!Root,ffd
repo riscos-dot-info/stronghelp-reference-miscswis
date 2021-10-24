@@ -1,0 +1,27 @@
+Translator
+#Parent !Root
+#Prefix Translator_
+#Table Columns 2
+MakeMaps
+SetVariable
+ReadVariable
+UnpackPre
+Unpack
+SetPalette
+Rotate
+MirrorX
+MirrorY
+ClosestToRGB
+DMA
+PixelFreq
+CalcTrans
+Palette
+MoveWords
+ExchangeWords
+WriteWords
+TaskStart
+TaskQuit
+Heckbert
+CorrectCol
+CalcRange
+#EndTable

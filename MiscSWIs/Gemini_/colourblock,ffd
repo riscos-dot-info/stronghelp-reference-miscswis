@@ -1,0 +1,21 @@
+Gemini TMcolourblock
+#Parent Gemini_
+TMcolourblock (256 + 1024 * 4 bytes)
+#Line
+This contains all the colours used in the Gemini environment. They are stored separately, because Gemini recalculates them each time a user change graphic mode. The 1024*4 additional bytes are used to store a table of user defined lights. See later. Each colour entry uses 8 bytes; 4 for &BBGGRR00 of the colour and the second 4bytes to store the translated colour for the current graphic mode. The values inside [] are the default values set when you call <Gemini_Initialise>.
+
+Once Gemini is running, if you want to change a colour (say the fog colour) just alter the relevant location with the new palette entry and then inform Gemini that you have changed colour by setting TMviewblock!156 to a value different from 0. Gemini will recalculate the new colour table next time a <Gemini_Render> call is issued and zeroes this location (+156) on exit.
+
+Offset	Meaning	Default
+#Line
++0	Background colour (or sky start,for shaded background)	[&AA999900]
++8	Active plane colour	[&00FFFF00]
++16	Active axis colour	[&0000FF00]
++24	Fog colour	[&AA999900]
++32	Sky end colour      (if user wants a shaded background)	[&FF000000]
++40	Ground start colour (if user wants a shaded background)	[&BF444400]
++48	Ground end colour   (if user wants a shaded background)	[&00FF2200]
++56	Bezier visual-hull lines colour	[&FFD53B00]
++64	Polygon vertices colour 	[&00FFA000]
++72	Bezier control points colour	[&FF000000]
++80	Selected points colour	[&0000FF00]

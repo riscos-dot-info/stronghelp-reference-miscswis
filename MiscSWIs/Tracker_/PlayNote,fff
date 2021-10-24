@@ -1,0 +1,15 @@
+Tracker_PlayNote  (&43209)
+#Parent Tracker_
+=>	R0 =	Sound channel to sound note on (1-8 max)
+	R1 =	Tracker format note number (1-36)
+	R2 =	Sample to play (1-36)
+	R3 =	Volume (0-255) [Tracker volume even if soundtracker tune loaded].
+\<=	R0-R3 preserved
+	If tune not paused then C flag set otherwise C flag cleared.
+
+If there is no tune loaded, an error will be generated.
+
+It plays one of the samples which are part of the paused tune at a given pitch (1=low, 36=high) and volume (0=silent, 255=loud). If any of the values are out of range, an error will be reported.
+The number of sound channels that can be used depends on the module loaded (soundtracker modules will always use 4 voices, whereas Tracker modules can use up to 8). Use <Tracker_TuneInfo> to find out the maximum number of voices if you intend to play more than one note at a time.
+
+NB: This call should be avoided if possible, unless the purpose is to hear each sample seperately.

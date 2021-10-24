@@ -1,0 +1,45 @@
+MenuUtil_Decode (&45BC4)
+#Parent MenuUtil_
+Decodes menu after user selection.
+
+{f25}Þ{f}	R0 =	menu handle or zero if current menu
+	R1 {f25}®{f}	to the list of menu selections
+{f25}Ü{f}	R0 {f25}®{f}	item handler or zero
+	R1 =	TRUE if selection was made with ADJUST. [undocumented, but used in !TemplEd] 
+	R2 {f25}®{f}	block [original docs said this was returned in R1 - this appears to be incorrect!]
+#line
+*Use*:	Block pointed to by R1 must contain the list of menu selections in the same format as returned by Wimp_Poll in case of menu selection event.
+
+	 	R1 + 0	item in main menu which was selected (starting from 0)
+	 	R1 + 4	item in first submenu which was selected
+	 	R1 + 8	item in second submenu which was selected
+	 	 	Œ
+	 	 	terminated by -1
+
+	This call maps the list of menu selections onto menu data structure and determines corresponding menu items. Various information about last two items from this list (selected item and parent item from menu one level up if any) is written into special block. Pointer to this block is returned in R2. Format of the returned block is as follows: 
+
+	 	R2+0	position of selected menu item in menu (starting from 0)
+	 	R2+4	pointer to selected item data
+	 	R2+8	selected item handle or zero if item was created without MenuUtils
+	 	R2+12	pointer to text string of selected item
+	 	R2+16	position of parent menu item in menu (starting from 0)
+	 	R2+20	pointer to parent item data
+	 	R2+24	parent item handle or zero if item was created without MenuUtils
+	 	R2+28	pointer to text string of parent item                         
+
+	If the item has been selected from the top-level menu then there will be no parent item and corresponding part of the block will be filled with zeros.
+
+	If during creation of this item you have specified the handler then R0 on exit will contain the pointer to this handler otherwise R0 will be zero. Interpretation of item handler is determined by initialisation type (see <MenuUtil_Initialise>). If initialisation type was "BASIC" then R0 will point to ctrl-terminated text string. If initialisation type was "machine code" (notsupported by current version) then R0 will contain the value passed in R2 to <MenuUtil_Add>. To invoke BASIC handler you can use EVAL statement.
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_Decode)
+Suppose <Wimp_Poll=>SWI:Wimp_Poll> has returned reason code 9 (<Menu_Selection=>SWI:Wimp_Poll9>) and q% points to the corresponding block. You can use <MenuUtil_Decode> to call the item handler in the following way:
+
+#Fcode;Indent 2
+SYS "MenuUtil_Decode",,q% TO handler%                            
+IF handler% THEN
+  handler$="FN"+$handler%
+  IF EVAL(handler$)
+ENDIF
+#F;Indent

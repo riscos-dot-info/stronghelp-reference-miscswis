@@ -1,0 +1,5 @@
+Spch_Speed  (&42B88)
+#Parent Spch_
+=>	R0 =	speed to use
+
+This SWI will change the speed of the spoken voice.

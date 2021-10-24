@@ -1,0 +1,9 @@
+DSym_Loop  (&45894)
+#Parent DSym_
+=>	R0 =	-1 to read loop status
+	 	other, to set
+
+<=	R0 =	previous loop status (0 enabled, >0 disabled)
+	R1 \<>	0 if the tune has looped
+
+This call controls whether the song is automatically restarted at end of last pattern.

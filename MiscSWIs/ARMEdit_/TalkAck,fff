@@ -1,0 +1,17 @@
+ARMEdit_TalkAck" (&4BC45)
+#parent ARMEdit_
+{f25}Þ{f}	R0 =	Client handle for this task.
+{f25}Ü{f}	All registers preserved.
+#line;tab
+*Purpose*:	Claim the most recently read message.
+*Interrupts*:	Interrupt status is undefined.
+		Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:	SWI is not re-entrant.
+#wrap on
+*Use*:	After reading a message with <ARMEdit_TalkRX>, this call should be
+used to claim the message, and to prevent it being offered to other
+clients. This should be used before calling any other SWIs from this
+module.
+	If the message was sent by the ARMEdit module then calling this SWI
+has no effect; other clients still receive the message.

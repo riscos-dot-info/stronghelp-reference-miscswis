@@ -1,0 +1,15 @@
+Tracker_Lock  (&4320D)
+#Parent Tracker_
+=>	R0 =	locking code (passed in R4 to SWI's)
+
+This SWI and the corresponding <Tracker_Unlock> SWI are provided to prevent user intervention with any of the features of the module when this would be undesirable for any multi-tasking applications using the module (for example issuing a *PlayStop command). By calling this SWI, an application can gain complete control of the module, but as a result, this feature must be used carefully, because the module cannot then be unlocked unless the code specified in the lock SWI is known (and if not, the module must be re-initialised).
+
+When the module is locked, calling any commands or SWI's which alter anything (such as changing the current play position, loading or killing tunes, playing notes) will cause an error, but SWI's returning information will function as normal. For the application which is responsible for the locking to be able to use the affected SWI's, R4 must be set to the locking code (passed in R0) before any of the affected SWI's is called (no commands will work even if the locking code is known).
+
+If the TrackerModule is already 'locked' when this SWI is called, an error will be generated. It is advisable to avoid using this call unless absolutely neccessary.
+
+The restricted commands are:
+*PlayMod, *PlayPause, *PlayStart, *PlayPos, *PlayStereo, *PlayStop, *PlayVolume.
+
+The restricted SWI's :
+<Tracker_Load>, <Tracker_MemoryLoad>, <Tracker_Play>, <Tracker_Stop>, <Tracker_Stereo>, <Tracker_SetPos>, <Tracker_PlayNote>, <Tracker_Volume>.

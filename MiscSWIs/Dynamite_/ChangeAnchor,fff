@@ -1,0 +1,12 @@
+Dynamite_ChangeAnchor (SWI &4A3D2)
+#parent Dynamite_
+{*}Dynamite_ChangeAnchor{*}	Changes the address of a block's anchor
+On entry	R0 =	address of the block's current anchor
+	R1 =	address of new anchor
+On exit	˜
+Interrupts	Interrupt status is undefined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	Changes the address of a block's anchor.  The new anchor is set up correctly on exit.  The old anchor cannot be used any more, and any attempts to use it in Dynamite SWIs will cause an error.
+Related SWIs	/None/

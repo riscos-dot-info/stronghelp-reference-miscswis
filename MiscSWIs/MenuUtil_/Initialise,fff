@@ -1,0 +1,18 @@
+MenuUtil_Initialise (&45BC0)
+#Parent MenuUtil_
+To register the task as MenuUtils client
+
+{f25}Þ{f}	R0 =	last MenuUtils version number known to task * 100                
+	R1 =	<initialisation type=>MenuUtil_initflags>
+{f25}Ü{f}	R0 =	version number * 100
+	R1,R2	preserved     
+#line
+*Use*:	MenuUtil_Initialise should only be called once when the task starts up. It must be called after <Wimp_Initialise=>Wimp:Wimp_Initialise> has been called and before any other call to the MenuUtils module is made.
+	MenuUtils performs all the closedown work automatically when the task finishes so no special MenuUtil_CloseDown SWI is provided.
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_Initialise)
+Register the task with any version of the module
+
+#FCode:SYS "MenuUtil_Initialise"

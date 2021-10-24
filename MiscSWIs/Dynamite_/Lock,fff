@@ -1,0 +1,12 @@
+Dynamite_Lock (SWI &4A3CB)
+#parent Dynamite_
+{*}Dynamite_Lock{*}	Locks the heap, preventing blocks from moving
+On entry	˜
+On exit		˜
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	This call will lock the Dynamite heap, so that blocks will not normally be moved around (e.g. during compaction).  Blocks may still be moved when they are resized, however.  The heap may be unlocked again by calling <Dynamite_Unlock>.  Calls to Dynamite_Lock may be nested.
+	When locked, the heap behaves much like a normal nonshifting heap, and can become fragmented.
+Related SWIs	* <Dynamite_Unlock>

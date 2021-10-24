@@ -1,0 +1,20 @@
+Dynamite_ReadSpriteSize (SWI &4A3CF)
+#parent Dynamite_
+{*}Dynamite_ReadSpriteSize{*}	Reads the total size of the System Sprite Area
+On entry	˜
+On exit	R0 =	size of the System Sprite Area in bytes
+Interrupts	Interrupt status is undefined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is re-entrant
+Use	This SWI returns the size of the System Sprite Area in bytes, including the Dynamite area if present.  It is anticipated that programs requiring to enumerate the allocation of all memory in the system will use code similar to the following to read the Sprite
+	Area size:
+#fCode
+	   ; --- Read sprite area size ---
+
+	   SWI     XDynamite_ReadSpriteSize
+	   MOVVC   R1,R0
+	   MOVVS   R0,#3
+	   SWIVS   XOS_ReadDynamicArea
+#f
+Related SWIs	/None/

@@ -1,0 +1,43 @@
+Gemini_Transform (&4D509)
+=>	R0 =	pointer to <TMmemoryblock=>Gemini_memoryblock>
+	R2 =	pointer to <objects to alter=>.objects>
+	R4 =	<reason code=>.reason>
+	R5 =	pointer to <transform block=>.block>
+
+This call allows you to move, rotate and scale objects. It works over selected objects (so you first have to select something) but it can affect numbered groups only (both selected or unselected).
+#Subpage block
+Gemini_Transform memory block
+The transformation block is filled with geometric data for the operation (all the values are multiplied by 2^17, i.e. original value = 0.5, value to store = 0.5 * 2^17)
+
+Offset	Translate	Scale	General transform
+#Line
++0	amount to add to X coord	X coord of the point around which the operation takes place
++4	amount to add to Y coord	Y coord of the point around which the operation takes place
++8	amount to add to Z coord	Z coord of the point around which the operation takes place
++12	-	X scale factor	A1,1 component of the transformation matrix
++16	-	Y scale factor	A2,1
++20	-	Z scale factor	A3,1
++24	-	-	A1,2
++28	-	-	A2,2
++32	-	-	A3,2
++36	- 	-	A1,3
++40	-	-	A2,3
++44	-	-	A3,3
++48	-	-	amount to add to X coord
++52	-	-	amount to add to Y coord
++56	-	-	amount to add to Z coord
+
+The general transformation acts as follows: first of all the object is modified accordingly to the 3x3 matrix (around the specified point), then it is translated by the amount specified in (+48, +52, +56)
+#Subpage objects
+Gemini_Transform objects to alter
+Code	meaning
+#Line
+0	modify selected objects (you have to select something first)
+n	logical number of the group to be modified (no need to select it)
+#Subpage reason
+Gemini_Transform reason code
+Reason	meaning
+#Line
+0	translate objects/group
+1	scale objects/group
+2	transform objects/group using a general transformation matrix

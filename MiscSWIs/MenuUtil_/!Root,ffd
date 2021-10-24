@@ -1,0 +1,25 @@
+MenuUtils module v.0.10
+#parent !Root
+#prefix MenuUtil_
+Further <documentation> is available.
+
+#Table 6 14
+<Initialise>
+<New> 
+<Add> 
+<Delete>
+<Decode>
+<Show>
+<ShowSubMenu>
+<Info>
+<Text>
+<Tick>
+<Dots>
+<Fade>
+<Warning>
+<Writable>
+<SubMenu>
+<ColourMenu>
+<Colours>
+<TickOnly>
+#EndTable

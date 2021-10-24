@@ -1,0 +1,7 @@
+Stream_Enable (&81940)
+#Parent Stream_
+No parameters
+
+VDUStream will claim the Write character vector and sit around waiting for characters to be printed. These are stacked in the modules temporary RMA space until the main application is called via <Wimp_Poll=>Wimp:Wimp_Poll>. Characters found to have been written to the RMA buffer are squirted into VDUStreams resizable application memory during null events.
+
+This call can be stacked to any level, but the stream will not be released until n <Stream_Disable>s have been called, or one <Stream_Reset>.

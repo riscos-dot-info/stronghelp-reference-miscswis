@@ -1,0 +1,11 @@
+Dynamite_ClaimAnchor (SWI &4A3CD)
+#parent Dynamite_
+{*}Dynamite_ClaimAnchor{*}	Allocates an anchor from the RMA
+On entry	˜
+On exit		R0 = address of anchor
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	Allocates an anchor from the RMA.  This should be used by applications to obtain anchors, so that Dynamite does not try to access application memory which has been paged out when it moves blocks.
+Related SWIs	* <Dynamite_ReleaseAnchor>

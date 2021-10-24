@@ -1,0 +1,12 @@
+Director_Memory  (&4A106)
+Returns the memory used by director
+
+<=	R0 =	module size (constant)
+	R1 =	main workspace size (constant)
+	R2 =	total size of all allocated blocks
+	R3 =	number of blocks allocated
+	R4 =	dynamic area size (0 for no dynamic area)
+	R5 =	bytes free in dynamic area
+	R6 =	largest block in dynamic area
+
+A dynamic menu to display this information can be found on Director's main menu.

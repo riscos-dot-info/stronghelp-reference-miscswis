@@ -1,0 +1,24 @@
+MenuUtil_Fade (&45BCB)
+#Parent MenuUtil_
+This call can be used to make menu item non-pickable 
+
+{f25}Þ{f}	R0 =	handle of menu item or 0 for current menu item or handle of menu
+	R1 —	defines action
+	 	if R1 = 0 clear shaded menu flag
+	 	if R1 {f25}¹{f} 0 fade this menu item (ie. greyed out) 
+{f25}Ü{f}	R0,R1	preserved
+#Line
+*Use*:	R0 must contain the item handle or zero for the current menu item. R1 defines to set or to clear the flag which makes menu item unpickable. If R1 is zero then the flag will be cleared and if R1 is non zero then the flag will be set and the item will be shaded.
+	If R0 instead of item handle contains menu handle then the state of the flag will be changed in all items of this menu.
+	It is convenient to pass in R1 the result of logical expression (to set flag if result is TRUE and to clear it if FALSE).
+
+<Example code...=>.eg>
+#subpage eg
+Example code (MenuUtil_Fade)
+Fade current menu item:
+
+#FCode:  SYS "MenuUtil_Fade",,TRUE  
+
+Fade all items in "Select" submenu with handle selectMenu%
+
+#FCode:  SYS "MenuUtil_Fade",selectMenu%,TRUE

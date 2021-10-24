@@ -1,0 +1,18 @@
+Gemini_Initialise (&4D500)
+#parent Gemini_
+=>	R0 =	pointer to <TMmemoryblock=>Gemini_memoryblock>
+	R1 =	pointer to <TMviewblock=>Gemini_viewblock>
+	R2 =	pointer to <TMcolourblock=>Gemini_colourblock>
+	R4 =	pointer to <flags=>.flags>
+
+<=	Returns the Gemini version number × 100, in TMviewblock + 144.
+
+The first time you call Gemini_Initialise you should set R4 to 7 (set bits 0-2). This loads the colour and material default definitions and clear the scene, clearing the texture table and setting default values for the first 58 points. It also updates the points and primitives first free ldm (<TMmemory=>Gemini_memoryblock>+4 and +16). In this way, when you issue a <Gemini_Render> call, after this, Gemini will display just the axis in the centre of the workarea. Then you can call Gemini_Initialise each time you need to reset your scene (delete the objects inside) setting R4 to 1.
+#Subpage flags
+Flags used in Gemini_Initialise
+Bit	Meaning if set
+#Line
+0 	Initialise points and primitives workarea and zeroes textures and groups
+1	Reset colour and material table loading the default colours and materials
+2	Reset <TMviewblock=>Gemini_viewblock> and <TMcolourblock=>Gemini_colourblock> entries to their default values
+3-31	Reserved, must be zero

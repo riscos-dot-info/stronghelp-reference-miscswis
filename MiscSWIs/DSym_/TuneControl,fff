@@ -1,0 +1,8 @@
+DSym_TuneControl  (&4588D)
+#Parent DSym_
+=>	R0 =	-1 to read status
+	 	other, to set (lower byte)
+
+<=	R0 = previous tune status (0= off, \<>0= on)
+
+This call controls the tune decoder. Off means the tune decoder won't let play notes anymore, you can still play custom notes. Current notes still playing.

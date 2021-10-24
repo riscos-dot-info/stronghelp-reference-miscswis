@@ -1,0 +1,13 @@
+PsiFS_Get &0 (&520C3)
+{f25}Þ{f}	R0 =	&0
+{f25}Ü{f}	R1 =	<mode of operation=>.mode>
+#line;tab
+Get the mode of operation
+This call reads the current mode of operation.
+#
+#subpage mode
+PsiFS_Get &0 modes of operation
+/Value/	/Meaning/
+0	inactive
+1	remote link mode
+2	printer mirror mode

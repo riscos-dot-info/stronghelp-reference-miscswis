@@ -1,0 +1,12 @@
+Euclid_Destroy (&80647)
+=>	R1 !	Picture structure or zero.
+ 	R2 !	Object to destroy.
+<=	-
+#line;wrap on
+This is the complement of <Euclid_Create>. It will remove a whole block from
+the picture structure, relocating all pointers after compacting the
+structure back down. If pointers are found which are pointing to the block
+you are trying to destroy, then they are set to zero. Note however that the
+entries which contain these pointers are not themselves deleted. Any
+pointers which you hold should be adjusted if they point above the block in
+question - the adjustment being to subtract the destroyed block's size.

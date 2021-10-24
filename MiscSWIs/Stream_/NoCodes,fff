@@ -1,0 +1,5 @@
+Stream_NoCodes (&81947)
+#Parent Stream_
+No parameters
+
+Ignore all control codes received. Reverses the effect of <Stream_ShowCodes>.

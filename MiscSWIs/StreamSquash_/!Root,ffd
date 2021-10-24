@@ -1,0 +1,15 @@
+StreamSquash
+#Parent !Root
+#Prefix StreamSquash_
+#Table Columns 2
+Initialise
+InfoCompress
+OpenCompress
+CompressBlock
+CloseCompress
+InfoDecompress
+OpenDecompress
+DecompressBlock
+CloseDecompress
+Exit
+#EndTable

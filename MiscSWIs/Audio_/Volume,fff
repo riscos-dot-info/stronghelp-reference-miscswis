@@ -1,0 +1,11 @@
+Audio_Volume (&452C5)
+#Prefix Audio_
+#Parent Audio_
+#Wrap Off
+=>	R0 =	Volume level (0-128) or -1 to read
+
+<=	R0 =	Previous volume level.
+
+#Wrap On
+This SWI sets up (or reads) volume. It has immediate effect and can take
+place during playback.

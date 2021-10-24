@@ -1,0 +1,11 @@
+ArcFS_Encryption  (&437C4)
+#Parent ArcFS_
+<=	R0 =	<encryption method=>.types>
+	R1 =	pointer to password (up to 32 bytes)
+
+This SWI sets the encryption method and password used.
+#Subpage types
+Encryption types
+value	meaning
+0	no encryption
+1	garbled

@@ -1,0 +1,17 @@
+QTM_Clear  (&47E44)
+#Parent QTM_
+=>	R0 =	-1 to convert samples back to signed linear format
+	 	other don't convert samples
+
+<=	R0 is preserved
+
+This SWI will switch off the QTM sound system and stop the current song playing, releasing any memory used for the song if it was loaded into RMA. The song cannot be restarted after this command, unless it is reloaded (from user-reserved memory, disc, etc.) using <QTM_Load>.
+
+The CURRENT song can only be reloaded from user-reserved (not QTM's) memory
+after calling <QTM_Clear>, if the samples have been converted back to
+signed linear format (from the logarithmic format they were converted to
+when the song was loaded). This can be done by setting R0 to -1 before
+calling <QTM_Clear>. See <QTM_Load> for information on (re)loading a
+song that is already stored in memory.
+
+No error is reported if there is not a song loaded.

@@ -1,0 +1,6 @@
+Menu Handles
+Menu consists of menu title and one or more menu items. Each menu and each menu item created with MenuUtils gets unique handle. You can use this handle to refer to particular menu or menu item.
+
+The use of unique handles for each menu item instead of absolute addresses or positions in menu gives additional flexibility in manipulation with menu data structure. It allows for example insert and delete menu items.
+
+MenuUtils always remembers the handle used in last operation. This handle is called current handle and it will be used as default in the next operation. This is especially convenient when calls to the module are made from BASIC with SYS command.

@@ -1,0 +1,12 @@
+Dynamite_Free (SWI &4A3C1)
+#parent Dynamite_
+{*}Dynamite_Free{*}	Frees a Dynamite block, releasing the memory it used
+On entry	R0 =	pointer to anchor of block to be freed
+On exit	˜
+Interrupts	Interrupt status is not defined
+	Fast interrupts are enabled
+Processor mode	Processor is in SVC mode
+Re-entrancy	SWI is not re-entrant
+Use	This SWI will free a block in the Dynamite heap, releasing the memory it used for later reallocation.  The free memory will later be returned to the operating system during compaction.
+Related SWIs	* <Dynamite_Alloc>
+	* <Dynamite_FreeWithID>

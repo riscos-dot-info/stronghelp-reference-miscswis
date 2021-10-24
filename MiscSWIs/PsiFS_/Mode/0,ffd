@@ -1,0 +1,10 @@
+PsiFS_Mode 0 (&520C3)
+{f25}Þ{f}	R0 =	0
+		R1 =	non-zero to disconnect immediately
+{f25}Ü{f}	Registers preserved
+#line
+This call closes any active connection and ends use of the configured block driver. This allows other programs to use the serial port. It is equivalent to using {fCode}*PsiFSDisable{f}.
+
+If R1 is set to a non-zero value then PsiFS does not wait for data to be flushed, so may result in data being lost. It should only be used as a last resort.
+
+No action is taken if the block driver is already disabled.

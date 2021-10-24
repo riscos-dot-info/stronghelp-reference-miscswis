@@ -1,0 +1,19 @@
+ARMEdit_TalkReply (&4BC48)
+#parent ARMEdit_
+{f25}Þ{f}	R0 =	Client handle for this task.
+	R1 =	The client handle for the recipient.
+	R2 !	Block containing the message to send.
+{f25}Ü{f}	All registers preserved.
+#line;tab
+*Purpose*:	Reply to a message from another client task.
+*Interrupts*:	Interrupt status is undefined.
+		Fast interrupts are enabled.
+*Processor mode*:	Processor is in SVC mode.
+{*}Re-entrancy{*}:	SWI is not re-entrant.
+#wrap on
+*Use*:	This is like <ARMEdit_TalkTX>, except that the message is stored in the
+destination task's message buffer. The destination task must be
+specified by it's client handle; it is not possible to send the
+message to an ID.
+	The main use of this call is to support the easy creation of RISC OS
+tasks acting as a server for multiple PC tasks.

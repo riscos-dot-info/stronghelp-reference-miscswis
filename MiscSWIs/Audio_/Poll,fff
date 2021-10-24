@@ -1,0 +1,7 @@
+Audio_Poll (&452CC)
+#Prefix Audio_
+#Parent Audio_
+<=	R0 =	current position in data
+	R1 =	stop <flag> (1 for stopped)
+
+Used to keep track of pplayback and continue file playback if Poll is selected in <Audio_PlayFile=>Audio_PlayFile>.

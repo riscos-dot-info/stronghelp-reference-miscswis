@@ -1,0 +1,8 @@
+DSym_Stereo  (&45883)
+#Parent DSym_
+=>	R0 =	voice number (0-7)
+	R1 =	new stereo position, or -128 to read
+
+<=	R1 =	previous stereo position (-127 to 127) for voice number R0
+
+This call sets the stereo position of one voice specified in R0. A position of zero means that the left and right speaker get both the half amplitude, -127 means the left speaker gets 100%, the right one nothing.

@@ -1,0 +1,8 @@
+Tracker_Load  (&43201)
+#Parent Tracker_
+=>	R0 =	pointer to filename of soundtracker/tracker module
+\<=	R0 preserved
+
+This call will claim memory from the RMA and load the specified tune module, initialise the sound system, and set the playroutine in pause mode. You must then use <Tracker_Play> to start the tune playing. The command *PlayMod calls this routine, and then <Tracker_Play>.
+
+An error will be generated if the module cannot be loaded or not enough memory can be claimed.

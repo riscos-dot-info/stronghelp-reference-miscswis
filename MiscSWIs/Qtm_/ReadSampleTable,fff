@@ -1,0 +1,17 @@
+QTM_ReadSampleTable  (&47E52)
+#Parent QTM_
+=>	R0 =	sample number (1-64)
+
+<=	R0 =	pointer to 22 byte block (not terminated) containing sample name (or a 0 byte, if no sample name)
+	R1 =	sample length (in bytes)
+	R2 =	repeat offset (bytes from start of sample)
+	R3 =	repeat length (in bytes)
+	R4 =	default volume (0-64)
+	R5 =	fine tuning value (-8 to +7)
+	R6 =	address of raw sample data (logarithmic format)
+
+This SWI allows you to read information from the QTM sample table, which contains up to 64 samples. Non-existent samples will return zero in R1-R6, and R0 will point to a 0 byte.
+
+Note: Because only samples 1-31 are used by songs, samples 32-64 can be used for sound effects (in games etc.) and can be registered separately, using <QTM_RegisterSample>.
+
+V flag set if sample number is out of the range 1-64 or song not loaded

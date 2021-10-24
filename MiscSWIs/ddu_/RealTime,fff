@@ -1,0 +1,8 @@
+ddu_RealTime (&506C2)
+{f25}Þ{f}	˜
+{f25}Ü{f}	R0 !	string
+Not re-entrant.
+#line
+Gives the current 5-byte realtime as a 10-digit hexadecimal number.
+
+See <ddu_ConvTime> for an example

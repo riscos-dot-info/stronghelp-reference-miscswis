@@ -1,0 +1,9 @@
+Speak_WordGap  (&4AD89)
+#Parent Speak_
+=>	R0 =	new word gap
+	 	 0	no additional gap
+	 	 1	short gaps between words
+	 	 2+	number of 50mS gaps between words
+	 	 128	no additional gap
+
+This SWI sets the word gap.

@@ -1,0 +1,17 @@
+Euclid_Load (&80642)
+#parent Euclid_
+=>	R0 =	0 =>	Load
+ 	 	1 =>	Do post-processing of load only. (See 'Experts').
+ 	R1 !	Picture structure or zero.
+ 	R2 !	Filename.
+<=	-
+#line
+The post-processing-only Load can be used to relocate a file which has been shifted in memory. A Euclid file is the same as the memory image minus the first 12 bytes. On loading the file is automatically relocated to reflect its new position in memory.
+#line
+<Example=>.example>
+#
+#subpage example
+Euclid_Load Example
+#fCode;wrap off;indent 3
+SYS "Euclid_Load",,BLOCK%,"ADFS::Winnie.$.ECPics.Example"
+#indent;wrap;f

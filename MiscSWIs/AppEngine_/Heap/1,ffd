@@ -1,0 +1,8 @@
+AppEngine_Heap 1  (&4D949)
+#Parent AppEngine_Heap
+=>	R0 =	1
+	R1 =	pointer to heap
+
+<=	R1 =	0 (i.e. heap to return)
+
+This call is used to delete the specified heap.  All memory associated with the heap is returned to the free pool.

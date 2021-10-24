@@ -1,0 +1,12 @@
+QTM_ReadVULevels  (&47E51)
+#Parent QTM_
+=>	R0 =	Channel number (1-4) or 0 for all channels
+
+<=	If R0 = 1-4 on entry, then
+	   R0 = VU bar height for the channel specified in R0 (0-64)
+	If R0 = 0 on entry, then 
+	   R0 = word containing 1 byte per channel of all the 4 channels' VU bar heights (0-64, each byte)
+
+This SWI lets you read the current VU levels of the QTM VU bar handler. This call should only be used if the VU bar handler has been enabled using <QTM_VUBarControl>.
+
+Note: Currently QTM VU bars are only available for channels 1-4.

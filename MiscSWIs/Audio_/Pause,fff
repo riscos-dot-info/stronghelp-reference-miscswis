@@ -1,0 +1,8 @@
+Audio_Pause (&452C4)
+#Parent Audio_
+#Prefix Audio_
+#Wrap Off
+=>	R0 = Boolean <flag> for pause, or -1 to read.
+<=	R0 = Preserved, or pause state if R0 = -1 on entry.
+
+This SWI pauses playback.
