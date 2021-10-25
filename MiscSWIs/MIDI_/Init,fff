@@ -1,0 +1,15 @@
+MIDI_Init (&404E2)
+#parent MIDI_
+=>	R0	= 0	 	perform Internal System Reset (reset to power-on state).
+	 	> 0	bit 0	set to clear current transmitted running status (ensure status is included with next transmitted message).
+	 	 	bit 1	set to clear receive buffers and reset MIDI interpreter.
+	 	 	bit 2	set to clear transmit buffers and reset MIDI interpreter.
+	 	 	bit 3	set to clear MIDI scheduler.
+	 	 	bit 4	set to clear current error (special mode bits are only cleared by an Internal System Reset).
+	 	 	bit 30	set to enable special mode so that System Real Time messages will be stored in the receive buffer, so that they can be read with <MIDI_RxCommand> and <MIDI_RxByte>.
+	 	 	bit 31	set to prevent special actions on receipt of System Real Time messages. Use <MIDI_IgnoreTiming> in preference to this to just cause Timing messages to be ignored.
+
+<=	R1	=	 	number of recognised MIDI ports installed.
+	 	 	 	Subtract one from this number for the maximum port number.
+
+Certain MIDI recording and replaying applications may need to set bits 30 and 31 so that they can precisely reproduce the recorded data with the Real Time messages.

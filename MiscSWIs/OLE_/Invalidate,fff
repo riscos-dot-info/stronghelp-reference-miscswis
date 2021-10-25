@@ -1,0 +1,7 @@
+OLE_Invalidate (&47B04)
+#parent OLE_
+#prefix OLE_
+{f25}Þ{f}	Nothing.
+{f25}Ü{f}	As above.
+#line
+Removes all linked files from OLE's table.

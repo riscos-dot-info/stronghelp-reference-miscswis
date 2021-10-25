@@ -1,0 +1,18 @@
+MIDI_InqSongPositionPointer (&404C4)
+#parent MIDI_
+=>	No entry conditions
+
+<=	R0	 	= Song Position Pointer
+
+	R1	bit 0	set if in External Timing Mode (start message has been received)
+	 	bit 1	set if in Internal Timing Mode (start message has been transmitted; Timing Clock transmission is automatic)
+	 	bit 2	set if in Fast Clock Mode
+	 	bit 3	set if <MIDI_FastClock> has been called. This flag is only reset on Ctrl-Break, {Fcode:*RMReInit MIDI} or <MIDI_Init> with R0 = 0.
+	 	bit 4	set if in special mode to store System Real Time Messages in receive buffer.
+	 	bit 5	set if in special mode to cause System Real Time Messages not to be treated specially.
+
+Bits 0 and 1 are determined by the current timing mode.
+Bits 2 and 3 are set by calling <MIDI_FastClock> with the relevant parameters.
+Bits 4 and 5 are set by calling <MIDI_Init> with bits 30 and 31 of R1 set.
+
+Returns the value of the internal Song Position Pointer. This is the value of the MIDI beat counter divided by six.

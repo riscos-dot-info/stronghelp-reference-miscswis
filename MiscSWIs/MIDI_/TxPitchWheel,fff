@@ -1,0 +1,5 @@
+MIDI_TxPitchWheel (&404D7)
+#parent MIDI_
+=>	R0	=	pitch wheel change, 0-&3FFF. &2000 is the centre position value (no pitch change).
+
+Transmit a MIDI Pitch Wheel command.

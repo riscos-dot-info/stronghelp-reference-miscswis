@@ -1,0 +1,14 @@
+MIDI Star Commands
+#background wimp 1
+#align centre
+#f12:MIDI Star Commands
+
+#align
+#wrap off
+<MidiSound \<par1\> [\<par2\>]=>MIDI_Commands.Sound>
+<MidiTouch \<par\>=>MIDI_Commands.Touch>
+<MidiChannel \<channel\>=>MIDI_Commands.Channel>
+<MidiMode \<mode\>=>MIDI_Commands.Mode>
+<MidiStart \<time\>=>MIDI_Commands.Start>
+<MidiStop=>MIDI_Commands.Stop>
+<MidiContinue=>MIDI_Commands.Continue>

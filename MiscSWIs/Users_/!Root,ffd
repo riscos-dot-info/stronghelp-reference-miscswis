@@ -11,4 +11,4 @@ Users
 #EndTable
 
 This module is currently under development.
-It provides various calls to allow a multi-user system on top of RiscOS.
+It provides various calls to allow a multi-user system on top of RISC OS.

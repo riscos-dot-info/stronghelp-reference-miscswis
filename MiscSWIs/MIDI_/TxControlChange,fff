@@ -1,0 +1,7 @@
+MIDI_TxControlChange (&404CE)
+#parent MIDI_
+=>	R0	=	control number, 0-121, 122-127 reserved for channel mode messages, which can be transmitted using this command or by using the Channel Mode SWIs.
+
+	R1	=	control value, 0-127.
+
+Transmit a MIDI Control Change command.

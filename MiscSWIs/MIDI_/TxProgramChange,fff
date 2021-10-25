@@ -1,0 +1,5 @@
+MIDI_TxProgramChange (&404D5)
+#parent MIDI_
+=>	R0	= program number, 0-127.
+
+Transmit a MIDI Program Change command. The program reffered to is the 'voice', 'tone', or 'patch' number in the receiver.

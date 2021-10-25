@@ -1,0 +1,5 @@
+*MidiStop
+#parent MIDI_Commands
+Syntax:	MidiStop
+
+Used to transmit a Stop message and stop automatic transmission of Timing Clock messages.

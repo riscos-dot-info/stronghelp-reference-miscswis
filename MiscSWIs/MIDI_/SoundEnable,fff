@@ -1,0 +1,15 @@
+MIDI_SoundEnable (&404C0)
+#parent MIDI_
+=>	R0 = 	reason code
+		0	disable Sound Interpreter (it is disabled on initialisation)
+	 	1	for connection to Port 0, input buffer
+	 	2	for connection to Port 0, output buffer
+	 	3	for connection to Port 1, output buffer
+	 	4	for connection to Port 1, output buffer
+	R1 =	interpreter touch sensitivity
+	 	1	enable
+	 	2	disable
+
+<=	R0	undefined
+
+Enable the MIDI driver. The default mode is 1 (Omni on, poly).

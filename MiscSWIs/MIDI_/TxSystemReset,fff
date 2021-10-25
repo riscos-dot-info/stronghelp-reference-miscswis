@@ -1,0 +1,5 @@
+MIDI_TxSystemReset (&404DE)
+#parent MIDI_
+No entry or exit conditions.
+
+Transmit a MIDI System Reset command.

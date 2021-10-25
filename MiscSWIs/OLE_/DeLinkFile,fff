@@ -1,0 +1,11 @@
+OLE_DeLinkFile (&47B02)
+#prefix OLE_
+#parent OLE_
+{f25}Þ{f}	R0	= 0 then	R1 =	pointer to object name
+		 	= 1 then	R1 =	task handle
+		R2	= <Session number=>OLE_sessionnumber>
+{f25}Ü{f}	Preserved.
+#line
+Remove the link on the file specified by R1. ie don't continue to watch this file. An error is returned if the file described has not previously been linked.
+
+If a task dies before it calls DeLinkFile, all files the task has linked will automatically be removed for it.

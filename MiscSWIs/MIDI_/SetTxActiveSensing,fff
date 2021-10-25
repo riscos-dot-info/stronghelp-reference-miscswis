@@ -1,0 +1,10 @@
+MIDI_SetTxActiveSensing (&404C3)
+#parent MIDI_
+=>	R0	bit 0		= 0 to stop automatic regular transmission of Active Sensing Messages in requested port.
+	 	 		= 1 to start automatic regular transmission of Active Sensing Messages in requested port.
+	 	bits 1-2	= MIDI port number
+
+<=	R0	bits 0-3	corresponding to MIDI ports 0-3; bits set if Transmit Active Sensing is enabled for this port.
+	 	bits 4-7	corresponding to MIDI ports 0-3; bits set if this port is receiving Transmit Active Sensing.
+
+This puts the transmitter into Active Sensing mode, which causes dummy bytes to be transmitted in the absence of other MIDI activity for longer than 280ms. If the receiver stops, it should switch on Active Sensing or switch off all voices.

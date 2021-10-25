@@ -1,0 +1,5 @@
+MIDI_TxPolyModeOn (&404D4)
+#parent MIDI_
+No entry or exit conditions.
+
+Transmit a MIDI Poly Mode On command.

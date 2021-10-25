@@ -1,0 +1,13 @@
+MIDI_Interface (&404E4)
+#parent MIDI_
+=>	No entry conditions.
+
+<=	R0		=	workspace pointer, moved to R12 when calling a SWI through this interface.
+
+	R1 		=	SWI code pointer.
+
+Returns addresses for more efficient access to critical SWIs.
+
+When calling SWIs using this interface, the CPU should be in SVC mode.
+
+The MIDI SWIs are not re-entrant so they should not be called from an interrupt routine. R1 should contain the SWI offset from the chunk base (<MIDI_SoundEnable> = 0). R0 should contain the workspace pointer. The addresses become invalid if the MIDI module is reinitialised or finalised, so watch for <MIDI service calls=>Service.Menu> to warn of this, and recall this SWI.

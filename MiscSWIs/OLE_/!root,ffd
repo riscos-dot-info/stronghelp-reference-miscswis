@@ -1,13 +1,13 @@
 OLE
 #Parent !Root
 #Prefix OLE_
-#Table Columns2
-Version
-LinkFile
-DeLinkFile
-FileStatus
-Invalidate
-SimulateSession
+#Table Columns 2
+<Version>
+<LinkFile>
+<DeLinkFile>
+<FileStatus>
+<Invalidate>
+<SimulateSession>
 #EndTable
 
 Messages :

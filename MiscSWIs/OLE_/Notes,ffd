@@ -1,0 +1,45 @@
+OLESupport notes
+The OLESupport module provides a file watching facility which can be used
+to simulate and OLE session. For details on OLE sessions refer to OLEDoc.
+A client may not find an OLEServer$<UniqueName> variable for its particular
+file type. Applications such as Acorn Draw and Paint which do not support
+OLE will obviously not provide such a system variable. A client may wish to
+still OLE to such applications.
+It can do so by using swis provided by this support module.
+
+Originally if an application wished to use the OLE support module it needed
+to do so explicitly. The following is an explanation of how it used to work
+and still can.
+
+     To OLE an application should save its data to disc and broadcast a
+     recorded DataOpen message as the file does when a file is run. If this
+     message is returned by the wimp, the client should then run the file.
+     To put a watch on the file it should start the OLESupport module up with
+     a Wimp_StartTask and call OLE_LinkFile. Whenever the file is saved to by
+     a server (such as Draw) the client will receive a Message_OLEFileChanged
+     as normal with a session number indicating the file which changes.
+
+Right, now all the client needs to do is call a single swi providing the file
+type of the file it wishes to OLE. (See SWI OLE_SimulateSession)
+The OLESupport module will then invent a system variable for the file type
+of the form
+
+  OLEServer$Type_XXX -N OLESupport -R /Desktop_OLESupport
+
+The client can then reuse its normal message passing and variable scanning
+code for that file type. The application it will start up is the OLESupport
+module task. When this module recives a Message_OLEOpenSession, it will
+respond as normal with an acknowladgement. It will however also send a
+data open message using information passed in OpenSession to get the 'real'
+but 'none compliant' application to load the data. If this fails it will attempt
+to run the file.
+Having created a link, the module will then keep track of the file through
+up calls and inform the client everytime the real server saves to the file
+with an OLEFileChanged message.
+Clients of this form obviously cannot be expected to behave in a predictable
+mannor. With a data open message being passed to the client, it will now think
+it owns the file and can dispose of it at any time. It is a good idea then not
+to hand on data which you wish to keep. Create a directory in WimpScrap called
+OLEfiles and save the data as a temporary file there.
+(Note, currently Impression will create a <Wimp$ScrapDir>.OLEfiles directory
+ and store ImpOLE### numbered files in it)

@@ -1,0 +1,5 @@
+MIDI_TxSongSelect (&404D9)
+#parent MIDI_
+=>	R0	= song number, 0-127.
+
+Transmit a MIDI Song Select command.

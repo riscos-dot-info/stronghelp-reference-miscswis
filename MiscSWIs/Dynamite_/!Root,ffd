@@ -9,7 +9,7 @@ Dynamite
 #indent 2
 <Dynamite_Clear=>Dynamite_Clear>
 <Dynamite_HeapDump=>Dynamite_HeapDump>
-<Desktop_DynamiteCompactor=>Desktop_DynamiteCompactor>
+<Desktop_DynamiteCompactor=>Dynamite_Compactor>
 #indent;line;Table Columns 2
 <[Documentation]=>Dynamite_Docs>
 #Endtable

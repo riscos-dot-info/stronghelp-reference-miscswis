@@ -1,48 +1,60 @@
 MIDI
-#Prefix MIDI_
-#Parent !Root
-#Table Columns 4
-SoundEnable
-SetMode
-SetTxChannel
-SetTxActiveSensing
-InqSongPositionPointer
-InqBufferSize
-InqError
-RxByte
-<RxCommand>
-TxByte
-<TxCommand>
-TxNoteOff
-TxNoteOn
-TxPolyKeyPressure
-TxControlChange
-TxLocalControl
-<TxAllNotesOff>
-TxOmniModeOff
-TxOmniModeOn
-TxMonoModeOn
-TxPolyModeOn
-TxProgramChange
-TxChannelPressure
-TxPitchWheel
-TxSongPositionPointer
-TxSongSelect
-TxTuneRequest
-TxStart
-TxContinue
-TxStop
-TxSystemReset
-IgnoreTiming
-SynchSoundScheduler
-FastClock
-Init
-SetBufferSize
-Interface
-InstallDriver
-PortMapRx
-PortMapTx
-<DriverInfo>
-ClockStamp
-Thru
+#prefix MIDI_
+#wrap off
+General interface SWIs
+#table columns 3
+<SoundEnable>
+<SetMode>
+<SetTxChannel>
+<SetTxActiveSensing>
+<InqSongPositionPointer>
+<InqBufferSize>
+<InqError>
+<IgnoreTiming>
+<SynchSoundScheduler>
+<FastClock>
+<Init>
+<SetBufferSize>
+<Interface>
 #endtable
+
+Data reception SWIs
+#table columns 3
+<RxByte>
+<RxCommand>
+#endtable
+
+Data transmission SWIs
+#table columns 3
+<TxByte>
+<TxCommand>
+<TxNoteOff>
+<TxNoteOn>
+<TxPolyKeyPressure>
+<TxControlChange>
+<TxLocalControl>
+<TxAllNotesOff>
+<TxOmniModeOff>
+<TxOmniModeOn>
+<TxMonoModeOn>
+<TxPolyModeOn>
+<TxProgramChange>
+<TxChannelPressure>
+<TxPitchWheel>
+<TxSongPositionPointer>
+<TxSongSelect>
+<TxTuneRequest>
+<TxStart>
+<TxContinue>
+<TxStop>
+<TxSystemReset>
+#endtable
+#line
+Service call:	<Service_MIDI=>MIDI_Service_58> 0x58
+<Commands>
+<Events>
+<MIDI data specification=>MIDI_MIDIspec>
+#line
+#Align right
+Many thanks to Andrew Veitch for his assistance.
+{/}Liam Gretton <mailto:ljg@star.le.ac.uk=>#url>{/}

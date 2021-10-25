@@ -1,0 +1,5 @@
+MIDI_TxSongPositionPointer (&404D8)
+#parent MIDI_
+=>	R0	=	song position pointer, 0-&3FFF.
+
+Transmit a MIDI Song Position Pointer command. This automatically updates the internal copy which could affect the timestamping of received data.

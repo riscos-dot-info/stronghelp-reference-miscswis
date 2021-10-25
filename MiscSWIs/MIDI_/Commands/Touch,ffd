@@ -1,0 +1,7 @@
+*MidiTouch
+#parent MIDI_Commands
+#wrap off
+Syntax:	MidiTouch \<par\>
+
+	par1	=	{Fcode:on} to enable touch sensitivity
+	 	 	{Fcode:off} to disable touch sensitivity

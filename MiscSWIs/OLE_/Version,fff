@@ -1,0 +1,13 @@
+OLE_Version (&47B00)
+#parent OLE_
+#prefix OLE_
+{f25}Þ{f}	Nothing.
+{f25}Ü{f}	R0 =	Major revision number  = 0
+		R1 =	Minor revision number  = 24
+		R2 =	Task handle (0 if task not running)
+#line
+Returns the version number of this module. This is a useful SWI for checking to see if the module is loaded. If XSWI_OLEVersion returns an error then an application should call SWI <Wimp_StartTask=>Wimp:Wimp_StartTask> with "System:Modules.OLESupport" in R0 to start the link and embed manager.
+
+Calling this when the manager is already running will cause it to be reinitialised and lose any linked files.
+
+The major and minor revision numbers are taken from the module's version (0.24 at time of writing)

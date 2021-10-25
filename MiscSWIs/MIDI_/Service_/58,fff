@@ -1,0 +1,12 @@
+Service_MIDI (&58)
+=>	R0 =	<reason code=>.subreason>
+	R1 =	&57 (reason code)
+#line
+This service is for use by applications which might be using the MIDI module's workspace.
+#
+#subpage subreason
+Service_MIDI Reason codes
+Service_MIDIAlive	= 0
+	Module about to be initialised.
+Service_MIDIDying	= 1
+	Module about to be removed.

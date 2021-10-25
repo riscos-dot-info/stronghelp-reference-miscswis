@@ -1,0 +1,11 @@
+OLE_LinkFile (&47B01)
+#parent OLE_
+#prefix OLE_
+{f25}Þ{f}	R0 =	pointer to object name
+		R1 =	task handle
+		R2 =	<session number=>OLE_sessionnumber>
+{f25}Ü{f}	Preserved.
+#line
+Adds a file to the 'watch list'. R0 points to an object name, this will be passed through <OS_GSTrans=>OS:OS_GSTrans> so system variable based paths can be used.
+
+R1 holds the task's handle. Whenever a 'watched' file changes, this task will be sent a message informing it of the change. The <session number=>OLE_sessionnumber> in R2 will be part of that message, thus allowing a task to have multiple files watched over.

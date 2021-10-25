@@ -1,0 +1,16 @@
+MIDI_SetBufferSize (&404E3)
+#parent MIDI_
+=>	R0	= 0	for setting receive buffer size (nothing else currently supported).
+
+	R1	=	new buffer size in bytes.
+	 	= 0	to read current buffer size.
+
+<=	R0	=	buffer size in bytes
+
+	R1	=	total space in bytes claimed from the RMA for new buffers.
+	 	=	5 x size x number of MIDI ports installed for receive buffer (for each byte received, four bytes of time stamp information is also stored).
+
+Clears the buffer and then claims the requested buffer size from the RMA. Returns a {Fcode:No room in RMA} error (&102) if unable to claim the new buffers, and leaves the previous buffer intact. This call should only be used when the buffers are empty, otherwise data will be lost.
+
+Use <MIDI_Init> with bits 1 and 2 of R0 set to just clear the buffers.
+

@@ -1,0 +1,6 @@
+MIDI_TxLocalControl (&404CF)
+#parent MIDI_
+=>	R0	= 0	local control off.
+	 	= 127	local control on.
+
+Transmit a MIDI Local Control command with control number of 122.

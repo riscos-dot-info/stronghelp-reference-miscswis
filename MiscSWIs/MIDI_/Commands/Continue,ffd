@@ -1,0 +1,5 @@
+*MidiContinue
+#parent MIDI_Commands
+Syntax:	MidiContinue
+
+Used to transmit a Continue message and restart automatic transmission of Timing Clock messages.

@@ -1,0 +1,5 @@
+MIDI_TxChannelPressure (&404D6)
+#parent MIDI_
+=>	R0	= pressure value, 0-127.
+
+Transmit a MIDI Channel Pressure command. This will affect all the notes on that channel and may alter volume, modulation or pitch depending on the receiver setting.

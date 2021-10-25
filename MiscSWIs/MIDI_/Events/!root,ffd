@@ -1,0 +1,9 @@
+MIDI Events
+#background wimp 1
+#align centre
+#f12:MIDI Events
+
+#align
+#wrap off
+<Event_MIDI=>MIDI_Events.MIDI>	event 17
+#wrap on

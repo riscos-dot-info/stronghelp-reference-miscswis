@@ -1,0 +1,5 @@
+MIDI_TxContinue (&404DC)
+#parent MIDI_
+No entry or exit conditions.
+
+As <MIDI_TxStart>, but without resetting the beat counter.

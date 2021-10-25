@@ -1,0 +1,5 @@
+MIDI_TxStart (&404DB)
+#parent MIDI_
+No entry or exit conditions.
+
+Transmit a MIDI Start command, reset the MIDI beat counter to zero (and the internal Song Position Pointer), enable automatic transmission of Timing Clock messages every 16 internal microbeats (or else timed by fast Clock; see <MIDI_FastClock>) and disable reception of Start, Continue, Stop and Timing Clock messages. This affects all installed MIDI ports.

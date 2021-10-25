@@ -1,0 +1,25 @@
+MIDI Interface Data Specification
+#align centre
+#f12:MIDI Interface Data Specification
+
+#align
+MIDI instruments contain a receiver and a transmitter, the receiver being optoisolated. It interprets and acts on MIDI commands. The transmitter sends messages in MIDI format via a line driver.
+
+The MIDI data rate is 31.25 Kbaud (±1%) asynchronous. MIDI bytes are 10 bits long, consisting of a start bit, eight data bits and a stop bit.
+
+#align centre
+#f12:Status Bytes
+
+#align
+			{Fstrong:Status D0-D7}	{Fstrong:No. of data bytes}	{Fstrong:Description}
+Channel voice messages	&8n			2				Note Off.
+			&9n			2				Note On (velocity = 0, note off).
+			&An			2				Polyphonic Key Pressure (after touch).
+			&Bn			2				Control Change if data byte 1 in the range 0-121.
+			&Cn			1				Program Change.
+			&Dn			1				Channel Pressure (after touch).
+			&En			2				Pitch Wheel Change.
+Channel mode messages	&Bn			2				Channel mode message if data byte 1 in the range 122-127.
+System messages		&F0			any				System Exclusive.
+			&Fs (s=1-7)		0-2				System Common.
+			&Ft (t=8-15)		0				System Real Time.

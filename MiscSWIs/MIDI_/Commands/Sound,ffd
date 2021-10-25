@@ -1,0 +1,9 @@
+*MidiSound
+#parent MIDI_Commands
+#wrap off
+Syntax:	MidiSound \<par1\> [\<par2\>]
+
+	par1	=	{Fcode:in} to specify incoming data
+	 	 	{Fcode:out} to specify outgoing data
+	 	 	{Fcode:off} to disable a port
+	par2	=	MIDI port number 1-4 (optional)

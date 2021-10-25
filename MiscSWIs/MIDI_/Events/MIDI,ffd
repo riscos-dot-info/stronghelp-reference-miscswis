@@ -1,0 +1,13 @@
+MIDI system event
+=>	R0 =	17 (event number)
+	R1 =	<reason code=>.reasons>
+#
+#subpage reasons
+#wrap off
+MIDI system event reason codes:
+MIDI_DataReceivedEvent =	0
+	Received buffer has received some data
+MIDI_ErrorEvent =	1
+	An error has occurred. Use <MIDI_InqError=>SWIs.404C6> to find out what it is.
+MIDI_ScheduleEmptyingEvent =	2
+	The scheduler will empty within the next 10ms.

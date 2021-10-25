@@ -24,7 +24,6 @@ Miscellaneous SWIs
 <Diss>
 <DitherExtend>
 <DocumentManager>
-<DragAnObject>
 <DSym>
 <Dynamite>
 <EasyFS>
@@ -91,4 +90,4 @@ PCSupport
 #EndTable
 #Line
 #align centre
-{/}<Miscellaneous SWIs manual=>about>, v1.05b1{/}
+{/}<Miscellaneous SWIs manual=>about> v1.08, 25 Aug 2003{/}

@@ -1,6 +1,25 @@
-MIDI_RxCommand  (&404C8)
-#Parent MIDI_
-<=	R0 =	<MIDI word=>MIDI_word>, or 0 if buffer was empty
-	R1 =	<fastclock time=>MIDI_fastclock>, if running
+MIDI_RxCommand (&404C8)
+#parent MIDI_
+=>	R0	 		=	MIDI port number (0-3)
+	 	 		=	-1 to look at each port in turn (from 0 to 3) until one is found with new data
 
-This SWI is used to read an entry from the MIDI buffer.
+<=	R0	byte 0		=	status
+	 	byte 1		=	data byte 1, or 0 if none expected
+	 	byte 2		=	data byte 2, or 0 if none expected
+	 	bits 24-25	 	number of bytes in this message (0-3)
+	 	bits 28-31	 	MIDI port number where byte was received
+	 	 		=	0 if receive buffer empty, or incomplete message received.
+
+	R1	 		=	received time of last message
+	 	 		=	0 if receive buffer empty or clock disabled
+
+Return the next complete MIDI command as a set of bytes (normally excluding System Real Time). A status byte should always be returned, even when the incoming data is on running status, except when the receive buffer is empty.
+
+System Exclusive messages will be received as one status byte (&F0) and one data byte, and successive calls to <MIDI_RxCommand> will treat the system exclusive as Running Status, with one data byte until EOX (end of exclusive, &F7) or any other status byte, except System Real Time, is encountered (&80-&F7).
+
+This SWI can return an error itself:
+è &20402 if there was a framing error when a byte in this message was received,
+è &20403 if there was an overun error when a byte in this message was received,
+è &20404 if the receive buffer of the interrogated port overflowed.
+
+The corrupted byte will be returned on the next call to <MIDI_RxByte> or <MIDI_RxCommand>.

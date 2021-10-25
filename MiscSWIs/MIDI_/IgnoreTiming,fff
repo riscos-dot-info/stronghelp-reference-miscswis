@@ -1,0 +1,8 @@
+MIDI_IgnoreTiming (&404DF)
+#parent MIDI_
+=>	R0	= 0 receive messages normally (default)
+	 	= 1 ignore recieved timing messages
+
+Instructs the system to ignore or take notice of received tiing messages.
+
+There is a subtle distinction between the mode set by this SWI, where received Timing messages are completely ignored, and the mode set by calling <MIDI_Init> with bit 31 set, which only disables special actions on Timing Message reception. The messages may still be stored in the receive buffer in the latter case, if <MIDI_Init> is called with bit 30 set, but not if Ignore Timing mode is set.

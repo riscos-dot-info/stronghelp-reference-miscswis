@@ -1,0 +1,4 @@
+OLE Session Number
+The session number is a 24-bit unsigned number that is used by the client, ie. the program desiring something else to edit the given data, to determine what data is being edited. Hence, the number can be whatever the client likes.
+
+The number is returned whenever the server sends the client a message.

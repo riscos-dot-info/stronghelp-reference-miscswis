@@ -1,8 +1,7 @@
 Misc SWIs manual
 #Align Centre
 {fh3}Miscellaneous SWIs manual{f}
-#Align Left
-#Line
+#line;Align Left
 This manual is part of a collection comprising the main public domain programming reference. The other manuals in the series are :
 #Indent 2
 #Postfix :!Root
@@ -12,12 +11,14 @@ This manual is part of a collection comprising the main public domain programmin
 <InetSocket>	Internet socket calls
 <MiscSWIs>	Miscellaneous SWIs
 <VDU>		VDU commands
-<Toolbox>	Toolbox (by Neil Bingham)
+<Toolbox>	Toolbox
 #Indent
 
-For comments, suggestions and submissions for these, please mail iain truskett <\<koschei@eh.org\>=>#URL mailto:koschei@eh.org> who is currently moderating the collection. The primary location for these manuals will be <http://freenet.barnet.ac.uk/manuals/=>#URL http://freenet.barnet.ac.uk/manuals/>.
+Thanks go to those mentioned in the <contributors=>OS:contributions> list.
 
-Click <here=>.hist105> for history information.
+For comments, suggestions and submissions for these, please mail Christian Ludlam <christian@recoil.org=>#URL mailto:christian@recoil.org> who is currently moderating the collection. These manuals will continue to be available from <http://sudden.recoil.org/stronghelp/=>#url>.
+#line
+<This page=>.hist108> gives history and credits.
 #
 #Subpage hist100
 History for Misc v1.00
@@ -26,8 +27,9 @@ History for Misc v1.00
 #Align Left
 è	Changed all the bits around so that the main window looks a little more like the other manuals
 è	Added some LineEditor documentation
-
-<Next=>.hist101>
+#line;Tab
+<Next history=>.hist101>
+#
 #Subpage hist101
 History for Misc v1.01
 #Align Right
@@ -35,9 +37,9 @@ History for Misc v1.01
 #Align Left
 è	Lots of changes from Dave Thomas; some AppEngine docs, CompressJPEG and SparkFS SWIs from his own manuals
 è	DDEUtils bug fixes
-
-#Tab
-<Previous=>.hist100>	<Next=>.hist102>
+#line;Tab
+<Previous history=>.hist100>	<Next history=>.hist102>
+#
 #Subpage hist102
 History for Misc v1.02
 #Align Right
@@ -45,19 +47,19 @@ History for Misc v1.02
 #Align Left
 è	Added some Speak SWIs
 è	DDEUtils moved to Wimp
-è	Added real Speak documentation from Johnathan Duddington.
-
-#Tab
-<Previous=>.hist101>	<Next=>.hist103>
+è	Added real Speak documentation from Jonathan Duddington.
+#line;Tab
+<Previous history=>.hist101>	<Next history=>.hist103>
+#
 #Subpage hist103
 History for Misc v1.03
 #Align Right
 {/}22 Mar 1998{/}
 #Align Left
 è	Misc minor changes
-
-#Tab
-<Previous=>.hist102>	<Next=>.hist104>
+#line;Tab
+<Previous history=>.hist102>	<Next history=>.hist104>
+#
 #Subpage hist104
 History for Misc v1.04
 #Align Right
@@ -72,14 +74,14 @@ History for Misc v1.04
 è	Added MIDI documentation from Carl Hetherington.
 è	Added Decrunch SWIs (Jerome Mathevet)
 è	Added Audio SWIs (Chris Johns)
-
-#Tab
-<Previous=>.hist103>	<Next=>.hist105>
+#line;Tab
+<Previous history=>.hist103>	<Next history=>.hist105>
+#
 #Subpage hist105
 History for Misc v1.05
 #postfix _
 #Align Right
-{/}29th April - 17th May, 1999{/}
+{/}29 Apr 1999 - 17 May 1999{/}
 #Align Left;wrap off
 è	Moderator now iain truskett.
 è	<Euclid> documentation added (Thomas Olsson)
@@ -99,6 +101,27 @@ History for Misc v1.05
 è	<PsiFS> documentation added (Alexander Thoukydides)
 è	<ddUtil=>ddu_> documentation added (Birger Harzenetter)
 è	Notfound pages revised.
-
-#Tab
-<Previous=>.hist104>
+#line;Tab
+<Previous history=>.hist104>	<Next history=>.hist106>
+#
+#subpage hist106
+History for Misc v1.06
+#align right
+{/}16 Jun 1999{/}
+#align left
+#line
+è	Just minor tidy ups. But we're out of beta.
+#line;Tab
+<Previous history=>.hist105>	<Next history=>.hist108>
+#
+#subpage hist108
+History for Misc v1.08
+#align right
+{/}25 Aug 2003{/}
+#align left
+#line
+è	More minor tidy ups
+è	Maintainer now Christian Ludlam
+è	Made 32 bit compatible (!)
+#line;Tab
+<Previous history=>.hist106>

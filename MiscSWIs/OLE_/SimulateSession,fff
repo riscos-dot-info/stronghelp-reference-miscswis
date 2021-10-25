@@ -1,0 +1,11 @@
+OLE_SimulateSession (&47B05)
+#prefix OLE_
+#parent OLE_
+{f25}Þ{f}	R0 =	file type
+{f25}Ü{f}	Preserved.
+#line
+This SWI will create an OLEServer$ variable for the file type provided. It allows normal OLE protocols to be used by a client and simulates the actions required from a compliant application.
+
+It should thus be used only for file types whose editing applications are known to be non-compliant with the protocols specified in OLESpec. ie. a client should check that no OLEServer$Type_XXX variable exists already before calling this swi.
+
+Applications will automatically become compliant as servers by providing OLEServer$Type_XXX variables for their particular file types. A client will then pick the up necessary variable during the first variable scan and thus not call OLE_SimulateSession.

@@ -1,0 +1,6 @@
+*MidiChannel
+#parent MIDI_Commands
+#wrap off
+Syntax:	MidiChannel \<channel\>
+
+	channel	=	MIDI channel (1-16)

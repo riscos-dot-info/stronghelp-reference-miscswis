@@ -1,0 +1,5 @@
+MIDI_TxMonoModeOn (&404D3)
+#parent MIDI_
+=>	R0	= M	where M is the current number of channels, 1-16.
+
+Transmit a MIDI Mono Mode On command.

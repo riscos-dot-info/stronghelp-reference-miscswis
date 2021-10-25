@@ -1,0 +1,18 @@
+MIDI_FastClock (&404E1)
+#parent MIDI_
+=>	R0	=	\< 0 read current value of fast clock
+	 	=	0 stop fast clock; revert to normal timing
+	 	=	\> 0 = {/}t{/} = Timing Clock Transmission rate
+	 	 	Reset and start fast clock. Incoming data will be time stamped with the time in ms shown on this clock. When started with <MIDI_TxStart> or <*MidiStart=>Commands.Start>, Timing Clock messages will be automatically transmitted at a rate of one every {/}t{/} ms. The transmission will be stopped with <MIDI_TxStop> or <*MidiStop=>Commands.Stop>.
+
+	R1	=	time to reset clock if R0 > 0
+
+<=	R1	= 	previous value of fast clock
+
+The fast clock increments every millisecond.
+
+This SWI should be called at least once by new applications that want to use the MIDI scheduler.
+
+On calling <MIDI_FastClock> with R0 > 0, Fast Clock Timing mode is set. In this mode the value in R1 when calling <MIDI_TxCommand> will determine the schedule time in ms, as registered by the Fast Clock. If the value in R1 is 0, then the message will be sent immediately.
+
+The fast clock uses Timer1 (the User Timer). Obviously this cannot be used at the same time as other software while the Fast Clock is running, or the Fast Clock will not run correctly.

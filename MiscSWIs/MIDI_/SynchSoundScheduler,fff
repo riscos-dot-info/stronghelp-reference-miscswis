@@ -1,0 +1,6 @@
+MIDI_SynchSoundScheduler (&404E0)
+#parent MIDI_
+=>	R0	=	0 set normal mode where the sound scheduler is synchronised to the Sound Interrupt (SIRQ)
+	 	=	1 set special mode where the sound scheduler is synchronised to incoming MIDI Timing Clock messages (prefixed by Start, ended by Stop). Scheduler time is incremented by one tick for each Timing Clock message received.
+
+<=	R0	=	previous value of SynchSoundScheduler flag.

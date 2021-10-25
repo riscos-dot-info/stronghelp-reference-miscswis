@@ -1,0 +1,7 @@
+MIDI_TxPolyKeyPressure (&404CD)
+#parent MIDI_
+=>	R0	=	note number, 0-127 (60 = middle C, 1 unit = 1 semitone).
+
+	R1	=	key off velocity, 0-127.
+
+Transmit a MIDI Poly Key Pressure (after touch) command. This will apply to any one voice and may affect volume, modulation or pitch depending on the setting of the receiver.

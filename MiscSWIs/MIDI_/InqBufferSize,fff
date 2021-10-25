@@ -1,0 +1,11 @@
+MIDI_InqBufferSize (&404C5)
+#parent MIDI_
+=>	R0	bit 0		= 0 to read rx buffer size
+	 	 		= 1 to read tx buffer size
+	 	bits 1-2	= MIDI port number (0-3)
+
+<=	R0	 		= free bytes in selected buffer
+
+Return the number of free bytes in the transmit or receive buffer. These buffers can fill (rx buffer) or empty (tx buffer) at a maximum rate of 320µs per byte.
+
+Default buffer sizes are 512 bytes for the transmit bufffer, and 1024 bytes for the receive buffer (programmable with <MIDI_SetBufferSize>

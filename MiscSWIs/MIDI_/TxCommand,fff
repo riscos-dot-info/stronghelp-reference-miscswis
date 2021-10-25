@@ -1,8 +1,30 @@
-MIDI_TxCommand  (&404CA)
-#Parent MIDI_
-=>	R0 =	<MIDI word=>MIDI_word>
-	R1 =	<fastclock time=>MIDI_fastclock>, or 0 for immediate
-<=	R0 =	space left in buffer, or \< 0 if error
-		-1 for buffer full, -2 for 'out of sequence'
+MIDI_TxCommand (&404CA)
+#parent MIDI_
+=>	R0	byte 0		=	status.
+	 	byte 1		=	data byte 1, if required by specified status.
+	 	byte 2		=	data byte 2, if required by specified status.
+	 	bits 24-25	 	(optional) number of bytes in command. Only required for status undefined in MIDI Specification 1.0.
+	 	bits 28-31	 	port number to transmit from (0-3).
 
-This SWI is used to schedule a command for the MIDI system. If used, the times given must be in ascending order.
+	R1	 		=	schedule time (0 for immediate) in:
+	 	 	 		Fast Clock time if in Unset or Internal timing modes;
+	 	 	 		Timing Clock received count time if in External timing mode.
+
+If R1 was non-zero on entry:
+<=	R0	 		=	number of scheduler slots free in queue.
+	 	 		=	-1 if transmission failed because the scheduler was full.
+	 	 		=	-2 if transmission failed because the schedule time requested was earlier than the time of the previous event in the scheduler queue.
+
+Returns error number &20401 if transmission fails because the transmit buffer is full.
+
+All commands will be transmitted in the current MIDI transmission channel defined by the last <MIDI_SetTxChannel>.
+
+Transmit or schedule on the the MIDI schedule queue a complete MIDI command. The status byte may not be transmitted if Running Status applies. The command will be ignored and not transmitted if byte 0 is not a status byte (bit 7 set), or if the data bytes have bit 7 set.
+
+The format is the same as <MIDI_RxCommand>, so that received commands can be retransmitted without decoding or encoding. It can be used to transmit a MIDI command completely or to schedule one to be transmitted at some future time (if in Fast Clock mode, and R1 > 0).
+
+NOTES:
+è	The size of the scheduler queue is 1023 commands.
+è	All calls to <MIDI_RxCommand> with non-zero R1, from clearing the scheduler should be with non-decreasing schedule time. For efficiency, only the schedule time of the next item on the queue is inspected at each time increment, and items are removed from the queue in the order they were put in.
+è	For backwards compatibility, the value of R1 on entry to this routine is ignored if <MIDI_FastClock> has not been called since the module was intialised. This state can be interrogated with <MIDI_InqSongPositionPointer>. Bit 3 of R1 is zero if in 'backwards compatible' mode.
+è	Scheduling too many commands for the same time will cause an overflow of the transmit buffer. The maximum size of the transmit buffer (in kB) can be read with <MIDI_InqBufferSize>. If a transmit buffer overflow does occur with too many scheduled commands at the same time, it may be necessary to clear the scheduler using <MIDI_Init>, since it can get into a state where it repeatedly tries to schedule the commands and fails.

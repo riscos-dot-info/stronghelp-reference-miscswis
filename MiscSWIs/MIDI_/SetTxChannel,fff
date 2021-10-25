@@ -1,0 +1,11 @@
+MIDI_SetTxChannel (&404C2)
+#parent MIDI_
+=>	R0 	= 	channel number (1-64). If 0, then unchanged
+	 	 	1-16:	MIDI channels 1-16 of receivers connected to MIDI port 0
+	 	 	17-32:	channels 1-16 connected to port 1
+	 	 	33-48:	channels 1-16 connected to port 2
+	 	 	49-64:	channels 1-16 connected to port 3
+
+<=	R0		= new (or current) channel number
+
+Set the MIDI channel and port number for subsequent commands to be sent on. This applies to all MIDI_Tx SWIs except <MIDI_TxByte> and <MIDI_TxCommand>. Use <MIDI_Init> to find the maximum port number installed.

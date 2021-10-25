@@ -1,0 +1,5 @@
+MIDI_TxOmniModeOn (&404D2)
+#parent MIDI_
+No entry or exit conditions.
+
+Transmit a MIDI Omni Mode On command.

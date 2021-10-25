@@ -1,0 +1,6 @@
+*MidiMode
+#parent MIDI_Commands
+#wrap off
+Syntax:	MidiMode \<mode\>
+
+	mode	=	MIDI mode (1-4)

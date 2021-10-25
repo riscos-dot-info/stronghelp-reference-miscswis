@@ -1,0 +1,10 @@
+MIDI_TxByte (&404C9)
+#parent MIDI_
+=>	R0	byte 0	=		byte to transmit
+	 	bits 28-31	 	MIDI port number to transmit from (0-3)
+
+<=	R0 preserved.
+
+Transmit a byte from the MIDI OUT. This will be transmitted, regardless of Running Status.
+
+This SWI will return error number &20401 if the transmission fails because the buffer is full.

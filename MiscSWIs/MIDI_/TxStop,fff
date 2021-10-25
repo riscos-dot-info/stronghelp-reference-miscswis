@@ -1,0 +1,5 @@
+MIDI_TxStop (&404DD)
+#parent MIDI_
+No entry or exit conditions.
+
+Transmit a MIDI Stop command, and stop transmission of Timing Clock messages, thus allowing reception of Start, Continue, Stop and Timing Clock messages.

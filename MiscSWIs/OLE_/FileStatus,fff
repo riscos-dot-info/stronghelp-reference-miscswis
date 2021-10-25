@@ -1,0 +1,17 @@
+OLE_FileStatus (&47B03)
+#parent OLE_
+#prefix OLE_
+{f25}Þ{f}	R0	= 0 then	R1 =	pointer to object name
+		 	= 1 then	R1 =	task handle
+		R2	= <session number=>OLE_sessionnumber>
+{f25}Ü{f}	R1	= status
+#line
+Returns the status of a particular linked file.
+#
+#subpage status
+OLE_FileStatus Status
+/Value/	/Meaning/
+#line
+0	unchanged
+1	file has been altered
+2	file has been deleted

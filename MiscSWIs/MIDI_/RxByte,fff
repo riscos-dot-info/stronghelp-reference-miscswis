@@ -1,0 +1,21 @@
+MIDI_RxByte (&404C7)
+#parent MIDI_
+=>	R0	 	=		MIDI port number (0-3)
+	 	 	=		-1 to look at each port in turn (from 0 to 3) until one is found with new data
+
+<=	R0	byte 0	=		received MIDI byte
+	 	 	=		0 if recieve buffer empty, or incomplete message received. If entered with R0 = -1, distinguish between these cases by checking the port number in bits 28-31
+	 	bit 24	=		1 if byte received
+	 	bits 28-31	 	MIDI port number where byte was received
+
+	R1	 	=		received time
+	 	 	=		0 if receive buffer empty or clock disabled
+
+Return the next received MIDI byte, excluding Real Time messages which are processed internally. Generally, <MIDI_RxCommand> should be used in preference to this command to reduce SWI time overhead.
+
+This SWI can return an error itself:
+è &20402 if there was a framing error when this byte was received,
+è &20403 if there was an overun error when this byte was received,
+è &20404 if the receive buffer of the interrogated port overflowed.
+
+The corrupted byte will be returned on the next call to <MIDI_RxByte> or <MIDI_RxCommand>.

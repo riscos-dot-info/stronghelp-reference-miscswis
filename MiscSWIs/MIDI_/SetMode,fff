@@ -1,0 +1,10 @@
+MIDI_SetMode (&404C1)
+#parent MIDI_
+=>	R0	 	= 	mode number (1-4). If 0, then unchanged
+	R1	byte 0	=	N - channel number N (1-16). If 0, then unchanged
+	  	byte 1	=	M - number of channels in mode 4 (1-8). If 0, then unchanged.
+
+<=	R0		= new (or current) mode (1-4)
+	 		= new (or last) value of N (1-16) or M (1-8).
+
+Set the MIDI channel of the internal sound system controller. Use 0 to read current values.

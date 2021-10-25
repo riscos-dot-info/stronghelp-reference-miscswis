@@ -1,0 +1,7 @@
+*MidiStart
+#parent MIDI_Commands
+Syntax:	MidiStart \<time\>
+
+	time	=	Timing Clock message period (1-&FFFF) in ms.
+
+Transmits a Timing Start message and starts automatic transmission of Timing Clock messages every \<time\> ms.

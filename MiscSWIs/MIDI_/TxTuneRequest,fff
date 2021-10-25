@@ -1,0 +1,5 @@
+MIDI_TxTuneRequest (&404DA)
+#parent MIDI_
+No entry or exit conditions.
+
+Transmit a MIDI Tune Request command.
