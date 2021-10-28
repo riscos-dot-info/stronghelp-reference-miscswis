@@ -1,1 +1,26 @@
-# Empty file added to ensure folder is stored in Git.
+PCSupport
+#Parent !Root
+#Prefix PCSupport_
+#Table Columns 2
+KeyInstall
+KeyRelease
+KeyCount
+KeyGet
+KeyFlush
+KeySetLEDs
+MouInstall
+MouRemove
+MouGetState
+ModeSetup
+LockCard
+CallbackSetup
+SetCallback
+GetCallback
+IrqRequest
+DmaRequest
+ModuleInfo
+GetInternalAddr
+Timer1Int
+VSyncCopy
+FastCopy
+#EndTable

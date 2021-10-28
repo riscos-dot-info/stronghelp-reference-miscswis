@@ -55,7 +55,7 @@ Miscellaneous SWIs
 <OLE>
 <PCIO>
 <PCMem>
-PCSupport
+<PCSupport>
 <PCDevHelp>
 <PocketFS>
 <PocketLink>

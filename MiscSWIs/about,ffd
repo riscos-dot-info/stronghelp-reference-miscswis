@@ -18,7 +18,7 @@ Thanks go to those mentioned in the <contributors=>OS:contributions> list.
 
 For comments, suggestions and submissions for these, please mail Christian Ludlam <christian@recoil.org=>#URL mailto:christian@recoil.org> who is currently moderating the collection. These manuals will continue to be available from <http://sudden.recoil.org/stronghelp/=>#url>.
 #line
-<This page=>.hist109> gives history and credits.
+<This page=>.hist110> gives history and credits.
 #
 #Subpage hist100
 History for Misc v1.00
@@ -134,4 +134,15 @@ History for Misc v1.09
 #line
 è	Moved CompressJPEG into the OS manuals
 #line;Tab
-<Previous history=>.hist108>
+<Previous history=>.hist108>	<Next history=>.hist110>
+#
+#subpage hist110
+History for Misc v1.10
+#align right
+{/}In Progress{/}
+#align left
+#line
+è	Manual sources brought under version control
+è	Added index page for <PCSupport=>PCSupport_>
+#line;tab
+<Previous history=>.hist109>
